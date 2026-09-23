@@ -1,0 +1,20 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Datos y checkpoints viven fuera de OneDrive (C:/llm-fullstack-data).
+# Estas rutas solo aparecerian por error; se ignoran por seguridad.
+/data/
+/checkpoints/
+*.bin
+*.pt
+*.jsonl
+*.jsonl.gz
+
+# Artefactos de ejecucion
+logs/*.csv
+samples/*.txt
+benchmarks/*.json
+!benchmarks/baseline.json

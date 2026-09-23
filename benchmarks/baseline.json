@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-09-23T15:51:46+00:00",
+  "config_name": "fullstack-27m",
+  "python": "3.14.7",
+  "torch": "2.14.0+cpu",
+  "hardware": {
+    "cpu": "Intel64 Family 6 Model 140 Stepping 1, GenuineIntel",
+    "cores_physical": 4,
+    "cores_logical": 8,
+    "ram_gb": 16.9,
+    "cpu_capability": "AVX512",
+    "gemm_gflops": {
+      "float32": 213.8,
+      "bfloat16": 59.1
+    },
+    "bf16_ratio": 0.276,
+    "mixed_precision_recommended": false,
+    "thread_scaling_gflops": {
+      "1": 105.7,
+      "2": 214.4,
+      "4": 349.8,
+      "8": 228.2
+    },
+    "recommended_threads": 4
+  }
+}

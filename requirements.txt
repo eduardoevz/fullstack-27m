@@ -1,0 +1,14 @@
+# torch>=2.14.0 y numpy>=2.5.2 ya estan instalados en el sistema (Python 3.14)
+# Se listan como referencia; no se reinstalan.
+# torch==2.14.0+cpu
+# numpy==2.5.2
+
+tokenizers>=0.20
+tqdm>=4.66
+pytest>=8.0
+psutil>=6.0
+
+# Ingesta de datos. Ver src/data/ingest.py: si `datasets` no tiene wheel para
+# Python 3.14, el fallback usa requests + pyarrow directamente sobre parquet.
+pyarrow>=17.0
+datasets>=3.0

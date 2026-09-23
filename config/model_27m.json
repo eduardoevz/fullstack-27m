@@ -1,0 +1,56 @@
+{
+  "name": "fullstack-27m",
+
+  "model": {
+    "vocab_size": 32768,
+    "n_layer": 8,
+    "n_head": 6,
+    "d_model": 384,
+    "d_ff": 1024,
+    "block_size": 512,
+    "rope_theta": 10000.0,
+    "norm_eps": 1e-5,
+    "tie_embeddings": true,
+    "init_std": 0.02
+  },
+
+  "training": {
+    "micro_batch_size": 16,
+    "grad_accum_steps": 4,
+    "max_steps": 15260,
+    "learning_rate": 6e-4,
+    "min_learning_rate": 6e-5,
+    "warmup_steps": 500,
+    "weight_decay": 0.1,
+    "beta1": 0.9,
+    "beta2": 0.95,
+    "grad_clip": 1.0,
+    "dtype": "float32",
+    "num_threads": 4,
+    "eval_interval": 500,
+    "eval_batches": 40,
+    "checkpoint_interval": 500,
+    "sample_interval": 1000,
+    "log_interval": 10,
+    "keep_last_checkpoints": 2
+  },
+
+  "data": {
+    "target_train_tokens": 500000000,
+    "target_val_tokens": 5000000,
+    "languages": ["js", "jsx", "ts", "tsx", "py"],
+    "min_bytes": 200,
+    "max_bytes": 100000,
+    "min_alnum_ratio": 0.25,
+    "max_mean_line_length": 150,
+    "dedup_threshold": 0.8
+  },
+
+  "paths": {
+    "data_root": "C:/llm-fullstack-data",
+    "raw_dir": "C:/llm-fullstack-data/raw",
+    "token_dir": "C:/llm-fullstack-data/tokens",
+    "checkpoint_dir": "C:/llm-fullstack-data/checkpoints",
+    "tokenizer_file": "C:/llm-fullstack-data/tokenizer-32768.json"
+  }
+}
