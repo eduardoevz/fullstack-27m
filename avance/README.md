@@ -1,0 +1,34 @@
+# Registro de avance
+
+Bitácora del proyecto, fase por fase. Cada archivo recoge qué se hizo, si la fase quedó
+completa **según el plan de implementación**, las desviaciones respecto a lo planificado
+y la verificación ejecutada con sus cifras.
+
+El criterio es la honestidad, no el optimismo: una fase parcial se documenta como parcial.
+
+## Estado
+
+| Fase | Descripción | Estado | Commit |
+|---|---|---|---|
+| [00](fase-00-cimientos.md) | Cimientos y banco de pruebas | ✅ Completa | `11c5309` |
+| 01 | Dataset Full Stack (ingesta, filtrado, deduplicación) | ⬜ Pendiente | — |
+| 02 | Tokenizer BPE orientado a sintaxis de código | ⬜ Pendiente | — |
+| 03 | Codificación a memmap binario | ⬜ Pendiente | — |
+| 04 | Arquitectura del Transformer | ⬜ Pendiente | — |
+| 05 | Bucle de entrenamiento optimizado para CPU | ⬜ Pendiente | — |
+| 06 | Entrenamiento (~8 días) | ⬜ Pendiente | — |
+| 07 | Inferencia, evaluación y demo | ⬜ Pendiente | — |
+
+Leyenda: ✅ completa · 🟡 parcial · ⬜ pendiente
+
+## Presupuesto del proyecto
+
+| Métrica | Objetivo | Real |
+|---|---|---|
+| Parámetros | 26.75 M | — |
+| Tokens de entrenamiento | 500 M | — |
+| Pasos de optimizador | 15.260 | — |
+| Throughput sostenido | ~64 M tokens/día | — |
+| Duración del entrenamiento | ~7.8 días | — |
+
+La columna «Real» se rellena a medida que las fases la vayan midiendo.
