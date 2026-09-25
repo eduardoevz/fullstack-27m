@@ -6,6 +6,8 @@ y la verificación ejecutada con sus cifras.
 
 El criterio es la honestidad, no el optimismo: una fase parcial se documenta como parcial.
 
+El plan que se contrasta aquí es [`docs/plan-implementacion.md`](../docs/plan-implementacion.md).
+
 ## Estado
 
 | Fase | Descripción | Estado | Commit |
