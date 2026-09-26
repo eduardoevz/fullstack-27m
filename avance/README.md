@@ -14,7 +14,7 @@ El plan que se contrasta aquí es [`docs/plan-implementacion.md`](../docs/plan-i
 |---|---|---|---|
 | [00](fase-00-cimientos.md) | Cimientos y banco de pruebas | ✅ Completa | `11c5309` |
 | [01](fase-01-dataset.md) | Dataset Full Stack (ingesta, filtrado, deduplicación) | ✅ Completa | `52220f0` |
-| [02](fase-02-tokenizer.md) | Tokenizer BPE orientado a sintaxis de código | ✅ Completa | PENDIENTE |
+| [02](fase-02-tokenizer.md) | Tokenizer BPE orientado a sintaxis de código | ✅ Completa | `d0017a6` |
 | 03 | Codificación a memmap binario | ⬜ Pendiente | — |
 | 04 | Arquitectura del Transformer | ⬜ Pendiente | — |
 | 05 | Bucle de entrenamiento optimizado para CPU | ⬜ Pendiente | — |
