@@ -8,7 +8,9 @@ tqdm>=4.66
 pytest>=8.0
 psutil>=6.0
 
-# Ingesta de datos. Ver src/data/ingest.py: si `datasets` no tiene wheel para
-# Python 3.14, el fallback usa requests + pyarrow directamente sobre parquet.
+# Ingesta de datos (src/data/ingest.py): descarga directa de parquet con
+# requests y lectura por row-groups con pyarrow. `datasets` ya no ejecuta
+# scripts de carga, por lo que no se usa en la ingesta.
 pyarrow>=17.0
+requests>=2.32
 datasets>=3.0

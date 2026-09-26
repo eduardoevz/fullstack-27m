@@ -13,7 +13,7 @@ El plan que se contrasta aquí es [`docs/plan-implementacion.md`](../docs/plan-i
 | Fase | Descripción | Estado | Commit |
 |---|---|---|---|
 | [00](fase-00-cimientos.md) | Cimientos y banco de pruebas | ✅ Completa | `11c5309` |
-| 01 | Dataset Full Stack (ingesta, filtrado, deduplicación) | ⬜ Pendiente | — |
+| [01](fase-01-dataset.md) | Dataset Full Stack (ingesta, filtrado, deduplicación) | ✅ Completa | PENDIENTE |
 | 02 | Tokenizer BPE orientado a sintaxis de código | ⬜ Pendiente | — |
 | 03 | Codificación a memmap binario | ⬜ Pendiente | — |
 | 04 | Arquitectura del Transformer | ⬜ Pendiente | — |

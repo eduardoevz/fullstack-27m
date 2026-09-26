@@ -15,6 +15,7 @@ venv/
 
 # Artefactos de ejecucion
 logs/*.csv
+logs/*.log
 samples/*.txt
 benchmarks/*.json
 !benchmarks/baseline.json
