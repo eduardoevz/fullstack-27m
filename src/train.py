@@ -2,7 +2,7 @@
 
     python src/train.py                 # empieza (o continua si ya hay checkpoints con --resume)
     python src/train.py --resume        # continua desde el ultimo checkpoint
-    Ctrl+C                              # termina el paso en curso, guarda checkpoint y sale
+    Ctrl+C  o  parar.bat                # termina el paso en curso, guarda checkpoint y sale
 """
 
 from __future__ import annotations
@@ -23,12 +23,14 @@ import torch
 
 from src.config import REPO_ROOT, load_config
 from src.model.gpt import GPT
+from src.training.control import consume_stop_file, stop_requested
 from src.training.checkpoint import latest_checkpoint, load_checkpoint, rotate_checkpoints, save_checkpoint
 from src.training.data import BatchSampler
 from src.training.loop import evaluate, run_step
 from src.training.optim import build_optimizer
 
 CSV_FIELDS = ["step", "loss", "lr", "tok_s", "rss_gb", "grad_norm", "val_loss"]
+STOP_FILE = REPO_ROOT / "PARAR.txt"   # crear este archivo (parar.bat) = guardar y salir
 VAL_SEED = 1234        # mismo conjunto de batches de validacion en cada evaluacion
 
 
@@ -67,6 +69,7 @@ def main() -> None:
     fwd = torch.compile(model) if args.compile else model
     end = min(tc.max_steps, args.stop_at) if args.stop_at else tc.max_steps
 
+    consume_stop_file(STOP_FILE)                   # un PARAR.txt viejo no debe frenar esta sesion
     stop = {"now": False}
     signal.signal(signal.SIGINT, lambda *_: stop.update(now=True))
 
@@ -90,7 +93,7 @@ def main() -> None:
         if new_log:
             w.writeheader()
         n_win = 0
-        while step < end and not stop["now"]:
+        while step < end and not stop["now"] and not stop_requested(STOP_FILE):
             t0 = time.perf_counter()
             loss, gnorm = run_step(fwd, optimizer, sampler, tc, step)
             step += 1
@@ -126,8 +129,10 @@ def main() -> None:
                 checkpoint(is_best)
                 t_win = time.perf_counter()
 
-    checkpoint()                                   # al terminar o con Ctrl+C
-    print(f"{'Interrumpido' if stop['now'] else 'Terminado'} en el paso {step}. Checkpoint guardado.")
+    checkpoint()                                   # al terminar, con Ctrl+C o con PARAR.txt
+    stopped = stop["now"] or stop_requested(STOP_FILE)
+    consume_stop_file(STOP_FILE)
+    print(f"{'Detenido' if stopped else 'Terminado'} en el paso {step}. Checkpoint guardado.")
 
 
 if __name__ == "__main__":

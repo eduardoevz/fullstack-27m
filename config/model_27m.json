@@ -29,7 +29,7 @@
     "num_threads": 4,
     "eval_interval": 500,
     "eval_batches": 40,
-    "checkpoint_interval": 50,
+    "checkpoint_interval": 20,
     "sample_interval": 1000,
     "log_interval": 10,
     "keep_last_checkpoints": 2
