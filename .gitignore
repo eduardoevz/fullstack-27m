@@ -19,3 +19,4 @@ logs/*.log
 samples/*.txt
 benchmarks/*.json
 !benchmarks/baseline.json
+!benchmarks/tokenizer_comparison.json

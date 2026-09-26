@@ -2,7 +2,7 @@
   "name": "fullstack-27m",
 
   "model": {
-    "vocab_size": 32768,
+    "vocab_size": 16384,
     "n_layer": 8,
     "n_head": 6,
     "d_model": 384,
@@ -51,6 +51,6 @@
     "raw_dir": "C:/llm-fullstack-data/raw",
     "token_dir": "C:/llm-fullstack-data/tokens",
     "checkpoint_dir": "C:/llm-fullstack-data/checkpoints",
-    "tokenizer_file": "C:/llm-fullstack-data/tokenizer-32768.json"
+    "tokenizer_file": "C:/llm-fullstack-data/tokenizer-16384.json"
   }
 }

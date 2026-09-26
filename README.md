@@ -68,16 +68,20 @@ cómputo equivalente.
 
 ```
 d_model      384          n_layers   8        n_heads   6  (head_dim 64)
-contexto     512          vocab      32.768   FFN       1024 (SwiGLU)
+contexto     512          vocab      16.384   FFN       1024 (SwiGLU)
 Norm         RMSNorm      Posicion   RoPE     Bias      ninguno
 Embeddings   tied (entrada y salida comparten pesos)
 
-Parametros   26.75 M  (14.2 M sin contar embeddings)
+Parametros   20.45 M  (14.2 M sin contar embeddings)
 ```
 
 Un detalle que condiciona el diseño: con `d_model=384` y un vocabulario de 32.768, la
 proyección final consume **~46% del cómputo por token**. El tamaño del vocabulario no es
-una decisión cosmética, y se toma midiendo compresión real contra velocidad (Fase 2).
+una decisión cosmética, y se tomó midiendo compresión real contra velocidad (Fase 2):
+el vocabulario de **16.384** comprime el 96,7 % de lo que comprime el de 32.768 (umbral: 81 %)
+y el modelo corre más rápido, así que ganó. Consecuencia: el modelo pasa de 26.75 M a
+**20.45 M parámetros** (el nombre `27m` del repositorio ya no es exacto; se conserva por
+estabilidad de rutas).
 
 ## Presupuesto de entrenamiento
 
