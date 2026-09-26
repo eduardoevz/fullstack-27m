@@ -2,7 +2,7 @@
 
 **Fecha:** 2026-09-26
 **Estado:** ✅ Completa
-**Commit:** ver `avance/README.md`
+**Commit:** `d82d186`
 
 ## Objetivo según el plan
 
