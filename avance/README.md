@@ -17,7 +17,7 @@ El plan que se contrasta aquí es [`docs/plan-implementacion.md`](../docs/plan-i
 | [02](fase-02-tokenizer.md) | Tokenizer BPE orientado a sintaxis de código | ✅ Completa | `d0017a6` |
 | [03](fase-03-encoding.md) | Codificación a memmap binario | ✅ Completa | `d82d186` |
 | [04](fase-04-transformer.md) | Arquitectura del Transformer | ✅ Completa | `8b6ead2` |
-| [05](fase-05-entrenamiento.md) | Bucle de entrenamiento optimizado para CPU | ✅ Completa | `PENDIENTE` |
+| [05](fase-05-entrenamiento.md) | Bucle de entrenamiento optimizado para CPU | ✅ Completa | `1ad7bd6` |
 | 06 | Entrenamiento (~8 días) | ⬜ Pendiente | — |
 | 07 | Inferencia, evaluación y demo | ⬜ Pendiente | — |
 
