@@ -16,7 +16,7 @@ El plan que se contrasta aquí es [`docs/plan-implementacion.md`](../docs/plan-i
 | [01](fase-01-dataset.md) | Dataset Full Stack (ingesta, filtrado, deduplicación) | ✅ Completa | `52220f0` |
 | [02](fase-02-tokenizer.md) | Tokenizer BPE orientado a sintaxis de código | ✅ Completa | `d0017a6` |
 | [03](fase-03-encoding.md) | Codificación a memmap binario | ✅ Completa | `d82d186` |
-| 04 | Arquitectura del Transformer | ⬜ Pendiente | — |
+| [04](fase-04-transformer.md) | Arquitectura del Transformer | ✅ Completa | PENDIENTE |
 | 05 | Bucle de entrenamiento optimizado para CPU | ⬜ Pendiente | — |
 | 06 | Entrenamiento (~8 días) | ⬜ Pendiente | — |
 | 07 | Inferencia, evaluación y demo | ⬜ Pendiente | — |
@@ -30,7 +30,7 @@ Leyenda: ✅ completa · 🟡 parcial · ⬜ pendiente
 | Parámetros | 20.45 M (antes 26.75 M; vocab 16k) | 20.45 M (analítico) |
 | Tokens de entrenamiento | 500 M | 499,99 M en `train.bin` (de 822,6 M medidos) |
 | Pasos de optimizador | 15.260 | — |
-| Throughput sostenido | ~64 M tokens/día | — |
-| Duración del entrenamiento | ~7.8 días | — |
+| Throughput sostenido | ~64 M tokens/día | 1.047–1.132 tok/s medidos (≈ 63–68 M tokens/día con derate 0,7) |
+| Duración del entrenamiento | ~7.8 días | 7,3–7,9 días proyectados (a confirmar en la Fase 05) |
 
 La columna «Real» se rellena a medida que las fases la vayan midiendo.
