@@ -15,7 +15,7 @@ El plan que se contrasta aquí es [`docs/plan-implementacion.md`](../docs/plan-i
 | [00](fase-00-cimientos.md) | Cimientos y banco de pruebas | ✅ Completa | `11c5309` |
 | [01](fase-01-dataset.md) | Dataset Full Stack (ingesta, filtrado, deduplicación) | ✅ Completa | `52220f0` |
 | [02](fase-02-tokenizer.md) | Tokenizer BPE orientado a sintaxis de código | ✅ Completa | `d0017a6` |
-| 03 | Codificación a memmap binario | ⬜ Pendiente | — |
+| [03](fase-03-encoding.md) | Codificación a memmap binario | ✅ Completa | PENDIENTE |
 | 04 | Arquitectura del Transformer | ⬜ Pendiente | — |
 | 05 | Bucle de entrenamiento optimizado para CPU | ⬜ Pendiente | — |
 | 06 | Entrenamiento (~8 días) | ⬜ Pendiente | — |
@@ -28,7 +28,7 @@ Leyenda: ✅ completa · 🟡 parcial · ⬜ pendiente
 | Métrica | Objetivo | Real |
 |---|---|---|
 | Parámetros | 20.45 M (antes 26.75 M; vocab 16k) | 20.45 M (analítico) |
-| Tokens de entrenamiento | 500 M | ~826 M disponibles (estimado) |
+| Tokens de entrenamiento | 500 M | 499,99 M en `train.bin` (de 822,6 M medidos) |
 | Pasos de optimizador | 15.260 | — |
 | Throughput sostenido | ~64 M tokens/día | — |
 | Duración del entrenamiento | ~7.8 días | — |
