@@ -2,7 +2,7 @@
 
 **Fecha:** 2026-09-26
 **Estado:** ✅ Completa (con una desviación de rendimiento que se decide en la Fase 05)
-**Commit:** ver `avance/README.md`
+**Commit:** `8b6ead2`
 
 ## Objetivo según el plan
 
