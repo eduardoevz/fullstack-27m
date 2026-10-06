@@ -18,7 +18,7 @@ El plan que se contrasta aquí es [`docs/plan-implementacion.md`](../docs/plan-i
 | [03](fase-03-encoding.md) | Codificación a memmap binario | ✅ Completa | `d82d186` |
 | [04](fase-04-transformer.md) | Arquitectura del Transformer | ✅ Completa | `8b6ead2` |
 | [05](fase-05-entrenamiento.md) | Bucle de entrenamiento optimizado para CPU | ✅ Completa | `1ad7bd6` |
-| [06](fase-06-entrenamiento.md) | Entrenamiento (~8 días) | ✅ Completa (sin muestras intermedias) | `PENDIENTE` |
+| [06](fase-06-entrenamiento.md) | Entrenamiento (~8 días) | ✅ Completa (sin muestras intermedias) | `8cef616` |
 | 07 | Inferencia, evaluación y demo | ⬜ Pendiente | — |
 
 Leyenda: ✅ completa · 🟡 parcial · ⬜ pendiente
