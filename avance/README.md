@@ -19,7 +19,7 @@ El plan que se contrasta aquí es [`docs/plan-implementacion.md`](../docs/plan-i
 | [04](fase-04-transformer.md) | Arquitectura del Transformer | ✅ Completa | `8b6ead2` |
 | [05](fase-05-entrenamiento.md) | Bucle de entrenamiento optimizado para CPU | ✅ Completa | `1ad7bd6` |
 | [06](fase-06-entrenamiento.md) | Entrenamiento (~8 días) | ✅ Completa (sin muestras intermedias) | `8cef616` |
-| [07](fase-07-inferencia-evaluacion.md) | Inferencia, evaluación y demo | ✅ Completa (demo como transcripción) | `PENDIENTE` |
+| [07](fase-07-inferencia-evaluacion.md) | Inferencia, evaluación y demo | ✅ Completa (demo como transcripción) | `7438aa7` |
 
 Leyenda: ✅ completa · 🟡 parcial · ⬜ pendiente
 
