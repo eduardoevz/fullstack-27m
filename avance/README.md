@@ -19,7 +19,7 @@ El plan que se contrasta aquí es [`docs/plan-implementacion.md`](../docs/plan-i
 | [04](fase-04-transformer.md) | Arquitectura del Transformer | ✅ Completa | `8b6ead2` |
 | [05](fase-05-entrenamiento.md) | Bucle de entrenamiento optimizado para CPU | ✅ Completa | `1ad7bd6` |
 | [06](fase-06-entrenamiento.md) | Entrenamiento (~8 días) | ✅ Completa (sin muestras intermedias) | `8cef616` |
-| 07 | Inferencia, evaluación y demo | ⬜ Pendiente | — |
+| [07](fase-07-inferencia-evaluacion.md) | Inferencia, evaluación y demo | ✅ Completa (demo como transcripción) | `PENDIENTE` |
 
 Leyenda: ✅ completa · 🟡 parcial · ⬜ pendiente
 
@@ -32,6 +32,9 @@ Leyenda: ✅ completa · 🟡 parcial · ⬜ pendiente
 | Pasos de optimizador | 15.260 | 15.260 completados |
 | Throughput sostenido | ~64 M tokens/día | 1.103 tok/s medios en los 15.260 pasos (Fase 06); antes: 1.133 tok/s con entrenamiento real de 200 pasos (Fase 05); 1.047–1.132 en el banco (≈ 63–68 M tokens/día con derate 0,7) |
 | Duración del entrenamiento | ~7.8 días | ≈ 5,25 días de cómputo a 1.103 tok/s medios; ≈ 9 días de calendario (26-sep a 5-oct) en sesiones |
+| Validez sintáctica (100 fragmentos) | — | 23 % estricta · 71 % recortada (archivos reales: 97 %) |
+| Suite de 20 prompts | — | sintaxis 60 % estricta / 75 % recortada; en tema 60 % |
+| Inferencia con caché KV | interactiva | 90 tok/s (10 sin caché) |
 | Pérdida de validación | — | 3,44 (paso 500) → **1,477** (mejor, paso 15.000) |
 
 La columna «Real» se rellena a medida que las fases la vayan midiendo.

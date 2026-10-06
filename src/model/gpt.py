@@ -45,6 +45,24 @@ class CausalSelfAttention(nn.Module):
         y = F.scaled_dot_product_attention(q, k, v, is_causal=True)
         return self.proj(y.transpose(1, 2).contiguous().view(B, T, C))
 
+    def forward_cached(self, x, cos, sin, past):
+        """Igual que forward, pero reutiliza k/v de posiciones anteriores. Devuelve (salida, (k, v) acumulados)."""
+        B, T, C = x.shape
+        q, k, v = self.qkv(x).split(C, dim=2)
+        q, k, v = (t.view(B, T, self.n_head, self.head_dim).transpose(1, 2) for t in (q, k, v))
+        q, k = apply_rotary(q, cos, sin), apply_rotary(k, cos, sin)
+        n_past = 0 if past is None else past[0].shape[2]
+        if past is not None:
+            k, v = torch.cat([past[0], k], dim=2), torch.cat([past[1], v], dim=2)
+        if n_past == 0:
+            y = F.scaled_dot_product_attention(q, k, v, is_causal=True)
+        elif T == 1:
+            y = F.scaled_dot_product_attention(q, k, v)                  # el nuevo token ve todo el pasado
+        else:                                                            # tramo nuevo tras un prefijo: mascara explicita
+            allowed = torch.arange(n_past + T)[None, :] <= (n_past + torch.arange(T))[:, None]
+            y = F.scaled_dot_product_attention(q, k, v, attn_mask=allowed)
+        return self.proj(y.transpose(1, 2).contiguous().view(B, T, C)), (k, v)
+
 
 class SwiGLU(nn.Module):
     def __init__(self, cfg: ModelConfig):
@@ -68,6 +86,11 @@ class Block(nn.Module):
     def forward(self, x, cos, sin):
         x = x + self.attn(self.norm1(x), cos, sin)
         return x + self.mlp(self.norm2(x))
+
+    def forward_cached(self, x, cos, sin, past):
+        a, kv = self.attn.forward_cached(self.norm1(x), cos, sin, past)
+        x = x + a
+        return x + self.mlp(self.norm2(x)), kv
 
 
 class GPT(nn.Module):
@@ -103,3 +126,15 @@ class GPT(nn.Module):
         if targets is not None:
             loss = F.cross_entropy(logits.view(-1, logits.size(-1)), targets.reshape(-1))
         return logits, loss
+
+    def forward_cached(self, idx: torch.Tensor, cache):
+        """Inferencia con cache KV. `cache` es None o la lista de (k, v) por capa devuelta antes.
+        Procesa solo `idx` (los tokens nuevos) y devuelve (logits de esos tokens, cache ampliada)."""
+        n_past = 0 if cache is None else cache[0][0].shape[2]
+        x = self.tok_emb(idx)
+        cos, sin = self.rope(idx.shape[1], offset=n_past)
+        new_cache = []
+        for i, block in enumerate(self.blocks):
+            x, kv = block.forward_cached(x, cos, sin, None if cache is None else cache[i])
+            new_cache.append(kv)
+        return self.lm_head(self.norm_f(x)), new_cache

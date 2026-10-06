@@ -20,4 +20,6 @@ samples/*.txt
 benchmarks/*.json
 !benchmarks/baseline.json
 !benchmarks/tokenizer_comparison.json
+!benchmarks/syntax_eval.json
+!benchmarks/prompt_suite.json
 PARAR.txt

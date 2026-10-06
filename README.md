@@ -1,28 +1,25 @@
 # fullstack-27m
 
-Un modelo de lenguaje causal de **26.75 M de parámetros**, pre-entrenado **desde cero
-y enteramente en CPU**, especializado en autocompletado y generación de código Full Stack:
-React, Next.js y TypeScript en el frontend; Node (Express, NestJS) y Python (FastAPI, Flask)
-en el backend.
+Un modelo de lenguaje causal de **20,45 M de parámetros** (el nombre `27m` viene del diseño inicial de 26,75 M),
+pre-entrenado **desde cero y enteramente en CPU**, especializado en autocompletado y generación de código Full Stack:
+React, Next.js y TypeScript en el frontend; Node (Express, NestJS) y Python (FastAPI, Flask) en el backend.
 
-No hay GPU en ninguna parte de este proyecto. Todo el pipeline —datos, tokenizer,
-arquitectura, entrenamiento e inferencia— está diseñado alrededor de las restricciones
-de un portátil: un Intel i5-1135G7 de 4 núcleos y 16 GB de RAM.
+No hay GPU en ninguna parte de este proyecto. Todo el pipeline —datos, tokenizer, arquitectura, entrenamiento e
+inferencia— está diseñado alrededor de las restricciones de un portátil: un Intel i5-1135G7 de 4 núcleos y 16 GB de RAM.
 
-> **Estado:** Fase 0 completada (cimientos y línea base). En construcción.
+> **Estado:** pipeline completo y modelo entrenado (15.260 pasos, pérdida de validación 1,477). Los resultados medidos
+> y las limitaciones están en la sección [Resultados](#resultados).
 
 ---
 
 ## Por qué 27M y no 50M
 
-El objetivo inicial era un modelo de 50M de parámetros. Medir el hardware antes de
-escribir el modelo cambió la decisión.
+El objetivo inicial era un modelo de 50M de parámetros. Medir el hardware antes de escribir el modelo cambió la decisión.
 
-Un modelo de 50M parámetros necesita ~1.000M de tokens para acercarse al óptimo de
-Chinchilla. A los 303 tokens/s que esta CPU sostiene con esa arquitectura, son **~45 días**
-de entrenamiento continuo. Con 27M parámetros el throughput sube a 1.057 tokens/s y el
-presupuesto de 8 días permite 500M de tokens: **19 tokens por parámetro**, prácticamente
-el óptimo (534M).
+Un modelo de 50M parámetros necesita ~1.000M de tokens para acercarse al óptimo de Chinchilla. A los 303 tokens/s que
+esta CPU sostiene con esa arquitectura, son **~45 días** de entrenamiento continuo. Con 27M parámetros el throughput
+sube a 1.057 tokens/s y el presupuesto de 8 días permite 500M de tokens: **19 tokens por parámetro**, prácticamente el
+óptimo (534M).
 
 Mismo tiempo de cómputo. Un modelo considerablemente mejor.
 
@@ -41,14 +38,13 @@ GEMM 1024x1024, 4 hilos
   bfloat16     59.1 GFLOPS     <-- 3.6x mas lento
 ```
 
-El i5-1135G7 (Tiger Lake) tiene AVX-512 pero **no** AVX512-BF16 ni AMX. Sin instrucciones
-nativas, bf16 se emula en software y cada operación cuesta más que en fp32. El
-entrenamiento usa fp32 puro.
+El i5-1135G7 (Tiger Lake) tiene AVX-512 pero **no** AVX512-BF16 ni AMX. Sin instrucciones nativas, bf16 se emula en
+software y cada operación cuesta más que en fp32. El entrenamiento usa fp32 puro.
 
 ## El SMT perjudica al entrenamiento
 
-Los 8 hilos lógicos de la CPU no son 8 unidades de cómputo. Los dos hilos de cada núcleo
-comparten una sola unidad vectorial:
+Los 8 hilos lógicos de la CPU no son 8 unidades de cómputo. Los dos hilos de cada núcleo comparten una sola unidad
+vectorial:
 
 ```
  1 hilos   105.7 GFLOPS
@@ -63,8 +59,7 @@ comparten una sola unidad vectorial:
 
 ## Arquitectura
 
-Estilo Llama en lugar de GPT-2: a igualdad de parámetros converge mejor, con coste de
-cómputo equivalente.
+Estilo Llama en lugar de GPT-2: a igualdad de parámetros converge mejor, con coste de cómputo equivalente.
 
 ```
 d_model      384          n_layers   8        n_heads   6  (head_dim 64)
@@ -75,13 +70,10 @@ Embeddings   tied (entrada y salida comparten pesos)
 Parametros   20.45 M  (14.2 M sin contar embeddings)
 ```
 
-Un detalle que condiciona el diseño: con `d_model=384` y un vocabulario de 32.768, la
-proyección final consume **~46% del cómputo por token**. El tamaño del vocabulario no es
-una decisión cosmética, y se tomó midiendo compresión real contra velocidad (Fase 2):
-el vocabulario de **16.384** comprime el 96,7 % de lo que comprime el de 32.768 (umbral: 81 %)
-y el modelo corre más rápido, así que ganó. Consecuencia: el modelo pasa de 26.75 M a
-**20.45 M parámetros** (el nombre `27m` del repositorio ya no es exacto; se conserva por
-estabilidad de rutas).
+Un detalle que condiciona el diseño: con `d_model=384` y un vocabulario de 32.768, la proyección final consume **~46% del
+cómputo por token**. El tamaño del vocabulario no es una decisión cosmética, y se tomó midiendo compresión real contra
+velocidad (Fase 2): el vocabulario de **16.384** comprime el 96,7 % de lo que comprime el de 32.768 (umbral: 81 %) y el
+modelo corre más rápido, así que ganó. Consecuencia: el modelo pasa de 26.75 M a **20.45 M parámetros**.
 
 ## Presupuesto de entrenamiento
 
@@ -90,8 +82,78 @@ estabilidad de rutas).
 | Tokens | 500 M |
 | Pasos de optimizador | 15.260 |
 | Batch efectivo | 32.768 tokens (micro-batch 16 × acumulación 4) |
-| Throughput sostenido | ~64 M tokens/día (derate térmico 0.7) |
-| Duración estimada | ~7.8 días |
+| Throughput sostenido | 1.103 tok/s medios (≈ 95 M tokens/día de cómputo puro) |
+| Duración real | ≈ 5,25 días de cómputo, ≈ 9 días de calendario en sesiones reanudables |
+
+---
+
+## Resultados
+
+### Entrenamiento
+
+![Curvas de entrenamiento](docs/curvas-entrenamiento.svg)
+
+| Métrica | Valor |
+|---|---|
+| Pérdida de validación | 3,44 (paso 500) → **1,477** (paso 15.000, la mejor) |
+| Pérdida de entrenamiento final | ~1,50: prácticamente igual a la de validación, sin sobreajuste visible |
+| Velocidad | 1.103 tok/s medios; hubo caídas puntuales (hasta 369 tok/s) sin causa registrada |
+| Datos de la curva | `avance/fase-06-curva-validacion.csv` |
+
+### Validez sintáctica del código generado
+
+El modelo escribe 100 archivos desde cero (solo se le da `<|file|><|lang_x|>`; 34 JS, 33 TS, 33 Python; hasta 256
+tokens; T=0,8, top-k 40, top-p 0,95; semillas fijas). Se comprueba si cada uno **parsea**: `ast.parse` para Python y el
+parser de TypeScript 5.x para JS/JSX/TS/TSX. Es una métrica de *sintaxis*: no dice si el código funciona, ni siquiera si
+sus variables existen.
+
+| Criterio | Modelo | Archivos reales de validación (*) |
+|---|---|---|
+| **Estricta:** el fragmento completo parsea | **23 %** | 97 % |
+| **Recortada:** parsea tras quitar las últimas líneas (cortadas por el límite de tokens), conservando ≥ 80 % | **71 %** | 97 % |
+| Terminados por el propio modelo (`<\|endoftext\|>`) | 14 de 100 | 100 de 100 |
+| …de esos, los que parsean | 12 de 14 (86 %) | 97 % |
+| Líneas repetidas dentro del fragmento (media) | 14 % | 2 % |
+| Fragmentos con ≥ 30 % de líneas repetidas | 16 % | 0 % |
+
+(*) 100 archivos completos de validación de ≤ 256 tokens, medidos con el mismo validador: sirven para comprobar que el
+validador no rechaza código bueno (los 3 que fallan son una plantilla de scaffolding con `<%= %>`, un `print` de Python 2 y un archivo con un error de tipeo).
+
+Cómo leerlo: la cifra estricta es baja sobre todo porque **86 de 100 fragmentos no terminaron**: el modelo rara vez cierra
+un archivo en 256 tokens y se corta a mitad de una sentencia. Al recortar esa cola, el 71 % queda bien formado hasta donde
+llega. Por lenguaje (estricta / recortada): JS 24 % / 62 %, TS 27 % / 73 %, Python 18 % / 79 %. Con solo 14 fragmentos
+terminados, la cifra del 86 % tiene mucho margen de error.
+
+### Suite de 20 prompts del dominio
+
+Prompts como `export default async function BlogPage() {` (Next.js), `@Controller('cats')` (NestJS) o
+`@app.post('/items')` (FastAPI). Resultado sin selección, una sola generación por prompt (T=0,7, 200 tokens):
+
+| Criterio | Resultado |
+|---|---|
+| Sintaxis estricta (prompt + continuación parsea) | 12 / 20 (60 %) |
+| Sintaxis recortada | 15 / 20 (75 %) |
+| «En tema» (la continuación menciona algo esperado, p. ej. `NextResponse`, `jsonify`) | 12 / 20 (60 %) |
+
+Cada continuación completa está en [`samples/suite-20-prompts.md`](samples/suite-20-prompts.md). Con n = 20, cada prompt
+pesa 5 puntos porcentuales: es una muestra, no una estimación precisa. «En tema» es una heurística de texto, no una
+medida de corrección.
+
+### Velocidad de inferencia
+
+La caché KV acelera la generación unas **9×**: 90 tok/s con caché contra 10 tok/s sin ella (100 tokens nuevos sobre un
+prompt de 200, 4 hilos). La salida es la misma: hay un test que compara, token a token, la generación con y sin caché.
+
+### Qué hace bien y qué no
+
+- **Bien:** estructura reconocible de React, Express, NestJS y FastAPI; imports plausibles; JSX bien formado; respeta la
+  sangría y la sintaxis a corto alcance.
+- **Mal:** **repite** (copia líneas y bloques, ver la tabla); se pierde a larga distancia (contexto de 512 tokens); rara
+  vez cierra los archivos; se desvía de framework (un prompt de FastAPI derivó a Flask); inventa APIs y nombres. Es lo
+  esperable de 20,45 M de parámetros, y el proyecto no pretende más.
+- **Corpus:** Next.js (0,1 %) y FastAPI (<0,1 %) están casi ausentes de los datos (ver `avance/fase-01-dataset.md`).
+
+La demo interactiva está transcrita en [`samples/demo-cli.md`](samples/demo-cli.md).
 
 ---
 
@@ -103,36 +165,53 @@ src/config.py            Carga y valida el config; conteo analitico de parametro
 src/bench.py             Banco de pruebas: GFLOPS, escalado por hilos, tok/s
 src/data/                Ingesta en streaming, filtrado de dominio, deduplicacion
 src/tokenizer/           BPE byte-level entrenado sobre el corpus propio
-src/model/               RMSNorm, RoPE, SwiGLU, GPT
+src/model/               RMSNorm, RoPE, SwiGLU, GPT (con cache KV para inferencia)
 src/train.py             Bucle de entrenamiento con acumulacion y reanudacion exacta
-src/eval/                Validez sintactica y suite de prompts del dominio
-tests/                   Causalidad, conteo de parametros, round-trip del tokenizer
-benchmarks/baseline.json Linea base reproducible del hardware
+src/sample.py            Generacion: temperatura, top-k, top-p, cache KV
+src/cli.py               Demo interactiva de autocompletado (demo.bat)
+src/eval/                Validez sintactica, suite de 20 prompts, curvas de entrenamiento
+tests/                   Causalidad, parametros, tokenizer, entrenamiento, cache KV, validador sintactico
+benchmarks/              baseline.json, syntax_eval.json, prompt_suite.json (resultados reproducibles)
+samples/                 Salidas del modelo: suite de 20 prompts y transcripcion de la demo
+avance/                  Bitacora fase por fase, con desviaciones y cifras
 ```
 
-Los datos y los checkpoints viven en `C:/llm-fullstack-data/`, **fuera de OneDrive**:
-un checkpoint de ~430 MB reescrito cada 500 pasos durante ocho días es una invitación
-a que el cliente de sincronización bloquee un archivo a mitad de escritura.
+Los datos y los checkpoints viven en `C:/llm-fullstack-data/`, **fuera de OneDrive**: un checkpoint de ~245 MB reescrito
+cada pocos minutos durante días es una invitación a que el cliente de sincronización bloquee un archivo a mitad de
+escritura. Los pesos (`best.pt`) no se versionan.
 
 ## Uso
 
 ```bash
-python src/bench.py                  # linea base de rendimiento
-pytest tests/ -v                     # suite de tests
+python src/bench.py                                   # linea base de rendimiento
+pytest tests/ -v                                      # suite de tests
+python src/train.py --resume                          # entrenar / reanudar (o entrenar.bat)
+python src/sample.py --prompt "export default function Nav(" --lang tsx --seed 1
+python src/eval/syntax_check.py --n 100               # metrica de validez sintactica
+python src/eval/run_suite.py                          # suite de 20 prompts
+python src/cli.py                                     # demo interactiva (o demo.bat)
 ```
+
+**Validador de JS/TS (una sola vez).** El parser de TypeScript se instala fuera del repo:
+
+```bash
+mkdir C:/llm-fullstack-data/tools && cd C:/llm-fullstack-data/tools
+npm init -y && npm install typescript@5
+```
+
+(La rama 7.x no expone la API de JavaScript que se usa.) Python se valida con `ast` y no necesita nada más.
 
 ## Requisitos
 
-Python 3.14, PyTorch 2.14 CPU. Ver `requirements.txt`.
+Python 3.14, PyTorch 2.14 CPU, Node.js (solo para validar JS/TS). Ver `requirements.txt`.
 
 ---
 
 ## Qué es y qué no es este proyecto
 
-Un modelo de 27M parámetros entrenado con 500M de tokens genera código
-**sintácticamente correcto y estructuralmente reconocible**: imports plausibles, JSX
-bien formado, decoradores de FastAPI en su sitio. No genera código listo para producción,
-y no compite con asistentes comerciales entrenados con órdenes de magnitud más de cómputo.
+Un modelo de 20,45 M de parámetros entrenado con 500 M de tokens genera código de **estructura reconocible** (imports
+plausibles, JSX bien formado, decoradores de FastAPI en su sitio), pero **solo el 23 % de sus archivos completos parsea
+tal cual** (71 % si se descarta la cola cortada), repite bloques y se pierde a larga distancia. No genera código listo
+para producción, y no compite con asistentes comerciales entrenados con órdenes de magnitud más de cómputo.
 
-El objeto de este repositorio es el pipeline de ingeniería y las decisiones medidas que
-lo sostienen.
+El objeto de este repositorio es el pipeline de ingeniería y las decisiones medidas que lo sostienen.
