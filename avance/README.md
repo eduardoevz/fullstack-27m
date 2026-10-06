@@ -18,7 +18,7 @@ El plan que se contrasta aquí es [`docs/plan-implementacion.md`](../docs/plan-i
 | [03](fase-03-encoding.md) | Codificación a memmap binario | ✅ Completa | `d82d186` |
 | [04](fase-04-transformer.md) | Arquitectura del Transformer | ✅ Completa | `8b6ead2` |
 | [05](fase-05-entrenamiento.md) | Bucle de entrenamiento optimizado para CPU | ✅ Completa | `1ad7bd6` |
-| 06 | Entrenamiento (~8 días) | ⬜ Pendiente | — |
+| [06](fase-06-entrenamiento.md) | Entrenamiento (~8 días) | ✅ Completa (sin muestras intermedias) | `PENDIENTE` |
 | 07 | Inferencia, evaluación y demo | ⬜ Pendiente | — |
 
 Leyenda: ✅ completa · 🟡 parcial · ⬜ pendiente
@@ -29,8 +29,9 @@ Leyenda: ✅ completa · 🟡 parcial · ⬜ pendiente
 |---|---|---|
 | Parámetros | 20.45 M (antes 26.75 M; vocab 16k) | 20.45 M (analítico) |
 | Tokens de entrenamiento | 500 M | 499,99 M en `train.bin` (de 822,6 M medidos) |
-| Pasos de optimizador | 15.260 | — |
-| Throughput sostenido | ~64 M tokens/día | 1.133 tok/s con entrenamiento real de 200 pasos (Fase 05); 1.047–1.132 en el banco (≈ 63–68 M tokens/día con derate 0,7) |
-| Duración del entrenamiento | ~7.8 días | 7,3 días proyectados con derate 0,7 (5,1 sin él); se confirma en la Fase 06 |
+| Pasos de optimizador | 15.260 | 15.260 completados |
+| Throughput sostenido | ~64 M tokens/día | 1.103 tok/s medios en los 15.260 pasos (Fase 06); antes: 1.133 tok/s con entrenamiento real de 200 pasos (Fase 05); 1.047–1.132 en el banco (≈ 63–68 M tokens/día con derate 0,7) |
+| Duración del entrenamiento | ~7.8 días | ≈ 5,25 días de cómputo a 1.103 tok/s medios; ≈ 9 días de calendario (26-sep a 5-oct) en sesiones |
+| Pérdida de validación | — | 3,44 (paso 500) → **1,477** (mejor, paso 15.000) |
 
 La columna «Real» se rellena a medida que las fases la vayan midiendo.
