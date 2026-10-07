@@ -20,6 +20,7 @@ El plan que se contrasta aquí es [`docs/plan-implementacion.md`](../docs/plan-i
 | [05](fase-05-entrenamiento.md) | Bucle de entrenamiento optimizado para CPU | ✅ Completa | `1ad7bd6` |
 | [06](fase-06-entrenamiento.md) | Entrenamiento (~8 días) | ✅ Completa (sin muestras intermedias) | `8cef616` |
 | [07](fase-07-inferencia-evaluacion.md) | Inferencia, evaluación y demo | ✅ Completa (demo como transcripción) | `7438aa7` |
+| [08](fase-08-diagnostico-decodificacion.md) | Mejora v1→v2: diagnóstico, evaluación y decodificación | ✅ Completa (puerta parcial) | `PENDIENTE` |
 
 Leyenda: ✅ completa · 🟡 parcial · ⬜ pendiente
 
@@ -35,6 +36,7 @@ Leyenda: ✅ completa · 🟡 parcial · ⬜ pendiente
 | Validez sintáctica (100 fragmentos) | — | 23 % estricta · 71 % recortada (archivos reales: 97 %) |
 | Suite de 20 prompts | — | sintaxis 60 % estricta / 75 % recortada; en tema 60 % |
 | Inferencia con caché KV | interactiva | 90 tok/s (10 sin caché) |
+| Con `rep=1,1` (Fase 8): sintaxis estricta 256/512 tokens | — | 46 % / 63 % (antes 23 % / 33 %) |
 | Pérdida de validación | — | 3,44 (paso 500) → **1,477** (mejor, paso 15.000) |
 
 La columna «Real» se rellena a medida que las fases la vayan midiendo.

@@ -122,3 +122,29 @@ def test_summarize_includes_mean_repetition():
     s = summarize(rows)
     assert s["total"]["mean_repeat"] == pytest.approx(0.3)
     assert s["total"]["repetitive_share"] == 0.5          # fragmentos con >= 30 % de lineas repetidas
+
+
+# ---------------------------------------------------------------- dev / test separados (Fase 8)
+def test_dev_prompts_are_wellformed_and_disjoint_from_the_frozen_test_set():
+    from src.eval.prompts import DEV_PROMPTS, PROMPTS
+    assert len(DEV_PROMPTS) == 20
+    assert len({p["id"] for p in DEV_PROMPTS}) == 20
+    assert not {p["id"] for p in DEV_PROMPTS} & {p["id"] for p in PROMPTS}
+    assert not {p["prompt"] for p in DEV_PROMPTS} & {p["prompt"] for p in PROMPTS}
+    for p in DEV_PROMPTS:
+        assert p["lang"] in {"js", "jsx", "ts", "tsx", "py"}
+        assert p["prompt"].strip() and p["description"] and p["expect"]
+
+
+def test_dev_set_covers_every_language_class_of_the_test_set():
+    from src.eval.prompts import DEV_PROMPTS, PROMPTS
+    assert {p["lang"] for p in PROMPTS} <= {p["lang"] for p in DEV_PROMPTS}
+
+
+# ---------------------------------------------------------------- pyflakes: nombres sin definir
+def test_undefined_name_check():
+    from src.eval.syntax import has_undefined_names
+    assert not has_undefined_names("import os\n\ndef f(x):\n    return os.path.join(x, 'a')\n")
+    assert has_undefined_names("def f(x):\n    return y + x\n")
+    assert not has_undefined_names("from fastapi import FastAPI\napp = FastAPI()\n")       # los imports no se resuelven
+    assert not has_undefined_names("def f(:\n")                                              # sintaxis rota: no es asunto de esta metrica

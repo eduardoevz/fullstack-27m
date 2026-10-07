@@ -15,5 +15,7 @@ pyarrow>=17.0
 requests>=2.32
 datasets>=3.0
 
+pyflakes>=3.2      # Fase 8: nombres sin definir en el Python generado
+
 # Evaluacion (Fase 7): el validador de JS/TS usa el parser de TypeScript 5.x via node, instalado fuera
 # del repo (ver README, seccion Uso). Python se valida con la libreria estandar.

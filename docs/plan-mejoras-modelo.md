@@ -1,6 +1,6 @@
 # Plan de mejora del modelo: de v1 a v2
 
-> **Estado:** aprobado por el Director el 2026-10-06; ninguna fase de mejora ha empezado. Continúa la numeración del plan original (fases 0–7, ya cerradas). Cada fase requiere aprobación antes de empezar.
+> **Estado:** aprobado por el Director el 2026-10-06. **Fase 8 completada** (ver `avance/fase-08-diagnostico-decodificacion.md` y la sección «Actualización tras la Fase 8»); las fases 9–13 siguen pendientes y cada una requiere aprobación antes de empezar. Continúa la numeración del plan original (fases 0–7, ya cerradas).
 
 ## Contexto
 
@@ -25,6 +25,28 @@ decisión entre fases para no gastar días de cómputo sin evidencia.
 | No sirve para autocompletar *en medio* de un archivo | Solo se entrenó a continuar el texto (izquierda → derecha) | Falta de diseño |
 | Métrica poco discriminante | n = 20 prompts, 1 muestra por prompt, solo sintaxis; los resultados no se pueden comparar con rigor | Medido (Fase 7) |
 | ~24 tokens/parámetro | Los modelos pequeños mejoran bastante más allá del óptimo Chinchilla; v1 está lejos de saturar | Conocimiento general; se mide en la Fase 11 |
+
+## Actualización tras la Fase 8 (2026-10-06)
+
+Medido, no supuesto (cifras y reservas en la bitácora de la fase):
+
+- **El diagnóstico descartó en buena parte la hipótesis del cierre de archivos.** Al inicio de un archivo la pérdida es *menor* que en
+  una ventana al azar, y al final real el modelo asigna una P(`<|endoftext|>`) mediana de 0,38 (≈ 0 en mitad del archivo). Que terminaran
+  pocos fragmentos se debía sobre todo al presupuesto de 256 tokens: la mediana de un archivo real mide 520.
+- **La decodificación arregló los bucles:** con `repetition_penalty = 1,1` los fragmentos repetitivos bajan de 16 % a 1 % (256 tokens) y de
+  52 % a 7 % (512), la sintaxis estricta pasa de 23 % a 46 % y de 33 % a 63 %, y terminan 36 y 63 de 100 en vez de 14 y 26.
+- **No arregló la capacidad:** la sintaxis recortada no mejora, el pass@1 funcional sigue en 1,3 % y el Python sin nombres sin definir
+  empeora (100 % → 57 % y 90 % → 47 %, con muestras pequeñas).
+
+**Ajustes recomendados al resto del plan** (a decidir por el Director antes de cada fase):
+
+1. **Fase 9 (datos) sube de prioridad:** es la palanca que puede mover la capacidad, y la más probable causa del 1,3 % funcional.
+2. **Fase 10:** el muestreo alineado a documentos pierde justificación como arreglo del cierre de archivos; **FIM se mantiene** (autocompletar
+   en medio del código). Los tokens FIM siguen requiriendo ampliar el vocabulario.
+3. **Antes de la Fase 11:** añadir una métrica funcional más sensible (el pass@1 con 30 tareas está en el suelo y no distingue nada), p. ej.
+   acierto de la línea siguiente sobre código real de validación y pérdida por dominio.
+4. **Las metas de «terminados» y «repetición» de la tabla de éxito** (≥ 50 % y ≤ 5 %) ya están casi alcanzadas solo con decodificación a
+   256 tokens; las metas que quedan realmente por mover son sintaxis recortada, funcional y «en tema».
 
 ## Principios
 

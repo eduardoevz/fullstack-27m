@@ -1,0 +1,1247 @@
+{
+ "checkpoint": "C:/llm-fullstack-data/checkpoints/v1-best.pt",
+ "checkpoint_step": 15000,
+ "decoding": {
+  "temperature": 0.2,
+  "top_k": 40,
+  "top_p": 0.95,
+  "repetition_penalty": 1.1,
+  "repetition_window": 64,
+  "no_repeat_ngram_size": 0,
+  "min_p": 0.0
+ },
+ "settings": {
+  "samples": 5,
+  "max_new_tokens": 200,
+  "seed": 0
+ },
+ "summary": {
+  "n_tasks": 30,
+  "n_samples": 150,
+  "pass_at_1": {
+   "mean": 0.013333333333333334,
+   "lo": 0.0,
+   "hi": 0.04000000000000001
+  },
+  "tasks_solved_at_least_once": 1,
+  "js": {
+   "n_tasks": 10,
+   "pass_at_1": {
+    "mean": 0.04,
+    "lo": 0.0,
+    "hi": 0.12000000000000002
+   }
+  },
+  "py": {
+   "n_tasks": 20,
+   "pass_at_1": {
+    "mean": 0.0,
+    "lo": 0.0,
+    "hi": 0.0
+   }
+  }
+ },
+ "rejected_by_safety_filter": 3,
+ "rows": [
+  {
+   "id": "py-sum-list",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def sum(num):\n        \"\"\"Return the sum of all numbers in the list (0 for an empty list).\"\"\"\n\n        return num\n\n    def sum_like(self, num):\n        \"\"\"Return the sum of all numbers in the list (0 for an empty list).\"\"\"\n\n        return num\n\n    def sum_like(self, num):\n        \"\"\"Return the sum of all numbers in the list (0 for an empty list).\"\"\"\n\n        return num\n\n    def sum_like(self, num):\n        \"\"\"Return the sum of all numbers in the list (0 for an empty list).\"\"\"\n\n        return num\n\n    def sum_like(self, num):\n        \"\"\"Return the sum of all numbers in the list (0 for an empty list).\"\"\"\n\n        return num\n\n    def sum_"
+  },
+  {
+   "id": "py-is-even",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmpt69rq5am\\main.py\", line 10, in <module>\r\n    assert is_even(4) is True\r\n           ^^^^^^^^^^^^^^^^^^\r\nAssertionError\r\n",
+   "completion": "\n    def is_n(n):\n        return n in (n, 0)\n\n    return False\n"
+  },
+  {
+   "id": "py-reverse-string",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmpofavm1h0\\main.py\", line 11, in <module>\r\n    assert reverse_string('abc') == 'cba'\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^",
+   "completion": "\n    def reverse(self, *args, **kwargs):\n        return self.reverse(*args, **kwargs)\n\n    def reverse(self, *args, **kwargs):\n        return self.reverse(*args, **kwargs)\n"
+  },
+  {
+   "id": "py-count-vowels",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmptgpymfk3\\main.py\", line 12, in <module>\r\n    assert count_vowels('hello') == 2\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n",
+   "completion": "\n    def count_vowels(s):\n        \"\"\"Count the vowels (a, e, i, o, u, case-insensitive) in s.\"\"\"\n\n        return s.count()\n\n    return count_vowels\n"
+  },
+  {
+   "id": "py-factorial",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def n(n):\n        return n\n\n    def n_negative(n):\n        return n\n\n    def n_negative(n):\n        return n\n\n    def n_negative(n):\n        return n\n\n    def n_negative(n):\n        return n\n\n    def n_negative(n):\n        return n\n\n    def n_negative(n):\n        return n\n\n    def n_negative(n):\n        return n\n\n    def n_negative(n):\n        return n\n\n    def n_negative(n):\n        return n\n\n    def n_negative(n):\n        return n\n\n    def n_negative(n):\n        return n\n\n    def n_negative(n):\n        return n\n\n    def n_negative(n):\n        return n\n\n    def n_negative(n):\n        return n\n\n    def n_negative(n"
+  },
+  {
+   "id": "py-fibonacci",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "Local\\Temp\\tmpfel4ch1t\\main.py\", line 15, in <module>\r\n    assert fibonacci(0) == 0\r\n           ~~~~~~~~~^^^\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmpfel4ch1t\\main.py\", line 5, in fibonacci\r\n    ",
+   "completion": "\n    # The n-th Fibonacci number (fibonacci(0) == 0, fibonacci(1) == 1).\n    n = n.fibonacci(n)\n\n    # The n-th Fibonacci number (fibonacci(0) == 0, fibonacci(1) == 1).\"\"\"\n\n    # The n-th Fibonacci number (fibonacci(0) == 0, fibonacci(1) == 1).\"\"\"\n\n    # The n-th Fibonacci number (fibonacci(0) == 0, fibonacci(1) == 1).\"\"\"\n\n    # The n-th Fibonacci number (fibonacci(0) == 0, fibonacci(1) == 1)"
+  },
+  {
+   "id": "py-is-palindrome",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmp8cl0ixdr\\main.py\", line 37, in <module>\r\n    assert is_palindrome('A man, a plan, a canal: Panama') is True\r\n          ",
+   "completion": "\n    def is_valid(self):\n        return self.s is not None\n\n    def is_valid_char(self):\n        return self.s is not None\n\n    def is_valid_char(self):\n        return self.s is not None\n\n    def is_valid_char(self):\n        return self.s is not None\n\n    def is_valid_char(self):\n        return self.s is not None\n\n    def is_valid_char(self):\n        return self.s is not None\n\n    def is_valid_char(self):\n        return self.s is not None\n\n    def is_valid_char(self):\n        return self.s is not None\n\n    def is_valid_char(self):\n        return self.s is not None\n\n    def is_valid_char(self):\n        return self.s is not None\n\n    def is_valid_char(self):\n        return"
+  },
+  {
+   "id": "py-max-in-list",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def nums():\n        return nums\n\n    def get_num(self, num):\n        \"\"\"Return the number of items in the list.\"\"\"\n        return self.get_num(num)\n\n    def get_num(self, num):\n        \"\"\"Return the number of items in the list.\"\"\"\n        return self.get_num(num)\n\n    def get_num(self, num):\n        \"\"\"Return the number of items in the list.\"\"\"\n        return self.get_num(num)\n\n    def get_num(self, num):\n        \"\"\"Return the number of items in the list.\"\"\"\n        return self.get_num(num)\n\n    def get_num(self, num):\n        \"\"\"Return the number of items in the list.\"\"\"\n        return self.get_num(num)\n\n    def get_num(self, num"
+  },
+  {
+   "id": "py-unique",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def __init__(self, items):\n        self.items = items\n\n    def __len__(self):\n        return len(self.items)\n\n    def __getitem__(self, key):\n        if isinstance(key, basestring):\n            return self.items[key]\n        else:\n            return self.items\n\n    def __iter__(self):\n        return iter(self.items)\n\n    def __len__(self):\n        return len(self.items)\n\n    def __getitem__(self, key):\n        if isinstance(key, basestring):\n            return self.items[key]\n        else:\n            return self.items\n\n    def __len__(self):\n        return len(self.items)\n\n    def __len__(self):\n        return len(self.items)\n\n    def __getitem__(self, key):\n        if isinstance(key,"
+  },
+  {
+   "id": "py-chunk-list",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def chunks(lst, size):\n        return []\n\n    def chunks(lst, size):\n        return []\n\n    def chunks(lst, size):\n        return []\n\n    def chunks(lst, size):\n        return []\n\n    def chunks(lst, size):\n        return []\n\n    def chunks(lst, size):\n        return []\n\n    def chunks(lst, size):\n        return []\n\n    def chunks(lst, size):\n        return []\n\n    def chunks(lst, size):\n        return []\n\n    def chunks(lst, size):\n        return []\n\n    def chunks(lst, size):\n        return []\n\n    def chunks(lst, size):\n        return []\n\n    def chunks(lst, size):\n        return []\n\n    def chunks(lst, size):\n        return []\n\n    def chunks("
+  },
+  {
+   "id": "py-flatten",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmpygktht08\\main.py\", line 13, in <module>\r\n    assert flatten([[1, 2], [3], []]) == [1, 2, 3]\r\n           ^^^^^^^^^^^^^^^",
+   "completion": "\n    def flatten(nested):\n        for i, item in enumerate(nested):\n            if isinstance(item, list):\n                return nested[i]\n        return []\n\n    return flatten\n"
+  },
+  {
+   "id": "py-word-count",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def __init__(self, text):\n        \"\"\"Initialize the word count.\"\"\"\n        self.text = text\n\n    def __len__(self):\n        return len(self.text)\n\n    def __getitem__(self, key):\n        \"\"\"Return a dict mapping each lowercase word in text (split on whitespace) to how many times it appears.\"\"\"\n        return self.text[key]\n\n    def __len__(self):\n        \"\"\"Return the number of words in text.\"\"\"\n        return len(self.text)\n\n    def __getitem__(self, key):\n        \"\"\"Return a dict mapping each lowercase word in text (split on whitespace) to how many times it appears.\"\"\"\n        return self.text[key]\n\n    def __len__(self):\n        \"\"\"Return the number of words in"
+  },
+  {
+   "id": "py-capitalize-words",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmpqbcs0tmk\\main.py\", line 11, in <module>\r\n    assert capitalize_words('hello world') == 'Hello World'\r\n           ^^^^^^",
+   "completion": "\n    def __init__(self, word):\n        self.word = word\n\n    def __repr__(self):\n        return \"<Word('{}')>\".format(self.word)\n"
+  },
+  {
+   "id": "py-is-valid-email",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def is_valid_email(s):\n        \"\"\"Return True if s has exactly one @, a non-empty local part and a domain with a dot that is not at its end.\"\"\"\n\n        return s.startswith('@') and s[0] == '@'\n\n    def is_valid_email(s):\n        \"\"\"Return True if s has exactly one @, a non-empty local part and a domain with a dot that is not at its end.\"\"\"\n\n        return s.startswith('@') and s[0] == '@'\n\n    def is_valid_email(s):\n        \"\"\"Return True if s has exactly one @, a non-empty local part and a domain with a dot that is not at its end.\"\"\"\n\n        return s.startswith('@') and s[0] == '@'\n\n    def is_valid_email"
+  },
+  {
+   "id": "py-clamp",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmpamzvo8da\\main.py\", line 37, in <module>\r\n    assert clamp(5, 0, 10) == 5\r\n           ^^^^^^^^^^^^^^^^^^^^\r\nAssertionErr",
+   "completion": "\n    def __lt__(self, other):\n        if not isinstance(other, int):\n            return self.x == other\n\n        return self.y == other\n\n    def __getitem__(self, key):\n        if not isinstance(key, int):\n            return self.x == key\n\n        return self.y == key\n\n    def __len__(self):\n        return len(self.x)\n\n    def __len__(self):\n        return len(self.x)\n\n    def __len__(self):\n        return len(self.x)\n\n    def __len__(self):\n        return len(self.x)\n\n    def __len__(self):\n        return len(self.x)\n\n    def __len__(self):\n        return len(self.x)\n\n    def __len__(self):\n        return len(self.x)"
+  },
+  {
+   "id": "py-parse-query-string",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def parse_qs(query_string):\n        \"\"\"Parse a query string like \"a=1&b=2\" (an optional leading \"?\" is ignored) into a dict of strings.\"\"\"\n\n        # Parse a list of strings\n        qs = qs.split(',')\n        for item in qs:\n            if isinstance(item, six.string_types):\n                return item\n        raise ValueError('Invalid query string: %s' % str(query_string))\n\n    def parse_qs(query_string):\n        \"\"\"Parse a query string like \"a=1&b=2\" (an optional leading \"?\" is ignored) into a dict of strings.\"\"\"\n\n        # Parse a list of strings\n        qs = qs.split(',')\n        for item in qs:\n            if isinstance(item, six.string_types):\n                return item\n        raise ValueError('Invalid query string"
+  },
+  {
+   "id": "py-slugify",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "unsafe: from django.contrib.auth import",
+   "completion": "\n    from django.contrib.auth import get_user_model\n\n    # User is not a Django User object, so we don't have to use it here.\n    try:\n        return text.strip()\n    except AttributeError:\n        pass\n\n    # User is not a Django User object, so we don't have to use it here.\n    try:\n        return text.strip()\n    except AttributeError:\n        pass\n"
+  },
+  {
+   "id": "py-merge-dicts",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmpfctoqygr\\main.py\", line 40, in <module>\r\n    assert merge_dicts(a, b) == {'x': 2, 'y': 3}\r\n           ^^^^^^^^^^^^^^^^^",
+   "completion": "\n    def __init__(self, a, b):\n        self.a = a\n        self.b = b\n\n    def __len__(self):\n        return len(self.a)\n\n    def __getitem__(self, key):\n        if isinstance(key, basestring):\n            return self.a[key]\n        else:\n            return self.a\n\n    def __len__(self):\n        return len(self.b)\n\n    def __len__(self):\n        return len(self.b)\n\n    def __len__(self):\n        return len(self.b)\n\n    def __len__(self):\n        return len(self.b)\n\n    def __len__(self):\n        return len(self.b)\n\n    def __len__(self):\n        return len(self.b)\n\n    def __len__(self):\n        return len"
+  },
+  {
+   "id": "py-paginate",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def paginate(items, page, per_page):\n        \"\"\"Return the items of the given 2-indexed page (an empty list if the page is out of range).\"\"\"\n\n        if not isinstance(items, list):\n            return []\n\n        items = []\n\n        for item in items:\n            try:\n                item['page'] = page\n                items.append(item)\n            except ValueError:\n                pass\n\n        return items\n\n    def paginate_by(self, items, page, per_page):\n        \"\"\"Return the items of the given 2-indexed page (an empty list if the page is out of range).\"\"\"\n\n        if not isinstance(items, list):\n            return []\n\n        items = []\n\n        for item in items:\n            try:\n                item['page'] = page\n                items.append(item)\n            except ValueError:"
+  },
+  {
+   "id": "py-gcd",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmpveyyo2q9\\main.py\", line 12, in <module>\r\n    assert gcd(12, 18) == 6\r\n           ^^^^^^^^^^^^^^^^\r\nAssertionError\r\n",
+   "completion": "\n    def __init__(self, a, b):\n        self.a = a\n        self.b = b\n\n    def __repr__(self):\n        return \"<Gcd(a=%s, b=%s)>\" % (self.a, self.b)\n"
+  },
+  {
+   "id": "js-sum",
+   "lang": "js",
+   "sample": 0,
+   "passed": false,
+   "reason": "55:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r",
+   "completion": "\n    var len = arr.length;\n\n    for (var i = 0; i < len; i++) {\n        var value = arr[i];\n\n        if (value === undefined) {\n            return -1;\n        } else if (value === undefined) {\n            return -1;\n        } else {\n            return 1;\n        }\n    }\n\n    return 0;\n}"
+  },
+  {
+   "id": "js-capitalize",
+   "lang": "js",
+   "sample": 0,
+   "passed": true,
+   "reason": "",
+   "completion": "\n    // Return the string with its first letter in uppercase (empty string stays empty).\n    return str.charAt(0).toUpperCase() + str.slice(1);\n}"
+  },
+  {
+   "id": "js-is-even",
+   "lang": "js",
+   "sample": 0,
+   "passed": false,
+   "reason": "\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actu",
+   "completion": "\n    return n === 0;\n}"
+  },
+  {
+   "id": "js-uniq",
+   "lang": "js",
+   "sample": 0,
+   "passed": false,
+   "reason": "serEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: [ 1, 2, 1, 3, 2 ],\r",
+   "completion": "\n    var result = [];\n\n    for (var i = 0; i < arr.length; i++) {\n        result.push(arr[i]);\n    }\n\n    return result;\n}"
+  },
+  {
+   "id": "js-chunk",
+   "lang": "js",
+   "sample": 0,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n  // If the size is a number, then we'll get the first chunk of the array.\n  if (size === 0) {\n    return arr;\n  }\n\n  // If the size is a number, then we'll get the last chunk of the array.\n  if (size === 1) {\n    return arr;\n  }\n\n  // If the size is a number, then we'll get the first chunk of the array.\n  if (size === 2) {\n    return arr;\n  }\n\n  // If the size is a number, then we'll get the last chunk of the array.\n  if (size === 3) {\n    return arr;\n  }\n\n  // If the size is a number, then we'll get the first chunk of the array.\n  if (size === 4) {\n    return arr;\n  }\n\n  // If the size is a number, then we'll get"
+  },
+  {
+   "id": "js-range",
+   "lang": "js",
+   "sample": 0,
+   "passed": false,
+   "reason": " Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: 5,\r",
+   "completion": "\n    var start = start;\n\n    start = end || range(start, end);\n\n    return start;\n}"
+  },
+  {
+   "id": "js-parse-query",
+   "lang": "js",
+   "sample": 0,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n  var query = qs.parse('a=1&b=2&c=3');\n\n  if (query.length > 0) {\n    return query[0];\n  } else {\n    return '';\n  }\n}"
+  },
+  {
+   "id": "js-clamp",
+   "lang": "js",
+   "sample": 0,
+   "passed": false,
+   "reason": "55:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r",
+   "completion": "\n    var x = x * lo;\n    var hi = 0;\n\n    for (var i = 0; i < lo; ++i) {\n        x += Math.pow(x, lo - 1);\n        y += Math.pow(x, lo - 1);\n        hi = 0;\n    }\n\n    return x;\n}"
+  },
+  {
+   "id": "js-group-by",
+   "lang": "js",
+   "sample": 0,
+   "passed": false,
+   "reason": "n:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: [],\r\n  expected: {\r\n    a: [ { t: 'a', n: 1 }, { t: 'a', n: 3 } ],\r\n    b: [",
+   "completion": "\n    var arr = [];\n\n    for (var i = 0, len = arr.length; i < len; i++) {\n        arr[i] = arr[i];\n    }\n\n    return arr;\n}"
+  },
+  {
+   "id": "js-flatten",
+   "lang": "js",
+   "sample": 0,
+   "passed": false,
+   "reason": "tryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: [ [ 2, 3 ], [ 4 ] ],\r\n  ",
+   "completion": "\n    var result = [];\n\n    for (var i = 0, len = arr.length; i < len; i++) {\n        var item = arr[i];\n        if (item instanceof Array) {\n            result.push(item);\n        } else if (item instanceof Array) {\n            result.push(item);\n        }\n    }\n\n    return result;\n}"
+  },
+  {
+   "id": "py-sum-list",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def sum(num):\n        return num\n\n    def sum(num):\n        return sum(num)\n\n    def sum_like(num):\n        return num\n\n    def sum_like(num):\n        return num\n\n    def sum_like(num):\n        return num\n\n    def sum_like(num):\n        return num\n\n    def sum_like(num):\n        return num\n\n    def sum_like(num):\n        return num\n\n    def sum_like(num):\n        return num\n\n    def sum_like(num):\n        return num\n\n    def sum_like(num):\n        return num\n\n    def sum_like(num):\n        return num\n\n    def sum_like(num):\n        return num\n\n    def sum_like(num):\n        return num\n\n    def sum_like(num):\n        return num\n\n    def sum_like("
+  },
+  {
+   "id": "py-is-even",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def is_even(n):\n        return n in (1, 2)\n\n    def is_not_null(n):\n        return n in (1, 2)\n\n    def is_not_null(n):\n        return n in (1, 2)\n\n    def is_even(n):\n        return n in (1, 2)\n\n    def is_even(n):\n        return n in (1, 2)\n\n    def is_even(n):\n        return n in (1, 2)\n\n    def is_even(n):\n        return n in (1, 2)\n\n    def is_even(n):\n        return n in (1, 2)\n\n    def is_even(n):\n        return n in (1, 2)\n\n    def is_even(n):\n        return n in (1, 2)\n\n    def is_even(n)"
+  },
+  {
+   "id": "py-reverse-string",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmp0lw6kyu4\\main.py\", line 14, in <module>\r\n    assert reverse_string('abc') == 'cba'\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^",
+   "completion": "\n    def reverse(self, *args, **kwargs):\n        return self.reverse(*args, **kwargs)\n\n    def reverse(self, *args, **kwargs):\n        return self.reverse(*args, **kwargs)\n\n    def reverse(self, *args, **kwargs):\n        return self.reverse(*args, **kwargs)\n"
+  },
+  {
+   "id": "py-count-vowels",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_other_vowels(s):\n        return s.count()\n\n    def count_other_vowels(s):\n        return s.count()\n\n    def count_other_vowels(s):\n        return s.count()\n\n    def count_other_vowels(s):\n        return s.count()\n\n    def count_other_vowels(s):\n        return s.count()\n\n    def count_other_vowels(s):\n        return s.count()\n\n    def count_other_vowels(s):\n        return s.count()\n\n    def count_other_vowels(s):\n        return s.count()\n\n    def count_"
+  },
+  {
+   "id": "py-factorial",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmp2ys6wdq3\\main.py\", line 10, in <module>\r\n    assert factorial(0) == 1\r\n           ^^^^^^^^^^^^^^^^^\r\nAssertionError\r\n",
+   "completion": "\n    def n(n):\n        return n\n\n    return factorial\n"
+  },
+  {
+   "id": "py-fibonacci",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmply80nrti\\main.py\", line 18, in <module>\r\n    assert fibonacci(0) == 0\r\n           ^^^^^^^^^^^^^^^^^\r\nAssertionError\r\n",
+   "completion": "\n    # The n-th Fibonacci number (fibonacci(0) == 0, fibonacci(1) == 1).\n    n = n + 1\n\n    # The n-th Fibonacci number (fibonacci(0) == 0, fibonacci(1) == 1).\n    n = n + 1\n\n    # The n-th Fibonacci number (fibonacci(0) == 0, fibonacci(1) == 1).\n    n = n + 1\n\n    # The n-th Fibonacci number (fibonacci(0) == 0, fibonacci(1) == 1).\n    n = n + 1\n\n    # The n-th Fibonacci number (fibonacci(0) == 0, fibonacci(1) =="
+  },
+  {
+   "id": "py-is-palindrome",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def is_valid(self, value):\n        return value == ''\n\n    def is_valid_null(self, value):\n        return value == ''\n\n    def is_palindrome(s):\n        return s.is_palindrome(s)\n\n    def is_palindrome(s):\n        return s.is_palindrome(s)\n\n    def is_valid_null(self, value):\n        return value == ''\n\n    def is_valid_null(self, value):\n        return value == ''\n\n    def is_valid_null(self, value):\n        return value == ''\n\n    def is_palindrome(s):\n        return s.is_palindrome(s)\n\n    def is_valid_null(self, value):\n        return value == ''\n\n    def is_valid_null(self, value):\n        return value =="
+  },
+  {
+   "id": "py-max-in-list",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def __init__(self, nums=None):\n        \"\"\"Initialize the list.\"\"\"\n        self.nums = nums\n        self.list = []\n\n    def __len__(self):\n        return len(self.list)\n\n    def __getitem__(self, key):\n        \"\"\"Return the largest number in the list, or None if the list is empty.\"\"\"\n        if not isinstance(key, (list, tuple)):\n            raise TypeError('key must be a list of tuple')\n\n    def __len__(self):\n        return len(self.list)\n\n    def __getitem__(self, key):\n        \"\"\"Return the largest number in the list, or None if the list is empty.\"\"\"\n        if not isinstance(key, (list, tuple)):\n            raise TypeError('key must be"
+  },
+  {
+   "id": "py-unique",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def __init__(self, items):\n        self.items = items\n\n    def __len__(self):\n        return len(self.items)\n\n    def __len__(self):\n        return len(self.items)\n\n    def __len__(self):\n        return len(self.items)\n\n    def __len__(self):\n        return len(self.items)\n\n    def __len__(self):\n        return len(self.items)\n\n    def __len__(self):\n        return len(self.items)\n\n    def __len__(self):\n        return len(self.items)\n\n    def __len__(self):\n        return len(self.items)\n\n    def __len__(self):\n        return len(self.items)\n\n    def __len__(self):\n        return len(self.items)\n\n    def __len"
+  },
+  {
+   "id": "py-chunk-list",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    # Iterate over each chunk\n    for chunk in lst:\n        if size[chunk] == size[chunk]:\n            return chunk\n\n    # Iterate over each chunk of the given size (the last one may be shorter).\n    for chunk in lst:\n        if size[chunk] == size[chunk]:\n            return chunk\n\n    # Iterate over each chunk of the given size (the last one may be shorter).\n    for chunk in lst:\n        if size[chunk] == size[chunk]:\n            return chunk\n\n    # Iterate over each chunk of the given size (the last one may be shorter).\n    for chunk in lst:\n        if size[chunk] == size[chunk]:\n            return chunk\n\n    # Iterate over each chunk of the given size (the last one may be shorter).\n    for chunk in lst:\n        if size[chunk] == size[chunk"
+  },
+  {
+   "id": "py-flatten",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmpualfirx6\\main.py\", line 12, in <module>\r\n    assert flatten([[1, 2], [3], []]) == [1, 2, 3]\r\n           ^^^^^^^^^^^^^^^",
+   "completion": "\n    def flatten(nested):\n        for i, item in enumerate(nested):\n            if isinstance(item, list):\n                return nested[i]\n\n    return flatten\n"
+  },
+  {
+   "id": "py-word-count",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def __init__(self, text):\n        self.text = text\n\n    def __len__(self):\n        return len(self.text)\n\n    def __getitem__(self, key):\n        \"\"\"Return a dict mapping each lowercase word in text (split on whitespace) to how many times it appears.\"\"\"\n        return self.text[key]\n\n    def __len__(self):\n        return len(self.text)\n\n    def __getitem__(self, key):\n        \"\"\"Return a dict mapping each lowercase word in text (split on whitespace) to how many times it appears.\"\"\"\n        return self.text[key]\n\n    def __len__(self):\n        return len(self.text)\n\n    def __len__(self):\n        return len(self.text)\n\n    def __len__(self):\n        "
+  },
+  {
+   "id": "py-capitalize-words",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def __init__(self, word):\n        self.word = word\n\n    def __eq__(self, other):\n        return self == other\n\n    def __ne__(self, other):\n        return self == other\n\n    def __hash__(self):\n        return hash(self.word)\n\n    def __getitem__(self, key):\n        return self[key]\n\n    def __len__(self):\n        return len(self)\n\n    def __delitem__(self, key):\n        return self[key]\n\n    def __le__(self, other):\n        return self[key]\n\n    def __getitem__(self, key):\n        return self[key]\n\n    def __len__(self):\n        return len(self)\n\n    def __delitem__(self, key):\n        return self[key]\n\n    def __le__("
+  },
+  {
+   "id": "py-is-valid-email",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def is_valid_email(s):\n        \"\"\"Return True if s has exactly one @, a non-empty local part and a domain with a dot that is not at its end.\"\"\"\n\n        return s.startswith('@') and s.endswith('@') and s.endswith('@') and s.endswith('@') and s.endswith('@') and s.endswith('@') and s.endswith('@') and s.endswith('@') and s.endswith('@') and s.endswith('@') and s.endswith('@') and s.endswith('@') and s.endswith('@') and s.endswith('@') and s.endswith('@') and s.endswith('@') and s.endswith('@') and"
+  },
+  {
+   "id": "py-clamp",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def __len__(self):\n        return len(self.x)\n\n    def __len__(self):\n        return len(self.x)\n\n    def __len__(self):\n        return len(self.x)\n\n    def __len__(self):\n        return len(self.x)\n\n    def __len__(self):\n        return len(self.x)\n\n    def __len__(self):\n        return len(self.x)\n\n    def __len__(self):\n        return len(self.x)\n\n    def __len__(self):\n        return len(self.x)\n\n    def __len__(self):\n        return len(self.x)\n\n    def __len__(self):\n        return len(self.x)\n\n    def __len__(self):\n        return len(self.x)\n\n    def"
+  },
+  {
+   "id": "py-parse-query-string",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmplznhs4y_\\main.py\", line 30, in <module>\r\n    assert parse_query_string('a=1&b=2') == {'a': '1', 'b': '2'}\r\n           ^",
+   "completion": "\n    def parse(query_string):\n        \"\"\"Parse a query string like \"a=1&b=2\" (an optional leading \"?\" is ignored) into a dict of strings.\"\"\"\n\n        if isinstance(query_string, str):\n            return query_string\n        else:\n            return None\n\n    def parse_bool(value):\n        \"\"\"Parse a value like \"a=1&b=2\" (an optional leading \"?\" is ignored) into a dict of strings.\"\"\"\n\n        if isinstance(value, bool):\n            return value\n        else:\n            return None\n\n    def parse_bool_like(value):\n        \"\"\"Parse a value like \"a=1&b=2\" (an optional leading \"?\" is ignored) into a dict of strings.\"\"\"\n\n        if isinstance(value, bool):\n            return value\n        else:\n            return None\n\n    "
+  },
+  {
+   "id": "py-slugify",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "unsafe: from django.core.urlresolvers import",
+   "completion": "\n    from django.core.urlresolvers import reverse\n\n    def get_text(self):\n        \"\"\"Return the text of the text.\"\"\"\n        return self.text\n"
+  },
+  {
+   "id": "py-merge-dicts",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def __init__(self, a, b):\n        self.a = a\n        self.b = b\n\n    def __len__(self):\n        return len(self.a)\n\n    def __getitem__(self, key):\n        \"\"\"Return the item of a key in the list.\"\"\"\n        if isinstance(key, basestring):\n            return self.a[key]\n        else:\n            return None\n\n    def __len__(self):\n        \"\"\"Return the item of a key in the list.\"\"\"\n        return len(self.a)\n\n    def __getitem__(self, key):\n        \"\"\"Return the item of a key in the list.\"\"\"\n        if isinstance(key, basestring):\n            return self.a[key]\n        else:\n            return None\n\n    def __len__(self):\n        \"\"\"Return the item of"
+  },
+  {
+   "id": "py-paginate",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def items():\n        return [item for item in items if item.page == page]\n\n    def items_paginate(items, per_page):\n        \"\"\"Return the items of the given 2-indexed page (an empty list if the page is out of range).\"\"\"\n\n        def items_paginate(items, per_page):\n            \"\"\"Return the items of the given 3-indexed page (an empty list if the page is out of range).\"\"\"\n\n            def items_paginate(items, per_page):\n                \"\"\"Return the items of the given 3-indexed page (an empty list if the page is out of range).\"\"\"\n\n                def items_paginate(items, per_page):\n                    \"\"\"Return the items of the given 3-indexed page (an empty list if the page is out of range).\"\"\"\n\n                    def"
+  },
+  {
+   "id": "py-gcd",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def __init__(self, a, b):\n        self.a = a\n        self.b = b\n\n    def __repr__(self):\n        return \"<Gcd(a=%s, b=%s, b=%s)>\" % (\n            self.a.a, self.b.b, self.b.c)\n\n    def __len__(self):\n        return len(self.a)\n\n    def __getitem__(self, key):\n        if isinstance(key, basestring):\n            return key\n        else:\n            return None\n\n    def __iter__(self):\n        for i in range(0, self.a.b):\n            yield self.a[i]\n\n    def __repr__(self):\n        return \"<Gcd(a=%s, b=%s, b=%s)>\" % (\n            self.a.a, self"
+  },
+  {
+   "id": "js-sum",
+   "lang": "js",
+   "sample": 1,
+   "passed": false,
+   "reason": "55:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r",
+   "completion": "\n  var len = arr.length;\n\n  for (var i = 0; i < len; ++i) {\n    var value = arr[i];\n\n    if (value === undefined) {\n      return -1;\n    } else if (value === null) {\n      return -1;\n    } else if (value === null) {\n      return -1;\n    }\n  }\n\n  return 0;\n}"
+  },
+  {
+   "id": "js-capitalize",
+   "lang": "js",
+   "sample": 1,
+   "passed": false,
+   "reason": "    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actua",
+   "completion": "\n    var i = str.length;\n    while (i--) {\n        if (str[i] === '') {\n            return str[i];\n        } else {\n            return str[i];\n        }\n    }\n}"
+  },
+  {
+   "id": "js-is-even",
+   "lang": "js",
+   "sample": 1,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "//  return false\n// }\nfunction isEven(n) {\n//  return true\n// }\nfunction isEven2(n) {\n//  return false\n// }\nfunction isEven3(n) {\n//  return false\n// }\nfunction isEven4(n) {\n//  return false\n// }\nfunction isEven5(n) {\n//  return false\n// }\nfunction isEven6(n) {\n//  return true\n// }\nfunction isEven7(n) {\n//  return false\n// }\nfunction isEven8(n) {\n//  return false\n// }\nfunction isEven9(n) {\n//  return false\n// }\nfunction isEven10(n) {\n/"
+  },
+  {
+   "id": "js-uniq",
+   "lang": "js",
+   "sample": 1,
+   "passed": false,
+   "reason": "serEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: [ 1, 2, 1, 3, 2 ],\r",
+   "completion": "\n  var i = 0;\n  for (i = 0; i < arr.length; i++) {\n    if (arr[i] === undefined) {\n      arr[i] = [];\n    }\n  }\n\n  return arr;\n}"
+  },
+  {
+   "id": "js-chunk",
+   "lang": "js",
+   "sample": 1,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n  // If we have a size, we'll need to create the array.\n  if (size === 0) {\n    return [];\n  }\n\n  // If we have a size, we'll need to create the array.\n  if (size === 1) {\n    return [];\n  }\n\n  // If we have a size, we'll need to create the array.\n  if (size === 2) {\n    return [];\n  }\n\n  // If we have a size, we'll need to create the array.\n  if (size === 3) {\n    return [];\n  }\n\n  // If we have a size, we'll need to create the array.\n  if (size === 4) {\n    return [];\n  }\n\n  // If we have a size, we'll need to create the array.\n  if (size === 1) {\n    return []"
+  },
+  {
+   "id": "js-range",
+   "lang": "js",
+   "sample": 1,
+   "passed": false,
+   "reason": " Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: 0,\r",
+   "completion": "\n    var start = start + 1;\n    start = start + 2;\n\n    return start - start;\n}"
+  },
+  {
+   "id": "js-parse-query",
+   "lang": "js",
+   "sample": 1,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n  var query = qs.parse('a=1&b=2');\n\n  if (query.length > 0) {\n    return '';\n  } else if (query.length < 1) {\n    return '';\n  } else if (query.length > 2) {\n    return '';\n  } else if (query.length > 3) {\n    return '';\n  } else if (query.length > 4) {\n    return '';\n  } else if (query.length > 5) {\n    return '';\n  } else if (query.length > 6) {\n    return '';\n  } else if (query.length > 7) {\n    return '';\n  } else if (query.length > 8) {\n    return '';\n  } else if (query.length > 9) {\n    return '';\n  } else if (query.length > 10) {"
+  },
+  {
+   "id": "js-clamp",
+   "lang": "js",
+   "sample": 1,
+   "passed": false,
+   "reason": "55:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r",
+   "completion": "\n    var x = x * lo;\n    var hi = 0;\n\n    for (var i = 0; i < lo; ++i) {\n        x += x * lo;\n        y += y * lo;\n    }\n\n    return x;\n}"
+  },
+  {
+   "id": "js-group-by",
+   "lang": "js",
+   "sample": 1,
+   "passed": false,
+   "reason": "54:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: false,\r\n  expected: {\r\n    a: [ { t: 'a', n: 1 }, { t: 'a', n: 3 } ],\r\n    b: [",
+   "completion": "\n    var i = 0;\n\n    for (i = 0; i < arr.length; i++) {\n        if (arr[i].key === key) {\n            return true;\n        }\n    }\n\n    return false;\n}"
+  },
+  {
+   "id": "js-flatten",
+   "lang": "js",
+   "sample": 1,
+   "passed": false,
+   "reason": "ule.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: [],\r\n  ",
+   "completion": "\n  // If the array is a function, then flatten it.\n  if (arr.length === 0) {\n    return [];\n  }\n\n  // If the array is a function, then flatten it.\n  if (arr.length === 1) {\n    return arr.map(function (v) {\n      return v.toString();\n    });\n  }\n\n  // Otherwise, flatten all the elements.\n  return [];\n}"
+  },
+  {
+   "id": "py-sum-list",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def sum(nums):\n        return nums\n\n    def sum_like(nums):\n        return nums\n\n    def sum_like(nums):\n        return nums\n\n    def sum_like(nums):\n        return nums\n\n    def sum_like(nums):\n        return nums\n\n    def sum_like(nums):\n        return nums\n\n    def sum_like(nums):\n        return nums\n\n    def sum_like(nums):\n        return nums\n\n    def sum_like(nums):\n        return nums\n\n    def sum_like(nums):\n        return nums\n\n    def sum_like(nums):\n        return nums\n\n    def sum_like(nums):\n        return nums\n\n    def sum_like(nums):\n        return nums\n\n    def sum_like(num"
+  },
+  {
+   "id": "py-is-even",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def is_even(n):\n        return n in (None, None)\n\n    def is_even(n):\n        return n in (None, None)\n\n    def is_even(n):\n        return n in (None, None)\n\n    def is_even(n):\n        return n in (None, None)\n\n    def is_even(n):\n        return n in (None, None)\n\n    def is_even(n):\n        return n in (None, None)\n\n    def is_even(n):\n        return n in (None, None)\n\n    def is_even(n):\n        return n in (None, None)\n\n    def is_even(n):\n        return n in (None, None)\n\n    def is_even(n):\n        return n in (None, None)\n\n    def is_even(n):\n        "
+  },
+  {
+   "id": "py-reverse-string",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmp1kg67lfq\\main.py\", line 17, in <module>\r\n    assert reverse_string('abc') == 'cba'\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^",
+   "completion": "\n    def reverse(self, *args, **kwargs):\n        return self.reverse(*args, **kwargs)\n\n    def reverse(self, *args, **kwargs):\n        return self.reverse(*args, **kwargs)\n\n    def reverse(self, *args, **kwargs):\n        return self.reverse(*args, **kwargs)\n\n    def reverse(self, *args, **kwargs):\n        return self.reverse(*args, **kwargs)\n"
+  },
+  {
+   "id": "py-count-vowels",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmpb7_fqm_h\\main.py\", line 25, in <module>\r\n    assert count_vowels('hello') == 2\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n",
+   "completion": "\n    def count_vowels(s):\n        \"\"\"Count the vowels (a, e, i, o, u, case-insensitive) in s.\"\"\"\n\n        return s.count()\n\n    def count_vowels(s):\n        \"\"\"Count the vowels (a, e, i, o, u, case-insensitive) in s.\"\"\"\n\n        return s.count()\n\n    def count_vowels(s):\n        \"\"\"Count the vowels (a, e, i, o, u, case-insensitive) in s.\"\"\"\n\n        return s.count()\n\n    def count_vowels(s):\n        \"\"\"Count the vowels (a, e, i, o, u, case-insensitive) in s.\"\"\"\n\n        return s.count()\n"
+  },
+  {
+   "id": "py-factorial",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmp5xytsc6x\\main.py\", line 10, in <module>\r\n    assert factorial(0) == 1\r\n           ^^^^^^^^^^^^^^^^^\r\nAssertionError\r\n",
+   "completion": "\n    def n(n):\n        return n\n\n    return factorial\n"
+  },
+  {
+   "id": "py-fibonacci",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmpj3jicf_e\\main.py\", line 18, in <module>\r\n    assert fibonacci(0) == 0\r\n           ^^^^^^^^^^^^^^^^^\r\nAssertionError\r\n",
+   "completion": "\n    # The n-th Fibonacci number (fibonacci(1) == 0, fibonacci(2) == 1).\n    n = n + 1\n\n    # The n-th Fibonacci number (fibonacci(2) == 0, fibonacci(3) == 1).\n    n = n + 2\n\n    # The n-th Fibonacci number (fibonacci(1) == 0, fibonacci(2) == 1).\n    n = n + 3\n\n    # The n-th Fibonacci number (fibonacci(2) == 0, fibonacci(3) == 1).\n    n = n + 2\n\n    # The n-th Fibonacci number (fibonacci(1) == 0, fibonacci(2) =="
+  },
+  {
+   "id": "py-is-palindrome",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def is_alphanumeric(s):\n        return s.startswith('\\n')\n\n    def is_palindrome(s):\n        return s.startswith('\\n')\n\n    def is_palindrome(s):\n        return s.startswith('\\n')\n\n    def is_alphanumeric(s):\n        return s.startswith('\\n')\n\n    def is_alphanumeric(s):\n        return s.startswith('\\n')\n\n    def is_palindrome(s):\n        return s.startswith('\\n')\n\n    def is_palindrome(s):\n        return s.startswith('\\n')\n\n    def is_alphanumeric(s):\n        return s.startswith('\\n')\n\n    def is_palindrome(s):\n        return s.startswith('\\n"
+  },
+  {
+   "id": "py-max-in-list",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def nums():\n        return nums\n\n    def get_nums(self, nums):\n        \"\"\"Return the largest number in the list, or None if the list is empty.\"\"\"\n        return self.nums\n\n    def get_nums(self, nums):\n        \"\"\"Return the largest number in the list, or None if the list is empty.\"\"\"\n        return self.nums\n\n    def get_nums(self, nums):\n        \"\"\"Return the largest number in the list, or None if the list is empty.\"\"\"\n        return self.nums\n\n    def get_nums(self, nums):\n        \"\"\"Return the largest number in the list, or None if the list is empty.\"\"\"\n        return self.nums\n\n    def get_nums(self, nums):"
+  },
+  {
+   "id": "py-unique",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def __init__(self, items):\n        self.items = items\n\n    def __len__(self):\n        return len(self.items)\n\n    def __getitem__(self, key):\n        \"\"\"Return the list of duplicates removed, keeping the first occurrence order.\"\"\"\n        return self.items[key]\n\n    def __len__(self):\n        return len(self.items)\n\n    def __len__(self):\n        return len(self.items)\n\n    def __getitem__(self, key):\n        \"\"\"Return the list of duplicates removed, keeping the first occurrence order.\"\"\"\n        return self.items[key]\n\n    def __len__(self):\n        return len(self.items)\n\n    def __len__(self):\n        return len(self.items)\n\n    def __len__("
+  },
+  {
+   "id": "py-chunk-list",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmp67u1buax\\main.py\", line 15, in <module>\r\n    assert chunk_list([1, 2, 3, 4, 5], 2) == [[1, 2], [3, 4], [5]]\r\n          ",
+   "completion": "\n    # We'll just keep the first chunk of the lst, so we can use it.\n    # We'll just keep the last chunk of the lst, so we can use it.\n    # We'll just keep the last chunk of the lst, so we can use it.\n    # We'll just keep the last chunk of the lst, so we can use it.\n    # We'll just keep the last chunk of the lst, so we can use it.\n    # We'll just keep the last chunk of the lst, so we can use it.\n    # We'll just keep the last chunk of the lst, so we can use it.\n    # We'll just keep the last chunk of the lst, so we can use it.\n    # We'll just keep the last chunk of the lst, so we can use it.\n    # We'll just keep the last chunk of"
+  },
+  {
+   "id": "py-flatten",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmp4c3msk2g\\main.py\", line 13, in <module>\r\n    assert flatten([[1, 2], [3], []]) == [1, 2, 3]\r\n           ^^^^^^^^^^^^^^^",
+   "completion": "\n    def flatten(nested):\n        for i, l in enumerate(nested):\n            if i == l:\n                return nested[i]\n        return None\n\n    return flatten\n"
+  },
+  {
+   "id": "py-word-count",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmp3krmkmmb\\main.py\", line 27, in <module>\r\n    assert word_count('a b a') == {'a': 2, 'b': 1}\r\n           ^^^^^^^^^^^^^^^",
+   "completion": "\n    def __init__(self, text):\n        \"\"\"Initialize the word count.\"\"\"\n        self.text = text\n\n    def __len__(self):\n        return len(self.text)\n\n    def __getitem__(self, key):\n        \"\"\"Return a list of word names.\"\"\"\n        return self.text[key]\n\n    def __iter__(self):\n        \"\"\"Return a list of words.\"\"\"\n        return [word for word in self.text if word.startswith(' ') and word not in self.text]\n\n    def __len__(self):\n        \"\"\"Return a list of word names.\"\"\"\n        return [word for word in self.text if word not in self.text]\n\n    def __getitem__(self, key):\n        \"\"\"Return a list of word names.\"\"\"\n        return"
+  },
+  {
+   "id": "py-capitalize-words",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmpl2is2i3t\\main.py\", line 47, in <module>\r\n    assert capitalize_words('hello world') == 'Hello World'\r\n           ^^^^^^",
+   "completion": "\n    def __init__(self, word):\n        self.word = word\n\n    @property\n    def words(self):\n        return self.words\n\n    @words.setter\n    def words(self, value):\n        self.words = value\n\n    @property\n    def words(self):\n        return self.words\n\n    @words.setter\n    def words(self, value):\n        self.words = value\n\n    @property\n    def words(self):\n        return self.words\n\n    @words.setter\n    def words(self, value):\n        self.words = value\n\n    @property\n    def words(self):\n        return self.words\n\n    @words.setter\n    def words(self, value):\n        self.words = value\n\n    @property\n    def words(self):\n        return self.words\n\n    @words.setter\n    def words(self, value):\n        self.words = value"
+  },
+  {
+   "id": "py-is-valid-email",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def is_valid_email(s):\n        \"\"\"Return True if s has exactly one @, a non-empty local part and a domain with a dot that is not at its end.\"\"\"\n\n        return s.startswith('@') and s[0] == '@'\n\n    def is_valid_email(s):\n        \"\"\"Return True if s has exactly one @, a non-empty local part and a domain with a dot that is not at its end.\"\"\"\n\n        return s.startswith('@') and s[0] == '@'\n\n    def is_valid_email(s):\n        \"\"\"Return True if s has exactly one @, a non-empty local part and a domain with a dot that is not at its end.\"\"\"\n\n        return s.startswith('@') and s[0] == '@'\n\n    def is_valid_email"
+  },
+  {
+   "id": "py-clamp",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def min(x, lo):\n        return x * lo\n\n    def max(x, lo):\n        return x * lo\n\n    def min(x, lo):\n        return x * lo\n\n    def max(x, lo):\n        return x * lo\n\n    def min(x, lo):\n        return x * lo\n\n    def min_lo(x, lo):\n        return x * lo\n\n    def min_lo(x, lo):\n        return x * lo\n\n    def min_lo(x, lo):\n        return x * lo\n\n    def max_lo(x, lo):\n        return x * lo\n\n    def min_lo(x, lo):\n        return x * lo\n\n    def min_lo(x, lo):\n        return x * lo\n\n    def min_lo(x, lo):\n        return x * lo\n\n    def max_lo("
+  },
+  {
+   "id": "py-parse-query-string",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def parse(query_string):\n        \"\"\"Parse a query string like \"a=1&b=2\" (an optional leading \"?\" is ignored) into a dict of strings.\"\"\"\n\n        if isinstance(query_string, str):\n            return [query_string]\n        else:\n            return [query_string]\n\n    def parse_bool(query_string):\n        \"\"\"Parse a query string like \"a=1&b=2\" (an optional leading \"?\" is ignored) into a dict of strings.\"\"\"\n\n        if isinstance(query_string, str):\n            return [query_string]\n        else:\n            return [query_string]\n\n    def parse_bool(query_string):\n        \"\"\"Parse a query string like \"a=1&b=2\" (an optional leading \"?\" is ignored) into a dict of strings.\"\"\"\n\n        if isinstance(query_string"
+  },
+  {
+   "id": "py-slugify",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmp0coeo6cw\\main.py\", line 17, in <module>\r\n    assert slugify('Hello, World!') == 'hello-world'\r\n           ^^^^^^^^^^^^^",
+   "completion": "\n    # We're not in a string, so we can just use the same name as the first letter.\n    # This is a special case for the first letter and the second letter.\n    # We'll have to use the same name as the first letter.\n    # This is a special case for the first letter and the second letter.\n    # We're not in a string, so we can just use the same name as the first letter.\n    # This is a special case for the first letter and the second letter.\n    # We'll have to use the same name as the first letter.\n    # We'll have to use the same name as the first letter.\n    # We're not in a string, so we can just use the same name as the first letter.\n    # We'll have to use the same name as the first letter.\n    # We'll have to use the same name as the first letter.\n    # We"
+  },
+  {
+   "id": "py-merge-dicts",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def __init__(self, a, b):\n        self.a = a\n        self.b = b\n\n    def __len__(self):\n        return len(self.a)\n\n    def __len__(self):\n        return len(self.b)\n\n    def __len__(self):\n        return len(self.b)\n\n    def __len__(self):\n        return len(self.b)\n\n    def __len__(self):\n        return len(self.b)\n\n    def __len__(self):\n        return len(self.b)\n\n    def __len__(self):\n        return len(self.b)\n\n    def __len__(self):\n        return len(self.b)\n\n    def __len__(self):\n        return len(self.b)\n\n    def __len__(self):\n        return len(self"
+  },
+  {
+   "id": "py-paginate",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def items(page, per_page):\n        return items[page - 1]\n\n    def total(items, page, per_page):\n        return items[page - 1]\n\n    def total_pages(items, page, per_page):\n        return items[page - 1]\n\n    def total_pages(items, page, per_page):\n        return items[page - 1]\n\n    def total_pages(items, page, per_page):\n        return items[page - 1]\n\n    def total_pages(items, page, per_page):\n        return items[page - 1]\n\n    def total_pages(items, page, per_page):\n        return items[page - 1]\n\n    def total_pages(items, page, per_page):\n        return items[page - 1]\n\n    def total_pages(items, page, per_page):\n        return items[page - 1]\n\n    def total_pages(items"
+  },
+  {
+   "id": "py-gcd",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmp3hsimp1q\\main.py\", line 12, in <module>\r\n    assert gcd(12, 18) == 6\r\n           ^^^^^^^^^^^^^^^^\r\nAssertionError\r\n",
+   "completion": "\n    def __init__(self, a, b):\n        self.a = a\n        self.b = b\n\n    def __repr__(self):\n        return \"<Gcd {}>\".format(self.a)\n"
+  },
+  {
+   "id": "js-sum",
+   "lang": "js",
+   "sample": 2,
+   "passed": false,
+   "reason": "5:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n",
+   "completion": "\n    var i = 0;\n\n    for (i = 0; i < arr.length; i++) {\n        var item = arr[i];\n        if (item === -1) {\n            return 0;\n        } else if (item === -2) {\n            return 1;\n        } else {\n            return -1;\n        }\n    }\n\n    return 0;\n}"
+  },
+  {
+   "id": "js-capitalize",
+   "lang": "js",
+   "sample": 2,
+   "passed": false,
+   "reason": "at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: '",
+   "completion": "\n    var string = str.replace(/[\\r\\n]/g, '');\n\n    return string.charAt(0) === '-' ? string.substr(1) : string;\n}"
+  },
+  {
+   "id": "js-is-even",
+   "lang": "js",
+   "sample": 2,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "//  return false if n is not even.\nfunction isEven(n) {\n  return n > 0;\n}"
+  },
+  {
+   "id": "js-uniq",
+   "lang": "js",
+   "sample": 2,
+   "passed": false,
+   "reason": "serEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: [ 1, 2, 1, 3, 2 ],\r",
+   "completion": "\n    var result = [];\n\n    for (var i = 0, len = arr.length; i < len; i++) {\n        result.push(arr[i]);\n    }\n\n    return result;\n}"
+  },
+  {
+   "id": "js-chunk",
+   "lang": "js",
+   "sample": 2,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n  // If the size is a string, then we'll use it.\n  if (size === undefined) {\n    return arr;\n  }\n\n  // If the size is a string, then we'll use it.\n  if (size === undefined) {\n    return arr;\n  }\n\n  // If the size is a string, then we'll use it.\n  if (size === undefined) {\n    return arr;\n  }\n\n  // If the size is a string, then we'll use it.\n  if (size === undefined) {\n    return arr;\n  }\n\n  // If the size is a string, then we'll use it.\n  if (size === undefined) {\n    return arr;\n  }\n\n  // If the size is a string, then we'll use it.\n  if (size === undefined) {\n    return arr;\n  }\n\n  // If the size is a"
+  },
+  {
+   "id": "js-range",
+   "lang": "js",
+   "sample": 2,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n  var start = start || 0;\n  var end = end || 0;\n\n  return new Promise(function (resolve, reject) {\n    start = start || 0;\n    end = end || 0;\n\n    start = start + 1;\n    end = end - 2;\n\n    start = start + 3;\n    end = end + 4;\n\n    var start = start + 6;\n    var end = end + 7;\n\n    return new Promise(function (resolve, reject) {\n      start = start + 8;\n      end = end + 9;\n\n      start = start + 10;\n      end = end - 11;\n\n      start = start + 12;\n      end = end + 13;\n\n      return new Promise(function (resolve, reject) {\n        start = start + 14;\n        end = end + 15;\n\n        start = start + 14;\n        end = end + 16;\n\n        return new Promise(function (resolve, reject"
+  },
+  {
+   "id": "js-parse-query",
+   "lang": "js",
+   "sample": 2,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n    var query = qs.parse('a=1&b=2');\n\n    if (query.length > 0) {\n        return qs.parse('a=1&b=2');\n    }\n\n    return qs.parse('a=1&b=2');\n}"
+  },
+  {
+   "id": "js-clamp",
+   "lang": "js",
+   "sample": 2,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n    var x = x * lo;\n    x += lo * lo;\n\n    var x = x * lo;\n    x += lo * lo;\n\n    var x = x * lo;\n    x += lo * lo;\n\n    var x = x * lo;\n    x += lo * lo;\n\n    var x = x * lo;\n    x += lo * lo;\n\n    var x = x * lo;\n    x += lo * lo;\n\n    var x = x * lo;\n    x += lo * lo;\n\n    var x = x * lo;\n    x += lo * lo;\n\n    var x = x * lo;\n    x += lo * lo;\n\n    var x = x * lo;\n    x += lo * lo;\n\n    var x = x * lo;\n    x += lo * lo;\n\n    var x = x * lo;\n    x += lo * lo;\n\n    var x = x * lo;"
+  },
+  {
+   "id": "js-group-by",
+   "lang": "js",
+   "sample": 2,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n  // If the key is a function, return it.\n  if (!(key in arr)) {\n    return [];\n  }\n\n  // If the key is a function, return it.\n  if (!(key in arr)) {\n    return [];\n  }\n\n  // If the key is a function, return it.\n  if (!(key in arr)) {\n    return [];\n  }\n\n  // If the key is a function, return it.\n  if (!(key in arr)) {\n    return [];\n  }\n\n  // If the key is a function, return it.\n  if (!(key in arr)) {\n    return [];\n  }\n\n  // If the key is a function, return it.\n  if (!(key in arr)) {\n    return [];\n  }\n\n  // If the key is a"
+  },
+  {
+   "id": "js-flatten",
+   "lang": "js",
+   "sample": 2,
+   "passed": false,
+   "reason": "Point [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: [ 1, [ 2, 3 ], [ 4 ] ],\r\n  ",
+   "completion": "\n    var i = 0;\n\n    for (i = 0; i < arr.length; i++) {\n        arr[i] = arr[i];\n    }\n\n    return arr;\n}"
+  },
+  {
+   "id": "py-sum-list",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def sum(nums):\n        return nums\n\n    def sum_list(nums):\n        return nums\n\n    def sum_list(nums):\n        return nums\n\n    def sum_list(nums):\n        return nums\n\n    def sum_list(nums):\n        return nums\n\n    def sum_list(nums):\n        return nums\n\n    def sum_list(nums):\n        return nums\n\n    def sum_list(nums):\n        return nums\n\n    def sum_list(nums):\n        return nums\n\n    def sum_list(nums):\n        return nums\n\n    def sum_list(nums):\n        return nums\n\n    def sum_list(nums):\n        return nums\n\n    def sum_list(nums):\n        return nums\n\n    def sum_list(nums):\n        return nums\n\n    def sum_list("
+  },
+  {
+   "id": "py-is-even",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def is_n(n):\n        return n == 0\n\n    def is_even(n):\n        return n == 1\n\n    def is_n_like(n):\n        return n == 2\n\n    def is_n_like(n):\n        return n == 3\n\n    def is_n_like(n):\n        return n == 4\n\n    def is_n_like(n):\n        return n == 5\n\n    def is_n_like(n):\n        return n == 6\n\n    def is_n_like(n):\n        return n == 7\n\n    def is_n_like(n):\n        return n == 7\n\n    def is_n_like(n):\n        return n == 3\n\n    def is_n_like(n):\n        return n == 4\n\n    def is_n_like(n):\n        return n == 5\n\n    def is_n_like(n):\n        "
+  },
+  {
+   "id": "py-reverse-string",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmpbb71zytd\\main.py\", line 11, in <module>\r\n    assert reverse_string('abc') == 'cba'\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^",
+   "completion": "\n    def reverse(s):\n        return s\n\n    def reverse(s):\n        return s\n"
+  },
+  {
+   "id": "py-count-vowels",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def"
+  },
+  {
+   "id": "py-factorial",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmpx6p46uuo\\main.py\", line 10, in <module>\r\n    assert factorial(0) == 1\r\n           ^^^^^^^^^^^^^^^^^\r\nAssertionError\r\n",
+   "completion": "\n    def n(n):\n        return n\n\n    return factorial\n"
+  },
+  {
+   "id": "py-fibonacci",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmpvsb2upmg\\main.py\", line 24, in <module>\r\n    assert fibonacci(0) == 0\r\n           ^^^^^^^^^^^^^^^^^\r\nAssertionError\r\n",
+   "completion": "\n    def __init__(self, n):\n        self.n = n\n\n    def fibonacci(self, n):\n        \"\"\"Return the n-th Fibonacci number (fibonacci(0) == 0, fibonacci(1) == 1).\"\"\"\n\n        if self.n < 0:\n            raise ValueError(\"N is not a positive integer.\")\n        self.n = n\n\n    def fibonacci(self, n):\n        \"\"\"Return the n-th Fibonacci number (fibonacci(0) == 0, fibonacci(1) == 1).\"\"\"\n\n        if self.n < 0:\n            raise ValueError(\"N is not a positive integer.\")\n        self.n = n\n\n    def fibonacci(self, n):\n        \"\""
+  },
+  {
+   "id": "py-is-palindrome",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmpv5cjx15z\\main.py\", line 25, in <module>\r\n    assert is_palindrome('A man, a plan, a canal: Panama') is True\r\n          ",
+   "completion": "\n    def is_alphanumeric(s):\n        return s.startswith('-') and s.endswith('-')\n\n    def is_palindrome(s):\n        return s.startswith('-') and s.endswith('-')\n\n    def is_palindrome(s):\n        return s.startswith('-') and s.endswith('-')\n\n    def is_palindrome(s):\n        return s.startswith('-') and s.endswith('-')\n\n    def is_alphanumeric(s):\n        return s.startswith('-') and s.endswith('-')\n\n    def is_palindrome(s):\n        return s.startswith('-') and s.endswith('-')\n\n    def is_palindrome(s):\n        return s.startswith"
+  },
+  {
+   "id": "py-max-in-list",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def max_in_list(nums):\n        \"\"\"Return the largest number in the list, or None if the list is empty.\"\"\"\n\n        return nums\n\n    def get_list(self, nums):\n        \"\"\"Return the list of all items in the list, or None if the list is empty.\"\"\"\n\n        return self.get_list(nums)\n\n    def get_in_list(self, nums):\n        \"\"\"Return the largest number in the list, or None if the list is empty.\"\"\"\n\n        return self.get_list(nums)\n\n    def get_list(self, nums):\n        \"\"\"Return the list of all items in the list, or None if the list is empty.\"\"\"\n\n        return self.get_list(nums)\n\n    def get_in_list(self, nums):\n        \""
+  },
+  {
+   "id": "py-unique",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def __init__(self, items):\n        self.items = items\n\n    def __iter__(self):\n        return iter(self.items)\n\n    def __len__(self):\n        return len(self.items)\n\n    def __getitem__(self, key):\n        if isinstance(key, basestring):\n            return self.items[key]\n        else:\n            return None\n\n    def __iter__(self):\n        return iter(self.items)\n\n    def __len__(self):\n        return len(self.items)\n\n    def __getitem__(self, key):\n        if isinstance(key, basestring):\n            return self.items[key]\n        else:\n            return None\n\n    def __len__(self):\n        return len(self.items)\n\n    def __len__(self):\n        return len(self.items)\n\n    def __ge"
+  },
+  {
+   "id": "py-chunk-list",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def _split(self, size):\n        return len(self.itervalues(size))\n\n    def _split_bytes_per(self, size):\n        \"\"\"Split the given size (the last one may be shorter).\"\"\"\n\n        if size == 0:\n            return 0\n        else:\n            return self._split(size)[0]\n\n    def _split_bytes_per(self, size):\n        \"\"\"Split the given size (the last one may be shorter).\"\"\"\n\n        if size == 1:\n            return 0\n        else:\n            return self._split(size)[0]\n\n    def _split_bytes_per_bytes_per_bytes_per_bytes_per_bytes_per_bytes_per_bytes_per_bytes_per_bytes_per_bytes_per_bytes_per_bytes_per_bytes_"
+  },
+  {
+   "id": "py-flatten",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmpe8a_dy29\\main.py\", line 12, in <module>\r\n    assert flatten([[1, 2], [3], []]) == [1, 2, 3]\r\n           ^^^^^^^^^^^^^^^",
+   "completion": "\n    def flatten(nested):\n        for i, l in enumerate(nested):\n            if not isinstance(l, list):\n                return nested[i]\n\n        return [x for x in l if x is None or len(x) > 0]\n"
+  },
+  {
+   "id": "py-word-count",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def __init__(self, text):\n        self.text = text\n\n    def __len__(self):\n        return len(self.text)\n\n    def __getitem__(self, key):\n        \"\"\"Return a dict mapping each lowercase word in text (split on whitespace) to how many times it appears.\"\"\"\n        return self.text[key]\n\n    def __len__(self):\n        return len(self.text)\n\n    def __getitem__(self, key):\n        \"\"\"Return a dict mapping each lowercase word in text (split on whitespace) to how many times it appears.\"\"\"\n        return self.text[key]\n\n    def __len__(self):\n        return len(self.text)\n\n    def __len__(self):\n        return len(self.text)\n\n    def __getitem__(self, key"
+  },
+  {
+   "id": "py-capitalize-words",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def __init__(self, word):\n        self.word = word\n\n    def __len__(self):\n        return len(self.word)\n\n    def __getitem__(self, key):\n        \"\"\"Get the number of words in the given key.\"\"\"\n        return self.word[key]\n\n    def __len__(self):\n        return len(self.word)\n\n    def __len__(self):\n        return len(self.word)\n\n    def __len__(self):\n        return len(self.word)\n\n    def __len__(self):\n        return len(self.word)\n\n    def __len__(self):\n        return len(self.word)\n\n    def __len__(self):\n        return len(self.word)\n\n    def __len__(self):\n        return len(self.word)\n\n    def"
+  },
+  {
+   "id": "py-is-valid-email",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmpsmj7rh7m\\main.py\", line 39, in <module>\r\n    assert is_valid_email('a@b.com') is True\r\n           ^^^^^^^^^^^^^^^^^^^^^",
+   "completion": "\n    def is_valid_email(s):\n        return s.startswith('@') and s.endswith('@')\n\n    def is_invalid_email(s):\n        return s == '@'\n\n    def is_valid_domain(s):\n        return s == '@'\n\n    def is_valid_domain(s):\n        return s == '@'\n\n    def is_valid_domain(s):\n        return s == '@'\n\n    def is_valid_domain(s):\n        return s == '@'\n\n    def is_invalid_email(s):\n        return s == '@'\n\n    def is_valid_domain(s):\n        return s == '@'\n\n    def is_valid_domain(s):\n        return s == '@'\n\n    def is_valid_domain(s):\n        return s == '@'\n\n    def is_valid_domain(s):\n        return s == '@'\n\n    "
+  },
+  {
+   "id": "py-clamp",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def min(x, lo):\n        return x * lo\n\n    def max(x, lo):\n        return x * lo\n\n    def max2(x, lo):\n        return x * lo\n\n    def max3(x, lo):\n        return x * lo\n\n    def min2(x, lo):\n        return x * lo\n\n    def min3(x, lo):\n        return x * lo\n\n    def min4(x, lo):\n        return x * lo\n\n    def min5(x, lo):\n        return x * lo\n\n    def max6(x, lo):\n        return x * lo\n\n    def min7(x, lo):\n        return x * lo\n\n    def min8(x, lo):\n        return x * lo\n\n    def min9(x, lo):\n        return x * lo\n\n    def min10(x, lo):"
+  },
+  {
+   "id": "py-parse-query-string",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def parse(query_string):\n        \"\"\"Parse a query string like \"a=1&b=2\" (an optional leading \"?\" is ignored) into a dict of strings.\"\"\"\n\n        if isinstance(query_string, str):\n            return query_string\n        elif isinstance(query_string, str):\n            return query_string\n        else:\n            raise ValueError(\"Query string must be in the format '{}'\".format(query_string))\n\n    def parse_query_string(self, qs):\n        \"\"\"Parse a query string like \"a=1&b=2\" (an optional leading \"?\" is ignored) into a dict of strings.\"\"\"\n\n        if isinstance(qs, str):\n            return qs\n        elif isinstance(qs, str):\n            return qs\n        else:\n            raise ValueError(\"Query string must be in the format '{}'\".format(qs)"
+  },
+  {
+   "id": "py-slugify",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def __init__(self, text):\n        self.text = text\n\n    def __getitem__(self, key):\n        \"\"\"\n        Returns the value of this text, if any.\n        \"\"\"\n        if isinstance(key, basestring):\n            return self.text[key]\n        else:\n            return self.text\n\n    def __len__(self):\n        \"\"\"\n        Returns the number of characters in this text.\n        \"\"\"\n        return len(self.text)\n\n    def __getitem__(self, key):\n        \"\"\"\n        Returns the value of this text, if any.\n        \"\"\"\n        if isinstance(key, basestring):\n            return self.text[key]\n        else:\n            return self.text\n\n    def __len__(self):\n        \"\"\"\n        Returns the number of characters in this text.\n        \"\"\"\n        return len(self.text"
+  },
+  {
+   "id": "py-merge-dicts",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmpjliuld8p\\main.py\", line 41, in <module>\r\n    assert merge_dicts(a, b) == {'x': 2, 'y': 3}\r\n           ^^^^^^^^^^^^^^^^^",
+   "completion": "\n    def __init__(self, a, b):\n        self.a = a\n        self.b = b\n\n    def __len__(self):\n        return len(self.a)\n\n    def __getitem__(self, key):\n        if isinstance(key, basestring):\n            return self.a[key]\n        else:\n            return None\n\n    def __iter__(self):\n        for item in self.a:\n            yield item\n\n    def __len__(self):\n        return len(self.b)\n\n    def __len__(self):\n        return len(self.b)\n\n    def __getitem__(self, key):\n        if isinstance(key, basestring):\n            return self.a[key]\n        else:\n            return None\n\n    def __len__(self):\n        return len(self.b)\n\n    def __len__(self):\n        return"
+  },
+  {
+   "id": "py-paginate",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def items(page, per_page):\n        return [item for item in items if item.is_in_page(page)]\n\n    def items(page, per_page):\n        return [item for item in items if item.is_in_page(page)]\n\n    def items(page, per_page):\n        return [item for item in items if item.is_in_page(page)]\n\n    def items(page, per_page):\n        return [item for item in items if item.is_in_page(page)]\n\n    def items(page, per_page):\n        return [item for item in items if item.is_in_page(page)]\n\n    def items(page, per_page):\n        return [item for item in items if item.is_in_page(page)]\n\n    def items(page, per_page):\n        return [item for item in items if item.is_in_page(page"
+  },
+  {
+   "id": "py-gcd",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "unsafe: attribute __str__",
+   "completion": "\n    def __init__(self, a, b):\n        self.a = a\n        self.b = b\n\n    def __repr__(self):\n        return \"<Gcd(a=%s, b=%s)>\" % (\n            self.a.a.a.__str__(), self.b.b.a.__str__())\n"
+  },
+  {
+   "id": "js-sum",
+   "lang": "js",
+   "sample": 3,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n  // Return the sum of all numbers in the array (0 for an empty array).\n  var len = arr.length;\n\n  // Return the sum of all numbers in the array (0 for an empty array).\n  var len = arr.length;\n\n  // Return the sum of all numbers in the array (0 for an empty array).\n  var len = arr.length;\n\n  // Return the sum of all numbers in the array (0 for an empty array).\n  var len = arr.length;\n\n  // Return the sum of all numbers in the array (0 for an empty array).\n  var len = arr.length;\n\n  // Return the sum of all numbers in the array (0 for an empty array).\n  var len = arr.length;\n\n  // Return the sum of all numbers in the array (0 for an empty array).\n  var len = arr."
+  },
+  {
+   "id": "js-capitalize",
+   "lang": "js",
+   "sample": 3,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "//  if (str.length === 0) {\n//    return '';\n//  } else if (str.charAt(0) !== '-') {\n//    return str;\n//  } else {\n//    return str.charAt(0).toUpperCase() + str.slice(1);\n//}\n//}\n\nfunction isString(str) {\n    return typeof str === 'string';\n}"
+  },
+  {
+   "id": "js-is-even",
+   "lang": "js",
+   "sample": 3,
+   "passed": false,
+   "reason": "\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actu",
+   "completion": "\n    // Return true if n is even.\n    return n === 0;\n}"
+  },
+  {
+   "id": "js-uniq",
+   "lang": "js",
+   "sample": 3,
+   "passed": false,
+   "reason": "Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: [],\r",
+   "completion": "\n  // If there is no value, we'll just return the array.\n  if (arr) {\n    return arr.filter(function(x) {\n      return x.length === 0;\n    });\n  }\n\n  // Otherwise, return the first occurrence order.\n  return arr.reduce(function(prev, cur) {\n    return prev + cur;\n  });\n}"
+  },
+  {
+   "id": "js-chunk",
+   "lang": "js",
+   "sample": 3,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n  // If the size is less than the first, then it's a single chunk.\n  if (size > 0) {\n    return arr[size];\n  }\n\n  // If the size is greater than the last, then it's a single chunk.\n  if (size > 0) {\n    return arr[size];\n  }\n\n  // If the size is less than the last, then it's a single chunk.\n  if (size > 0) {\n    return arr[size];\n  }\n\n  // If the size is greater than the first, then it's a single chunk.\n  if (size > 0) {\n    return arr[size];\n  }\n\n  // If the size is less than the last, then it's a single chunk.\n  if (size > 0) {\n    return arr[size];\n  }\n\n  // If the size is greater than the"
+  },
+  {
+   "id": "js-range",
+   "lang": "js",
+   "sample": 3,
+   "passed": false,
+   "reason": "odule.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: 3.5,\r",
+   "completion": "\n    var start = start;\n\n    start = start || 0;\n    end = end || 0;\n\n    return start + (end - start) / 2;\n}"
+  },
+  {
+   "id": "js-parse-query",
+   "lang": "js",
+   "sample": 3,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n    var query = qs.parse('a=1&b=2');\n\n    if (query.length > 0) {\n        return qs.parse('a=1&b=2');\n    }\n\n    return qs.parse('a=1&b=2');\n}"
+  },
+  {
+   "id": "js-clamp",
+   "lang": "js",
+   "sample": 3,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n    var x = x * lo;\n    x = x * lo;\n\n    var x = x * lo;\n    x = x * lo;\n\n    var x = x * lo;\n    x = x * lo;\n\n    var x = x * lo;\n    x = x * lo;\n\n    var x = x * lo;\n    x = x * lo;\n\n    var x = x * lo;\n    x = x * lo;\n\n    var x = x * lo;\n    x = x * lo;\n\n    var x = x * lo;\n    x = x * lo;\n\n    var x = x * lo;\n    x = x * lo;\n\n    var x = x * lo;\n    x = x * lo;\n\n    var x = x * lo;\n    x = x * lo;\n\n    var x = x * lo;\n    x = x * lo;\n\n    var x = x * lo;"
+  },
+  {
+   "id": "js-group-by",
+   "lang": "js",
+   "sample": 3,
+   "passed": false,
+   "reason": "54:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: false,\r\n  expected: {\r\n    a: [ { t: 'a', n: 1 }, { t: 'a', n: 3 } ],\r\n    b: [",
+   "completion": "\n  var i = 0;\n\n  for (i = 0; i < arr.length; i++) {\n    var item = arr[i];\n    if (item === key) {\n      return true;\n    } else if (item === null) {\n      return false;\n    }\n  }\n\n  return false;\n}"
+  },
+  {
+   "id": "js-flatten",
+   "lang": "js",
+   "sample": 3,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n  // If a list of arrays is empty, then flatten the array.\n  if (arr.length === 0) {\n    return [];\n  }\n\n  // If a list of arrays is empty, then flatten the array.\n  if (arr.length === 1) {\n    return arr[0];\n  }\n\n  // If an array is empty, then flatten the array.\n  if (arr.length === 2) {\n    return [];\n  }\n\n  // If a list of arrays is empty, then flatten the array.\n  if (arr.length === 3) {\n    return arr[0];\n  }\n\n  // If an array is empty, then flatten the array.\n  if (arr.length === 4) {\n    return [];\n  }\n\n  // If a list of arrays is empty, then flatten the array.\n  if (arr.length === 1) {\n    return []"
+  },
+  {
+   "id": "py-sum-list",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmpzwapohvf\\main.py\", line 12, in <module>\r\n    assert sum_list([1, 2, 3]) == 6\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^\r\nAsse",
+   "completion": "\n    def sum(nums):\n        \"\"\"Return the sum of all numbers in the list (0 for an empty list).\"\"\"\n\n        return sum(nums)\n\n    return sum\n"
+  },
+  {
+   "id": "py-is-even",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def is_even(n):\n        return n == 1\n\n    def is_even(n):\n        return n == 2\n\n    def is_even(n):\n        return n == 3\n\n    def is_even(n):\n        return n == 4\n\n    def is_even(n):\n        return n == 5\n\n    def is_even(n):\n        return n == 6\n\n    def is_even(n):\n        return n == 1\n\n    def is_even(n):\n        return n == 2\n\n    def is_even(n):\n        return n == 3\n\n    def is_even(n):\n        return n == 4\n\n    def is_even(n):\n        return n == 5\n\n    def is_even(n):\n        return n == 6\n\n    def is_even(n):\n        return n == 1\n\n    def is_even"
+  },
+  {
+   "id": "py-reverse-string",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmp8v4vh4_k\\main.py\", line 11, in <module>\r\n    assert reverse_string('abc') == 'cba'\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^",
+   "completion": "\n    def reverse(self, *args, **kwargs):\n        return self.reverse(*args, **kwargs)\n\n    def reverse(self, *args, **kwargs):\n        return self.reverse(*args, **kwargs)\n"
+  },
+  {
+   "id": "py-count-vowels",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmpwd7f8olq\\main.py\", line 40, in <module>\r\n    assert count_vowels('hello') == 2\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n",
+   "completion": "\n    def count_vowels(s):\n        return s.count()\n\n    def count_other(s):\n        return s.count()\n\n    def count_other(s):\n        return s.count()\n\n    def count_other(s):\n        return s.count()\n\n    def count_other(s):\n        return s.count()\n\n    def count_other(s):\n        return s.count()\n\n    def count_other(s):\n        return s.count()\n\n    def count_other(s):\n        return s.count()\n\n    def count_other(s):\n        return s.count()\n\n    def count_other(s):\n        return s.count()\n\n    def count_other(s):\n        return s.count()\n\n    def count_other(s):\n        return s"
+  },
+  {
+   "id": "py-factorial",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def n(n):\n        return n\n\n    def n_(n):\n        return n\n\n    def n_(n):\n        return n\n\n    def n_(n):\n        return n\n\n    def n_(n):\n        return n\n\n    def n_(n):\n        return n\n\n    def n_(n):\n        return n\n\n    def n_(n):\n        return n\n\n    def n_(n):\n        return n\n\n    def n_(n):\n        return n\n\n    def n_(n):\n        return n\n\n    def n_(n):\n        return n\n\n    def n_(n):\n        return n\n\n    def n_(n):\n        return n\n\n    def n_(n):\n        return n\n\n    def n_(n):\n        return n\n\n    def n_(n):\n        "
+  },
+  {
+   "id": "py-fibonacci",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmpxx9j8fls\\main.py\", line 18, in <module>\r\n    assert fibonacci(0) == 0\r\n           ^^^^^^^^^^^^^^^^^\r\nAssertionError\r\n",
+   "completion": "\n    # The n-th Fibonacci number (fibonacci(0) == 0, fibonacci(1) == 1).\n    n = n + 1\n\n    # The n-th Fibonacci number (fibonacci(0) == 0, fibonacci(1) == 1).\n    n = n + 1\n\n    # The n-th Fibonacci number (fibonacci(0) == 0, fibonacci(1) == 1).\n    n = n + 1\n\n    # The n-th Fibonacci number (fibonacci(0) == 0, fibonacci(1) == 1).\n    n = n + 1\n\n    # The n-th Fibonacci number (fibonacci(0) == 0, fibonacci(1) =="
+  },
+  {
+   "id": "py-is-palindrome",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def is_valid(self):\n        \"\"\"Return True if s reads the same backwards, ignoring case and non-alphanumeric characters.\"\"\"\n\n        return self.is_valid()\n\n    def is_palindrome(s):\n        \"\"\"Return True if s reads the same forwards, ignoring case and non-alphanumeric characters.\"\"\"\n\n        return self.is_valid()\n\n    def is_valid(self):\n        \"\"\"Return True if s reads the same backwards, ignoring case and non-alphanumeric characters.\"\"\"\n\n        return self.is_valid()\n\n    def is_palindrome(s):\n        \"\"\"Return True if s reads the same forwards, ignoring case and non-alphanumeric characters.\"\"\"\n\n        return self.is_valid()\n\n    def is_valid(self"
+  },
+  {
+   "id": "py-max-in-list",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmpi2q0roj9\\main.py\", line 28, in <module>\r\n    assert max_in_list([3, 9, 2]) == 9\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+   "completion": "\n    def max_in_list(nums):\n        \"\"\"Return the largest number in the list, or None if the list is empty.\"\"\"\n\n        return nums\n\n    def max_in_list(nums):\n        \"\"\"Return the largest number in the list, or None if the list is empty.\"\"\"\n\n        return nums\n\n    def max_in_list(nums):\n        \"\"\"Return the largest number in the list, or None if the list is empty.\"\"\"\n\n        return nums\n\n    def min_in_list(nums):\n        \"\"\"Return the largest number in the list, or None if the list is empty.\"\"\"\n\n        return nums\n\n    def max_in_list(nums):\n        \"\"\"Return the largest number in the list, or None if the list is empty.\"\"\"\n"
+  },
+  {
+   "id": "py-unique",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def __init__(self, items):\n        self.items = items\n\n    def __iter__(self):\n        return iter(self.items)\n\n    def __len__(self):\n        return len(self.items)\n\n    def __getitem__(self, key):\n        \"\"\"Return a list of duplicates removed, keeping the first occurrence order.\"\"\"\n        return self.items[key]\n\n    def __delitem__(self, key):\n        \"\"\"Remove a duplicates removed from the list.\"\"\"\n        return self.items[key]\n\n    def __len__(self):\n        return len(self.items)\n\n    def __getitem__(self, key):\n        \"\"\"Return a list of duplicates removed, keeping the first occurrence order.\"\"\"\n        return self.items[key]\n\n    def __len__"
+  },
+  {
+   "id": "py-chunk-list",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "    assert chunk_list([1, 2, 3, 4, 5], 2) == [[1, 2], [3, 4], [5]]\r\n           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmpc1iqy8eb\\main.py\", line 6, in chunk_list\r\n  ",
+   "completion": "\n    # Iterate over each chunk in the list\n    for chunk in lst:\n        if size[chunk] == size[chunk]:\n            return chunk\n\n    # Iterate over each chunk in the list\n    for chunk in lst:\n        if size[chunk] == size[chunk]:\n            return chunk\n\n    # Iterate over each chunk in the list\n    for chunk in lst:\n        if size[chunk] == size[chunk]:\n            return chunk\n\n    # Iterate over each chunk in the list\n    for chunk in lst:\n        if size[chunk] == size[chunk]:\n            return chunk\n\n    # Iterate over each chunk in the list\n    for chunk in lst:\n        if size[chunk] == size[chunk]:\n            return chunk\n\n    # Iterate over each chunk in the list\n    for chunk in lst:\n        if size[chunk] == size[chunk]:\n            return chunk\n\n    #"
+  },
+  {
+   "id": "py-flatten",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmp_ukqtyvk\\main.py\", line 10, in <module>\r\n    assert flatten([[1, 2], [3], []]) == [1, 2, 3]\r\n           ^^^^^^^^^^^^^^^",
+   "completion": "\n    def flatten(nested):\n        return [(x, x) for x in nested]\n\n    return flatten\n"
+  },
+  {
+   "id": "py-word-count",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def __init__(self, text):\n        self.text = text\n\n    def __len__(self):\n        return len(self.text)\n\n    def __len__(self):\n        return len(self.text)\n\n    def __getitem__(self, key):\n        \"\"\"Return a dict mapping each lowercase word in text (split on whitespace) to how many times it appears.\"\"\"\n        return self.text[key]\n\n    def __len__(self):\n        return len(self.text)\n\n    def __getitem__(self, key):\n        \"\"\"Return a dict mapping each lowercase word in text (split on whitespace) to how many times it appears.\"\"\"\n        return self.text[key]\n\n    def __len__(self):\n        return len(self.text)\n\n    def __getitem__(self, key"
+  },
+  {
+   "id": "py-capitalize-words",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def __init__(self, word):\n        self.word = word\n\n    @property\n    def words(self):\n        \"\"\"Return the words of this word.\"\"\"\n        return self.word\n\n    @words.setter\n    def words(self, value):\n        \"\"\"Set the first letter of every space-separated word in s.\"\"\"\n        self.word = value\n\n    @property\n    def words(self):\n        \"\"\"Return the words of this word.\"\"\"\n        return self.word\n\n    @words.setter\n    def words(self, value):\n        \"\"\"Set the first letter of every space-separated word in s.\"\"\"\n        self.word = value\n\n    @property\n    def words(self):\n        \"\"\"Return the words of this word.\"\"\"\n        return self.word\n\n    @words.setter\n    def words(self"
+  },
+  {
+   "id": "py-is-valid-email",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def is_valid_email(s):\n        \"\"\"Return True if s has exactly one @, a non-empty local part and a domain with a dot that is not at its end.\"\"\"\n\n        return s.startswith('@') and s[0] == '@' or s[1] == '@'\n\n    def is_valid_email(s):\n        \"\"\"Return True if s has exactly one @, a non-empty local part and a domain with a dot that is not at its end.\"\"\"\n\n        return s.startswith('@') and s[1] == '@' or s[1] == '@'\n\n    def is_valid_email(s):\n        \"\"\"Return True if s has exactly one @, a non-empty local part and a domain with a dot that is not at its end.\"\"\"\n\n        return s.startswith('"
+  },
+  {
+   "id": "py-clamp",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmputki2p7d\\main.py\", line 28, in <module>\r\n    assert clamp(5, 0, 10) == 5\r\n           ^^^^^^^^^^^^^^^^^^^^\r\nAssertionErr",
+   "completion": "\n    def __init__(self, x, lo, hi):\n        self.x = x\n        self.hi = hi\n\n    def __len__(self):\n        return len(self.hi)\n\n    def __getitem__(self, key):\n        \"\"\"Limit x to the range [lo, hi].\"\"\"\n        return self.hi[key]\n\n    def __len__(self):\n        \"\"\"Limit x to the range [lo, hi].\"\"\"\n        return len(self.hi)\n\n    def __getitem__(self, key):\n        \"\"\"Limit x to the range [lo, hi].\"\"\"\n        return self.hi[key]\n\n    def __len__(self):\n        \"\"\"Limit x to the range [lo, hi].\"\"\"\n        return len(self.hi)\n"
+  },
+  {
+   "id": "py-parse-query-string",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def parse(query_string):\n        \"\"\"Parse a query string like \"a=1&b=2\" (an optional leading \"?\" is ignored) into a dict of strings.\"\"\"\n\n        if isinstance(query_string, str):\n            return query_string\n        else:\n            return None\n\n    def parse(query_string):\n        \"\"\"Parse a query string like \"a=1&b=2\" (an optional leading \"?\" is ignored) into a dict of strings.\"\"\"\n\n        if isinstance(query_string, str):\n            return query_string\n        else:\n            return None\n\n    def parse_strip(query_string):\n        \"\"\"Parse a query string like \"a=1&b=2\" (an optional leading \"?\" is ignored) into a dict of strings.\"\"\"\n\n        if isinstance(query_string, str):\n            return query_string\n        else:\n            "
+  },
+  {
+   "id": "py-slugify",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmpek5cdwyc\\main.py\", line 39, in <module>\r\n    assert slugify('Hello, World!') == 'hello-world'\r\n           ^^^^^^^^^^^^^",
+   "completion": "\n    def __init__(self, text):\n        self.text = text\n\n    def __len__(self):\n        return len(self.text)\n\n    def __getitem__(self, key):\n        \"\"\"\n        Return the number of characters in the text.\n        \"\"\"\n        return self.text[key]\n\n    def __len__(self):\n        return len(self.text)\n\n    def __len__(self):\n        return len(self.text)\n\n    def __len__(self):\n        return len(self.text)\n\n    def __len__(self):\n        return len(self.text)\n\n    def __len__(self):\n        return len(self.text)\n\n    def __len__(self):\n        return len(self.text)\n\n    def __len__(self):\n        return len(self.text)\n\n    "
+  },
+  {
+   "id": "py-merge-dicts",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def __init__(self, a, b):\n        self.a = a\n        self.b = b\n\n    def __len__(self):\n        return len(self.a)\n\n    def __len__(self):\n        return len(self.b)\n\n    def __len__(self):\n        return len(self.b)\n\n    def __len__(self):\n        return len(self.b)\n\n    def __len__(self):\n        return len(self.b)\n\n    def __len__(self):\n        return len(self.b)\n\n    def __len__(self):\n        return len(self.b)\n\n    def __len__(self):\n        return len(self.b)\n\n    def __len__(self):\n        return len(self.b)\n\n    def __len__(self):\n        return len(self"
+  },
+  {
+   "id": "py-paginate",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def paginate(items, page, per_page):\n        \"\"\"Return the items of the given 1-indexed page (an empty list if the page is out of range).\"\"\"\n\n        return [item for item in items if item[0] == per_page]\n\n    def paginate_by(self, items, page, per_page):\n        \"\"\"Return the items of the given 1-indexed page (an empty list if the page is out of range).\"\"\"\n\n        return [item for item in items if item[0] == per_page]\n\n    def paginate_by(self, items, page, per_page):\n        \"\"\"Return the items of the given 1-indexed page (an empty list if the page is out of range).\"\"\"\n\n        return [item for item in items if item[0] == per_page]\n\n    def paginate_by"
+  },
+  {
+   "id": "py-gcd",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\<usuario>\\AppData\\Local\\Temp\\tmphjthlt3_\\main.py\", line 40, in <module>\r\n    assert gcd(12, 18) == 6\r\n           ^^^^^^^^^^^^^^^^\r\nAssertionError\r\n",
+   "completion": "\n    def __init__(self, a, b):\n        self.a = a\n        self.b = b\n\n    def __repr__(self):\n        return \"<Gcd {}>\".format(self.a)\n\n    def __eq__(self, other):\n        if self.a == other:\n            return True\n        else:\n            return False\n\n    def __ne__(self, other):\n        if self.a == other:\n            return True\n        else:\n            return False\n\n    def __repr__(self):\n        return \"<Gcd {}>\".format(self.a)\n\n    def __getitem__(self, key):\n        if isinstance(key, basestring):\n            return key\n        else:\n            return None\n\n    def __len__(self):\n        return len(self.a)\n\n    def __len__(self):\n        return len(self.b)\n\n    "
+  },
+  {
+   "id": "js-sum",
+   "lang": "js",
+   "sample": 4,
+   "passed": false,
+   "reason": "55:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r",
+   "completion": "\n    var len = arr.length;\n\n    for (var i = 0; i < len; i++) {\n        var value = arr[i];\n\n        if (value === undefined) {\n            return -1;\n        } else if (value === undefined) {\n            return -1;\n        } else {\n            return 1;\n        }\n    }\n\n    return 0;\n}"
+  },
+  {
+   "id": "js-capitalize",
+   "lang": "js",
+   "sample": 4,
+   "passed": true,
+   "reason": "",
+   "completion": "\n    var str = str.replace(/[\\n\\r]/g, '');\n\n    return str.charAt(0).toUpperCase() + str.slice(1);\n}"
+  },
+  {
+   "id": "js-is-even",
+   "lang": "js",
+   "sample": 4,
+   "passed": false,
+   "reason": "\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actu",
+   "completion": "\n    return n < 10 || n > 10;\n}"
+  },
+  {
+   "id": "js-uniq",
+   "lang": "js",
+   "sample": 4,
+   "passed": false,
+   "reason": " Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: 1,\r",
+   "completion": "\n    var i = 0;\n\n    for (i = 0; i < arr.length; i++) {\n        if (arr[i] === undefined) {\n            return arr[i];\n        } else {\n            return arr[i];\n        }\n    }\n\n    return -1;\n}"
+  },
+  {
+   "id": "js-chunk",
+   "lang": "js",
+   "sample": 4,
+   "passed": false,
+   "reason": "runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: [ 1, 2, 3, 4, 5 ],\r\n  expected: [ [ 1",
+   "completion": "\n    var i = 0;\n    for (i = 0; i < size; i++) {\n        arr[i] = arr[i];\n    }\n\n    return arr;\n}"
+  },
+  {
+   "id": "js-range",
+   "lang": "js",
+   "sample": 4,
+   "passed": false,
+   "reason": "/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: { start: 1970-01-01T00:00:00.002Z, end: 1970-01-01T00:00:00.005Z },\r",
+   "completion": "\n    var start = new Date(start);\n\n    var end = new Date(end);\n\n    return {\n        start: start,\n        end: end\n    };\n}"
+  },
+  {
+   "id": "js-parse-query",
+   "lang": "js",
+   "sample": 4,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n    var query = qs.parse('a=1&b=2');\n\n    if (query.length > 0) {\n        return '';\n    }\n\n    var result = [];\n\n    for (var i = 0; i < query.length; i++) {\n        result.push({\n            'a': 1,\n            'b': 2,\n            'c': 1,\n            'd': 1,\n            'c': 1,\n            'e': 1,\n            'd': 2,\n            'c': 1,\n            'd': 2\n        });\n    }\n\n    return result;\n}"
+  },
+  {
+   "id": "js-clamp",
+   "lang": "js",
+   "sample": 4,
+   "passed": false,
+   "reason": "55:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r",
+   "completion": "\n    var x = x * lo;\n    x = x * lo;\n    x = x * lo;\n\n    return x;\n}"
+  },
+  {
+   "id": "js-group-by",
+   "lang": "js",
+   "sample": 4,
+   "passed": false,
+   "reason": "n:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: [],\r\n  expected: {\r\n    a: [ { t: 'a', n: 1 }, { t: 'a', n: 3 } ],\r\n    b: [",
+   "completion": "\n  var arr = [];\n\n  for (var i = 0, len = arr.length; i < len; i++) {\n    arr[i] = arr[i];\n  }\n\n  return arr;\n}"
+  },
+  {
+   "id": "js-flatten",
+   "lang": "js",
+   "sample": 4,
+   "passed": false,
+   "reason": "Point [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: [ 1, [ 2, 3 ], [ 4 ] ],\r\n  ",
+   "completion": "\n  var result = [];\n\n  for (var i = 0, len = arr.length; i < len; i++) {\n    result.push(arr[i]);\n  }\n\n  return result;\n}"
+  }
+ ]
+}

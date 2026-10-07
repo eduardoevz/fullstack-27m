@@ -144,6 +144,24 @@ medida de corrección.
 La caché KV acelera la generación unas **9×**: 90 tok/s con caché contra 10 tok/s sin ella (100 tokens nuevos sobre un
 prompt de 200, 4 hilos). La salida es la misma: hay un test que compara, token a token, la generación con y sin caché.
 
+### Decodificación recomendada (Fase 8)
+
+Un diagnóstico sin reentrenar mostró que buena parte de los defectos de superficie eran de decodificación. Con una penalización de
+repetición de 1,1 sobre los últimos 64 tokens generados (la demo y `src/sample.py` la usan por defecto; con `--rep-penalty 1.0` se
+recupera el comportamiento original):
+
+| 100 fragmentos desde cero | Antes | Con `rep=1,1` |
+|---|---|---|
+| Sintaxis estricta, 256 / 512 tokens | 23 % / 33 % | **46 % / 63 %** |
+| Fragmentos con ≥ 30 % de líneas repetidas, 256 / 512 | 16 % / 52 % | **1 % / 7 %** |
+| Terminados por el modelo, 256 / 512 | 14 / 26 | **36 / 63** |
+| Sintaxis recortada, 256 / 512 | 71 % / 73 % | 68 % / 77 % (sin mejora clara) |
+| pass@1 en 30 tareas funcionales | 1,3 % | 1,3 % (sin cambio) |
+
+Reserva importante: arregla los bucles y el cierre de archivos, **no la capacidad del modelo** (no resuelve tareas simples de
+código y, con la penalización, el Python parseable tiene más nombres sin definir). El plan para mejorarlo de verdad está en
+[`docs/plan-mejoras-modelo.md`](docs/plan-mejoras-modelo.md); el detalle, en `avance/fase-08-diagnostico-decodificacion.md`.
+
 ### Qué hace bien y qué no
 
 - **Bien:** estructura reconocible de React, Express, NestJS y FastAPI; imports plausibles; JSX bien formado; respeta la
@@ -184,7 +202,7 @@ escritura. Los pesos (`best.pt`) no se versionan.
 
 ```bash
 python src/bench.py                                   # linea base de rendimiento
-pytest tests/ -v                                      # suite de tests
+pytest tests/ -v                                      # suite de tests (219)
 python src/train.py --resume                          # entrenar / reanudar (o entrenar.bat)
 python src/sample.py --prompt "export default function Nav(" --lang tsx --seed 1
 python src/eval/syntax_check.py --n 100               # metrica de validez sintactica

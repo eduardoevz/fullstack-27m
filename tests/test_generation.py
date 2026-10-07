@@ -151,3 +151,69 @@ def test_generate_calls_on_token_for_every_new_token_in_order():
     seen = []
     out = generate(model, [1, 2], max_new_tokens=9, temperature=0.0, on_token=seen.append)
     assert seen == out and len(seen) == 9
+
+
+# ---------------------------------------------------------------- Fase 8: penalizaciones y min_p
+from src.sample import apply_repetition_penalty, banned_by_ngram  # noqa: E402
+
+
+def test_repetition_penalty_lowers_positive_and_pushes_negative_logits_down():
+    out = apply_repetition_penalty(torch.tensor([2.0, -1.0, 0.5]), [0, 1], 2.0)
+    assert out.tolist() == [1.0, -2.0, 0.5]
+
+
+def test_repetition_penalty_of_one_changes_nothing_and_does_not_mutate_input():
+    logits = torch.tensor([2.0, -1.0, 0.5])
+    assert torch.equal(apply_repetition_penalty(logits, [0, 1], 1.0), logits)
+    apply_repetition_penalty(logits, [0, 1], 3.0)
+    assert logits.tolist() == [2.0, -1.0, 0.5]
+
+
+def test_banned_by_ngram_blocks_the_token_that_would_repeat_an_ngram():
+    assert banned_by_ngram([1, 2, 3, 1, 2], 3) == {3}
+    assert banned_by_ngram([5, 6, 5], 2) == {6}
+    assert banned_by_ngram([1, 2, 3, 4], 3) == set()
+    assert banned_by_ngram([1], 3) == set() and banned_by_ngram([1, 2, 3], 0) == set()
+
+
+def test_min_p_keeps_tokens_within_a_fraction_of_the_best():
+    probs = torch.tensor([0.6, 0.3, 0.06, 0.04])
+    out = filter_logits(probs.log(), top_k=0, top_p=1.0, min_p=0.2)       # umbral 0.12
+    assert torch.isfinite(out).tolist() == [True, True, False, False]
+
+
+def test_min_p_zero_is_a_no_op():
+    logits = torch.randn(20)
+    assert torch.equal(filter_logits(logits, top_k=0, top_p=1.0, min_p=0.0), logits)
+
+
+def test_generate_with_no_repeat_ngram_never_repeats_a_trigram():
+    model = tiny()
+    base = generate(model, [3, 9], max_new_tokens=300, temperature=0.0)
+    trig = lambda s: [tuple(s[i:i + 3]) for i in range(len(s) - 2)]
+    assert len(set(trig(base))) < len(trig(base))                         # sin ban, el greedy entra en bucle
+    out = generate(model, [3, 9], max_new_tokens=300, temperature=0.0, no_repeat_ngram_size=3)
+    assert len(set(trig(out))) == len(trig(out))
+
+
+def test_generate_repetition_penalty_changes_a_looping_greedy_output():
+    model = tiny()
+    base = generate(model, [3, 9], max_new_tokens=40, temperature=0.0)
+    pen = generate(model, [3, 9], max_new_tokens=40, temperature=0.0, repetition_penalty=1.5)
+    assert base != pen and len(set(pen)) > len(set(base))
+
+
+def test_penalty_only_looks_at_generated_tokens_not_the_prompt():
+    model = tiny()
+    prompt = [3, 9, 3, 9, 3, 9]
+    first_plain = generate(model, prompt, 1, temperature=0.0)
+    first_pen = generate(model, prompt, 1, temperature=0.0, repetition_penalty=5.0, no_repeat_ngram_size=2)
+    assert first_plain == first_pen
+
+
+def test_generate_defaults_reproduce_the_previous_sampling_exactly():
+    model = tiny()
+    a = generate(model, [1, 2], 15, 1.0, 20, 0.9, generator=torch.Generator().manual_seed(11))
+    b = generate(model, [1, 2], 15, 1.0, 20, 0.9, generator=torch.Generator().manual_seed(11),
+                 repetition_penalty=1.0, no_repeat_ngram_size=0, min_p=0.0)
+    assert a == b

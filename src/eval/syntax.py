@@ -120,3 +120,15 @@ def summarize(rows: list[dict]) -> dict:
     for lang in sorted({r["lang"] for r in rows}):
         out[lang] = _block([r for r in rows if r["lang"] == lang])
     return out
+
+
+def has_undefined_names(code: str) -> bool:
+    """True si pyflakes encuentra un nombre sin definir. Los imports no se resuelven (no se sabe que hay instalado)
+    y el codigo con sintaxis rota devuelve False: esa falla ya la cuenta la metrica de sintaxis."""
+    from pyflakes import messages
+    from pyflakes.checker import Checker
+    try:
+        tree = ast.parse(code)
+    except (SyntaxError, ValueError, RecursionError, MemoryError):
+        return False
+    return any(isinstance(m, messages.UndefinedName) for m in Checker(tree).messages)

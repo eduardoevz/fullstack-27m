@@ -19,6 +19,7 @@ from src.config import load_config
 from src.sample import frame_prompt, generate, load_model
 
 LANGS = {"js": "js", "jsx": "js", "ts": "ts", "tsx": "ts", "py": "py"}
+REP_PENALTY = 1.1        # Fase 8: duplica la sintaxis valida y casi elimina los bucles (ver avance/fase-08-*.md)
 HELP = ("Escribe el inicio de tu codigo y termina con una linea que solo tenga un punto (.)\n"
         "  :lang ts|tsx|js|jsx|py   cambia el lenguaje      :temp 0.7    temperatura (0 = determinista)\n"
         "  :tokens 200              largo de la continuacion  :quit        salir")
@@ -90,7 +91,7 @@ def main() -> None:
         text = block.rstrip("\n") if not block.endswith("\n\n") else block
         sys.stdout.write("\n--- completando ---\n" + text)
         generate(model, frame_prompt(tok, text, LANGS[lang]), n_tokens, temp, 40, 0.95, eot,
-                 on_token=Streamer(tok))
+                 on_token=Streamer(tok), repetition_penalty=REP_PENALTY)
         print("\n--- fin ---\n")
 
 

@@ -22,4 +22,6 @@ benchmarks/*.json
 !benchmarks/tokenizer_comparison.json
 !benchmarks/syntax_eval.json
 !benchmarks/prompt_suite.json
+!benchmarks/v1_*.json
+!benchmarks/decoding_search.json
 PARAR.txt
