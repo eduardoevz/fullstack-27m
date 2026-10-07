@@ -38,7 +38,7 @@ Medido, no supuesto (cifras y reservas en la bitácora de la fase):
 - **No arregló la capacidad:** la sintaxis recortada no mejora, el pass@1 funcional sigue en 1,3 % y el Python sin nombres sin definir
   empeora (100 % → 57 % y 90 % → 47 %, con muestras pequeñas).
 
-**Ajustes recomendados al resto del plan** (a decidir por el Director antes de cada fase):
+**Ajustes al resto del plan — APROBADOS por el Director el 2026-10-06** (la Fase 9 se hará en otra sesión; cada fase sigue requiriendo su aprobación antes de empezar):
 
 1. **Fase 9 (datos) sube de prioridad:** es la palanca que puede mover la capacidad, y la más probable causa del 1,3 % funcional.
 2. **Fase 10:** el muestreo alineado a documentos pierde justificación como arreglo del cierre de archivos; **FIM se mantiene** (autocompletar
