@@ -89,3 +89,112 @@ def filter_file(code: str, path: str, cfg: DataConfig):
     if reason:
         return None, None, reason
     return lang, framework, None
+
+
+# ---------------------------------------------------------------------------
+# Fase 9: limpieza determinista (reglas fijadas antes de medir cuanto descartan)
+# ---------------------------------------------------------------------------
+
+JS_LANGS = {"js", "jsx", "ts", "tsx"}
+_EJS = re.compile(r"<%[=\-_#]?.*?%>", re.S)
+_HANDLEBARS = re.compile(r"\{\{\s*[#/>!]")
+_PY2_PRINT = re.compile(r"^[ \t]*print[ \t]+(?![(=\s])\S", re.M)
+_PY2_EXCEPT = re.compile(r"^[ \t]*except[ \t]+[\w.]+[ \t]*,[ \t]*\w+[ \t]*:", re.M)
+_PY2_RAISE = re.compile(r"^[ \t]*raise[ \t]+\w+[ \t]*,", re.M)
+_LICENSE_WORDS = re.compile(r"copyright|licen[sc]e|spdx|warranty|permission|all rights reserved", re.I)
+_PREFIX_LINE = re.compile(r"""^(#!|#\s*-\*-|#\s*(vim|coding)[:=]|\s*['"]use (client|strict|server)['"];?\s*$)""", re.I)
+MIN_LICENSE_LINES = 4
+# StarCoderData antepone metadatos al codigo: <reponame>o/r<filename>ruta<gh_stars>n + salto de linea.
+_META_HEAD = re.compile(r"\A(?:<reponame>[^\n<]*)?(?:<filename>[^\n<]*)?(?:<gh_stars>[^\n<]*)?\n?")
+_META_ANY = re.compile(r"<(?:reponame|filename|gh_stars|issue_start|jupyter_start|commit_before)>")
+_B64_RUN = re.compile(r"[A-Za-z0-9+/=]{200,}")
+_B64_LINE = re.compile(r"^[ 	]*[A-Za-z0-9+/=]{40,}[ 	]*$", re.M)
+MIN_BLOB_LINES = 8
+MIN_MOJIBAKE = 3
+
+
+def _alnum(s: str) -> int:
+    return sum(c.isalnum() for c in s)
+
+
+def _is_blob(code: str) -> bool:
+    """Base64/hex/certificados: una racha larga o muchas lineas de relleno alfanumerico.
+    Los separadores de comentarios (////, ====) no cuentan: exigen mayoria de alfanumericos."""
+    if any(_alnum(m.group(0)) >= 150 for m in _B64_RUN.finditer(code)):
+        return True
+    return sum(_alnum(l) >= 30 for l in _B64_LINE.findall(code)) >= MIN_BLOB_LINES
+
+
+def strip_metadata_tags(code: str) -> str:
+    """Quita las etiquetas de metadatos que StarCoderData pone al inicio de cada archivo."""
+    m = _META_HEAD.match(code)
+    return code[m.end():] if m and m.group(0).startswith("<") else code
+
+
+def clean_reject(code: str, path: str, lang: str) -> str | None:
+    """Motivo de rechazo por ruido conocido del corpus, o None. Reglas deterministas."""
+    if path.replace("\\", "/").lower().endswith(".d.ts"):
+        return "dts"
+    if _META_ANY.search(code):
+        return "tags"
+    if "sourceMappingURL=data:" in code:
+        return "sourcemap"
+    if code.count("�") >= MIN_MOJIBAKE:
+        return "mojibake"
+    if _is_blob(code):
+        return "blob"
+    if lang in JS_LANGS and (_EJS.search(code) or _HANDLEBARS.search(code)):
+        return "template"
+    if lang == "py":
+        if _PY2_PRINT.search(code) or _PY2_EXCEPT.search(code) or _PY2_RAISE.search(code):
+            return "python2"
+        import ast
+        import warnings
+        try:
+            with warnings.catch_warnings():
+                warnings.simplefilter("ignore")
+                ast.parse(code)
+        except (SyntaxError, ValueError, RecursionError, MemoryError):
+            return "py_syntax"
+    return None
+
+
+def strip_license_header(code: str) -> str:
+    """Quita el bloque de comentarios inicial si es una cabecera de licencia (>= 4 lineas)."""
+    lines = code.split("\n")
+    i = 0
+    while i < len(lines) and _PREFIX_LINE.match(lines[i]):
+        i += 1
+    start = i
+    if i >= len(lines):
+        return code
+    first = lines[i].lstrip()
+    if first.startswith("/*"):
+        j = i
+        while j < len(lines) and "*/" not in lines[j]:
+            j += 1
+        end = min(j + 1, len(lines))
+    elif first.startswith("//") or first.startswith("#"):
+        marker = "//" if first.startswith("//") else "#"
+        j = i
+        while j < len(lines) and lines[j].lstrip().startswith(marker):
+            j += 1
+        end = j
+    else:
+        return code
+    block = lines[start:end]
+    if len(block) < MIN_LICENSE_LINES or not _LICENSE_WORDS.search("\n".join(block)):
+        return code
+    rest = lines[end:]
+    while rest and not rest[0].strip():
+        rest.pop(0)
+    return "\n".join(lines[:start] + rest)
+
+
+def clean_document(code: str, path: str, lang: str):
+    """(codigo_limpio, None) o (None, motivo). Rechaza el ruido y recorta la licencia."""
+    code = strip_metadata_tags(code)
+    reason = clean_reject(code, path, lang)
+    if reason:
+        return None, reason
+    return strip_license_header(code), None

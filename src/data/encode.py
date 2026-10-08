@@ -101,7 +101,7 @@ def write_split(mm, offsets, lengths, order, out_path: Path, block_docs: int = 4
     return total
 
 
-def _encode_stage(raw_dir, tok, all_path: Path, sp: SpecialIds, max_docs, batch_docs, log):
+def _encode_stage(raw_dir, tok, all_path: Path, sp: SpecialIds, max_docs, batch_docs, log, docs=None, extras=None):
     offsets, lengths, fws, langs, hold, repos = [], [], [], [], [], []
     state = {"pos": 0, "skipped": 0}
     batch: list = []
@@ -123,11 +123,14 @@ def _encode_stage(raw_dir, tok, all_path: Path, sp: SpecialIds, max_docs, batch_
             langs.append(d["lang"])
             hold.append(is_holdout(d["repo"]))
             repos.append(d["repo"])
+            if extras is not None:
+                for k in extras:
+                    extras[k].append(d.get(k))
             state["pos"] += len(arr)
         batch.clear()
 
     with open(all_path, "wb") as f:
-        for d in iter_docs(raw_dir):
+        for d in (docs if docs is not None else iter_docs(raw_dir)):
             batch.append(d)
             seen += 1
             if len(batch) >= batch_docs:
@@ -142,21 +145,14 @@ def _encode_stage(raw_dir, tok, all_path: Path, sp: SpecialIds, max_docs, batch_
             np.array(hold, dtype=bool), repos, state["skipped"])
 
 
-def build_dataset(raw_dir, tok: Tokenizer, out_dir, train_tokens: int, val_tokens: int, seed: int = 0,
-                  max_docs: int | None = None, keep_temp: bool = False, batch_docs: int = 2000,
-                  record_repos: bool = False, log=print) -> dict:
-    out_dir = Path(out_dir)
-    out_dir.mkdir(parents=True, exist_ok=True)
-    assert tok.get_vocab_size() <= 65536, "uint16 no alcanza"
-    sp = special_ids(tok)
-    all_path = out_dir / "_all.bin"
+def choose_split(lengths, fws, hold, train_tokens: int, val_tokens: int, seed: int = 0, log=print):
+    """Etapa B sin escritura: reequilibra y elige los documentos de train y val (indices).
 
-    log("Etapa A: codificando el corpus...")
-    offsets, lengths, fws, langs, hold, repos, skipped = _encode_stage(raw_dir, tok, all_path, sp, max_docs, batch_docs, log)
+    Es la unica fuente de verdad de la seleccion; `build_dataset` y el indice de documentos
+    de la Fase 9 la usan, asi la reconstruccion de v1 no puede divergir.
+    """
     names = sorted(set(fws))
     cls = np.array([names.index(f) for f in fws], dtype=np.int64)
-    log(f"  {len(lengths):,} docs, {int(lengths.sum()) / 1e6:.1f} M tokens medidos ({skipped} omitidos por contener tokens especiales)")
-
     log("Etapa B: reequilibrio, barajado y escritura...")
     rng = np.random.default_rng(seed)
     pool = np.flatnonzero(~hold)
@@ -171,6 +167,23 @@ def build_dataset(raw_dir, tok: Tokenizer, out_dir, train_tokens: int, val_token
     val_idx = val_idx[rng.permutation(len(val_idx))]
     val_idx = val_idx[np.cumsum(lengths[val_idx]) <= val_tokens]
     assert not hold[train_idx].any() and hold[val_idx].all()
+    return names, cls, train_idx, val_idx, frac_by_name, before, pool
+
+
+def build_dataset(raw_dir, tok: Tokenizer, out_dir, train_tokens: int, val_tokens: int, seed: int = 0,
+                  max_docs: int | None = None, keep_temp: bool = False, batch_docs: int = 2000,
+                  record_repos: bool = False, log=print) -> dict:
+    out_dir = Path(out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    assert tok.get_vocab_size() <= 65536, "uint16 no alcanza"
+    sp = special_ids(tok)
+    all_path = out_dir / "_all.bin"
+
+    log("Etapa A: codificando el corpus...")
+    offsets, lengths, fws, langs, hold, repos, skipped = _encode_stage(raw_dir, tok, all_path, sp, max_docs, batch_docs, log)
+    log(f"  {len(lengths):,} docs, {int(lengths.sum()) / 1e6:.1f} M tokens medidos ({skipped} omitidos por contener tokens especiales)")
+    names, cls, train_idx, val_idx, frac_by_name, before, pool = choose_split(
+        lengths, fws, hold, train_tokens, val_tokens, seed, log)
 
     mm = np.memmap(all_path, dtype=np.uint16, mode="r")
     n_train = write_split(mm, offsets, lengths, train_idx, out_dir / "train.bin")

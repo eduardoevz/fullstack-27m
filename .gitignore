@@ -25,3 +25,11 @@ benchmarks/*.json
 !benchmarks/v1_*.json
 !benchmarks/decoding_search.json
 PARAR.txt
+
+# Secretos locales (token de Hugging Face); nunca se versionan
+.env
+!benchmarks/leftover_report.json
+!benchmarks/doc_ppl_calibration.json
+logs/*.txt
+!benchmarks/data_v2_mix.json
+!benchmarks/v1_domain_loss.json

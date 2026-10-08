@@ -1,6 +1,6 @@
 # Plan de mejora del modelo: de v1 a v2
 
-> **Estado:** aprobado por el Director el 2026-10-06. **Fase 8 completada** (ver `avance/fase-08-diagnostico-decodificacion.md` y la sección «Actualización tras la Fase 8»); las fases 9–13 siguen pendientes y cada una requiere aprobación antes de empezar. Continúa la numeración del plan original (fases 0–7, ya cerradas).
+> **Estado:** aprobado por el Director el 2026-10-06. **Fases 8 y 9 completadas** (ver `avance/fase-08-diagnostico-decodificacion.md`, la sección «Actualización tras la Fase 8» y `avance/fase-09-datos.md`); las fases 10–13 siguen pendientes y cada una requiere aprobación antes de empezar. Continúa la numeración del plan original (fases 0–7, ya cerradas).
 
 ## Contexto
 

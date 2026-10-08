@@ -1,0 +1,44 @@
+{
+ "checkpoint": "v1-best.pt",
+ "step": 15000,
+ "block": 512,
+ "max_windows": 1500,
+ "sets": {
+  "val_v2 (mezcla v2)": {
+   "loss": 1.5127855529785157,
+   "windows": 1500,
+   "tokens": 768000,
+   "file_tokens": 4997108
+  },
+  "val_v1 (mezcla v1)": {
+   "loss": 1.5124517555236816,
+   "windows": 1500,
+   "tokens": 768000,
+   "file_tokens": 4434965
+  },
+  "dominio:fastapi": {
+   "loss": 1.800595576546409,
+   "windows": 275,
+   "tokens": 140800,
+   "file_tokens": 140874
+  },
+  "dominio:nestjs": {
+   "loss": 1.4001009470621746,
+   "windows": 1500,
+   "tokens": 768000,
+   "file_tokens": 834509
+  },
+  "dominio:nextjs": {
+   "loss": 1.5682279160443475,
+   "windows": 1275,
+   "tokens": 652800,
+   "file_tokens": 652933
+  },
+  "dominio:react": {
+   "loss": 1.4565795364379883,
+   "windows": 1500,
+   "tokens": 768000,
+   "file_tokens": 1499898
+  }
+ }
+}

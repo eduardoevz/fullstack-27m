@@ -1,0 +1,27 @@
+{
+ "verified_against_v1_meta": true,
+ "leftover_by_framework": {
+  "django": {
+   "docs": 40739,
+   "tokens": 62180323,
+   "clean_docs": 38228,
+   "clean_tokens": 55403140
+  },
+  "node": {
+   "docs": 201162,
+   "tokens": 253265972,
+   "clean_docs": 195730,
+   "clean_tokens": 244389038
+  }
+ },
+ "rejected_tokens_by_reason_all_corpus": {
+  "dts": 17751419,
+  "template": 11747599,
+  "python2": 28701963,
+  "py_syntax": 4511522,
+  "too_small": 252836,
+  "low_alnum": 21054,
+  "long_lines": 21808,
+  "other": 125498
+ }
+}

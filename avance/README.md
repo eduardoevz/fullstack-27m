@@ -21,6 +21,7 @@ El plan que se contrasta aquí es [`docs/plan-implementacion.md`](../docs/plan-i
 | [06](fase-06-entrenamiento.md) | Entrenamiento (~8 días) | ✅ Completa (sin muestras intermedias) | `8cef616` |
 | [07](fase-07-inferencia-evaluacion.md) | Inferencia, evaluación y demo | ✅ Completa (demo como transcripción) | `7438aa7` |
 | [08](fase-08-diagnostico-decodificacion.md) | Mejora v1→v2: diagnóstico, evaluación y decodificación | ✅ Completa (puerta parcial) | `b62b96f` |
+| [09](fase-09-datos.md) | Mejora v1→v2: datos (limpieza, fuente moderna, mezcla v2) | ✅ Completa (piso FastAPI sin cumplir; Next.js sin App Router) | _pendiente_ |
 
 Leyenda: ✅ completa · 🟡 parcial · ⬜ pendiente
 
