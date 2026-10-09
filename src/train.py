@@ -26,10 +26,12 @@ from src.model.gpt import GPT
 from src.training.control import consume_stop_file, stop_requested
 from src.training.checkpoint import latest_checkpoint, load_checkpoint, rotate_checkpoints, save_checkpoint
 from src.training.data import BatchSampler
+from src.training.fim import FimBatchSampler, FimSpec
+from src.training.init_from import load_v1_weights
 from src.training.loop import evaluate, run_step
 from src.training.optim import build_optimizer
 
-CSV_FIELDS = ["step", "loss", "lr", "tok_s", "rss_gb", "grad_norm", "val_loss"]
+CSV_FIELDS = ["step", "loss", "lr", "tok_s", "rss_gb", "grad_norm", "val_loss", "val_fim_loss"]
 STOP_FILE = REPO_ROOT / "PARAR.txt"   # crear este archivo (parar.bat) = guardar y salir
 VAL_SEED = 1234        # mismo conjunto de batches de validacion en cada evaluacion
 
@@ -43,6 +45,7 @@ def main() -> None:
     ap.add_argument("--log", default=str(REPO_ROOT / "logs" / "train.csv"))
     ap.add_argument("--compile", action="store_true", help="probar torch.compile")
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--init-from", default=None, help="cargar solo los pesos de este checkpoint (paso y optimizador desde cero)")
     args = ap.parse_args()
 
     cfg = load_config(args.config)
@@ -54,8 +57,22 @@ def main() -> None:
 
     model = GPT(mc)
     optimizer = build_optimizer(model, tc)
-    sampler = BatchSampler(cfg.paths.train_bin, mc.block_size, tc.micro_batch_size, seed=args.seed)
+    spec = None
+    if tc.fim_rate > 0:
+        from tokenizers import Tokenizer
+        from src.data.encode import special_ids
+        from src.tokenizer.extend import fim_ids
+        tk = Tokenizer.from_file(cfg.paths.tokenizer_file)
+        sp, fi = special_ids(tk), fim_ids(tk)
+        spec = FimSpec(file=sp.file, eot=sp.eot, prefix=fi.prefix, suffix=fi.suffix, middle=fi.middle)
+        sampler = FimBatchSampler(cfg.paths.train_bin, mc.block_size, tc.micro_batch_size, args.seed, spec, tc.fim_rate)
+    else:
+        sampler = BatchSampler(cfg.paths.train_bin, mc.block_size, tc.micro_batch_size, seed=args.seed)
     step, best_val = 0, float("inf")
+    init_from = args.init_from or tc.init_from
+    if init_from and not args.resume:
+        info = load_v1_weights(model, init_from)
+        print(f"Pesos iniciales de {Path(init_from).name} (paso {info['step']}): vocab {info['old_vocab']} -> {info['new_vocab']}")
     if args.resume:
         last = latest_checkpoint(ckpt_dir)
         if last is None:
@@ -122,8 +139,15 @@ def main() -> None:
                                tc.eval_batches)
                 is_best = val < best_val
                 best_val = min(best_val, val)
-                w.writerow({"step": step, "val_loss": f"{val:.4f}"}); f.flush()
-                print(f"  >> val loss {val:.4f} (mejor {best_val:.4f})", flush=True)
+                row = {"step": step, "val_loss": f"{val:.4f}"}
+                msg = f"  >> val loss {val:.4f} (mejor {best_val:.4f})"
+                if spec is not None:     # perdida con todas las filas en formato FIM (misma semilla de validacion)
+                    vf = evaluate(model, FimBatchSampler(cfg.paths.val_bin, mc.block_size, tc.micro_batch_size, VAL_SEED, spec, 1.0),
+                                  tc.eval_batches)
+                    row["val_fim_loss"] = f"{vf:.4f}"
+                    msg += f" | val FIM {vf:.4f}"
+                w.writerow(row); f.flush()
+                print(msg, flush=True)
                 t_win = time.perf_counter()
             if step % tc.checkpoint_interval == 0 or is_best:
                 checkpoint(is_best)

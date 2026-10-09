@@ -22,6 +22,7 @@ El plan que se contrasta aquí es [`docs/plan-implementacion.md`](../docs/plan-i
 | [07](fase-07-inferencia-evaluacion.md) | Inferencia, evaluación y demo | ✅ Completa (demo como transcripción) | `7438aa7` |
 | [08](fase-08-diagnostico-decodificacion.md) | Mejora v1→v2: diagnóstico, evaluación y decodificación | ✅ Completa (puerta parcial) | `b62b96f` |
 | [09](fase-09-datos.md) | Mejora v1→v2: datos (limpieza, fuente moderna, mezcla v2) | ✅ Completa (piso FastAPI sin cumplir; Next.js sin App Router) | `f1ce480` |
+| [10](fase-10-fim.md) | Mejora v1→v2: formato FIM (prueba de 1.000 pasos) | 🟡 Parcial (código completo; puerta no cumplida: (b) 0,925 y (c) 5 % frente a 44,5 %) | _pendiente_ |
 
 Leyenda: ✅ completa · 🟡 parcial · ⬜ pendiente
 

@@ -43,11 +43,16 @@ def summarize(log_path: str | Path, max_steps: int, tokens_per_step: int) -> dic
 
 
 def main() -> None:
-    cfg = load_config()
-    s = summarize(REPO_ROOT / "logs" / "train.csv", cfg.training.max_steps,
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--config", default=None)
+    ap.add_argument("--log", default=str(REPO_ROOT / "logs" / "train.csv"))
+    args = ap.parse_args()
+    cfg = load_config(args.config)
+    s = summarize(args.log, cfg.training.max_steps,
                   cfg.training.tokens_per_step(cfg.model.block_size))
     if s is None:
-        print("Todavia no hay registro de entrenamiento (logs/train.csv).")
+        print(f"Todavia no hay registro de entrenamiento ({args.log}).")
         return
     print(f"Paso {s['step']:,} de {s['max_steps']:,}  ({100 * s['step'] / s['max_steps']:.1f} %)")
     print(f"Perdida de entrenamiento: {s['loss']:.4f}")

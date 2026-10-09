@@ -124,6 +124,13 @@ def frame_prompt(tok, text: str, lang: str) -> list[int]:
     return head + tok.encode(text).ids
 
 
+def frame_fim_prompt(tok, prefix: str, suffix: str, lang: str) -> list[int]:
+    """Prompt FIM (PSM): el modelo genera el MEDIO tras <|fim_middle|> y termina con <|endoftext|>."""
+    from src.tokenizer.extend import fim_ids
+    f = fim_ids(tok)
+    return frame_prompt(tok, "", lang) + [f.prefix] + tok.encode(prefix).ids + [f.suffix] + tok.encode(suffix).ids + [f.middle]
+
+
 def main() -> None:
     from tokenizers import Tokenizer
 
@@ -131,6 +138,7 @@ def main() -> None:
     ap.add_argument("--config", default=None)
     ap.add_argument("--ckpt", default=None, help="por defecto best.pt de la carpeta de checkpoints")
     ap.add_argument("--prompt", required=True)
+    ap.add_argument("--suffix", default=None, help="modo FIM (Fase 10): texto que va DESPUES del cursor; --prompt es el prefijo")
     ap.add_argument("--lang", default="ts", choices=["js", "jsx", "ts", "tsx", "py"])
     ap.add_argument("--max-new-tokens", type=int, default=200)
     ap.add_argument("--temperature", type=float, default=0.8)
@@ -147,11 +155,12 @@ def main() -> None:
     tok = Tokenizer.from_file(cfg.paths.tokenizer_file)
     model, step = load_model(args.ckpt or Path(cfg.paths.checkpoint_dir) / "best.pt", cfg)
     gen = torch.Generator().manual_seed(args.seed) if args.seed is not None else None
-    new = generate(model, frame_prompt(tok, args.prompt, args.lang), args.max_new_tokens,
+    prompt_ids = frame_fim_prompt(tok, args.prompt, args.suffix, args.lang) if args.suffix is not None         else frame_prompt(tok, args.prompt, args.lang)
+    new = generate(model, prompt_ids, args.max_new_tokens,
                    args.temperature, args.top_k, args.top_p, tok.token_to_id("<|endoftext|>"), gen,
                    repetition_penalty=args.rep_penalty, no_repeat_ngram_size=args.no_repeat_ngram, min_p=args.min_p)
     sys.stdout.reconfigure(encoding="utf-8")
-    print(args.prompt + tok.decode(new, skip_special_tokens=False))
+    print(args.prompt + tok.decode(new, skip_special_tokens=False) + (args.suffix or ""))
 
 
 if __name__ == "__main__":

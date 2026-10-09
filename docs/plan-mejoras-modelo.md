@@ -106,6 +106,8 @@ Es la más rentable: no cuesta días de entrenamiento y decide si las siguientes
 - **Puerta:** prueba corta (≈ 1.000 pasos, ~8 h) partiendo de v1: la pérdida en ventanas de inicio de documento baja y
   la probabilidad de `<|endoftext|>` sube, sin empeorar la validación general más de un margen fijado de antemano.
 
+**Resultado (2026-10-09): 🟡 puerta NO cumplida.** Prueba de 1.000 pasos desde v1: (a) pérdida plana 1,4451 ≤ 1,5628 cumple; (b) pérdida del medio FIM/v1 = 0,925 (límite 0,85) falla; (c) reconstrucciones que parsean 5 % frente a 44,5 % de v1 falla (18,5 % aun recortando la salida de FIM). El modelo aprende FIM pero no aprende a cerrar el medio en 1.000 pasos. Detalle en `avance/fase-10-fim.md`. El muestreo alineado a documentos se descartó.
+
 ### Fase 11 — Entrenamiento continuo v2 · ~6–7 días de cómputo (≈ 600 M tokens)
 
 - Partir de los pesos de v1 y **seguir entrenando** con la mezcla nueva (Fase 9) y el formato nuevo (Fase 10):

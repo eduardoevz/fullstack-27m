@@ -17,6 +17,8 @@ from tokenizers import Regex, pre_tokenizers
 SPECIAL_TOKENS = [
     "<|endoftext|>", "<|file|>", "<|lang_js|>", "<|lang_ts|>", "<|lang_py|>", "<|pad|>",
 ]
+# Fase 10: se anaden AL FINAL del vocabulario (ids >= 16384) para no mover ningun id de v1 ni de train.bin.
+FIM_TOKENS = ["<|fim_prefix|>", "<|fim_suffix|>", "<|fim_middle|>"]
 _LANG_TOKEN = {"js": "<|lang_js|>", "jsx": "<|lang_js|>", "ts": "<|lang_ts|>", "tsx": "<|lang_ts|>", "py": "<|lang_py|>"}
 
 

@@ -8,7 +8,7 @@ se escribe a mano en otro sitio.
 from __future__ import annotations
 
 import json
-from dataclasses import dataclass, fields
+from dataclasses import MISSING, dataclass, fields
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -21,7 +21,7 @@ def _build(cls, data: dict):
     unknown = set(data) - known
     if unknown:
         raise ValueError(f"{cls.__name__}: claves desconocidas en el config: {sorted(unknown)}")
-    missing = known - set(data)
+    missing = {f.name for f in fields(cls) if f.default is MISSING and f.name not in data}
     if missing:
         raise ValueError(f"{cls.__name__}: faltan claves en el config: {sorted(missing)}")
     return cls(**data)
@@ -81,6 +81,8 @@ class TrainingConfig:
     sample_interval: int
     log_interval: int
     keep_last_checkpoints: int
+    fim_rate: float = 0.0       # Fase 10: fraccion de filas FIM (0 = muestreo plano, como v1)
+    init_from: str = ""         # Fase 10: checkpoint cuyos pesos se cargan al empezar (optimizador y paso desde cero)
 
     def tokens_per_step(self, block_size: int) -> int:
         return self.micro_batch_size * self.grad_accum_steps * block_size
