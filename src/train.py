@@ -31,7 +31,8 @@ from src.training.init_from import load_v1_weights
 from src.training.loop import evaluate, run_step
 from src.training.optim import build_optimizer
 
-CSV_FIELDS = ["step", "loss", "lr", "tok_s", "rss_gb", "grad_norm", "val_loss", "val_fim_loss"]
+CSV_FIELDS = ["step", "loss", "lr", "tok_s", "rss_gb", "grad_norm", "val_loss", "val_fim_loss",
+              "fim_mid_loss", "fim_stop_rate"]
 STOP_FILE = REPO_ROOT / "PARAR.txt"   # crear este archivo (parar.bat) = guardar y salir
 VAL_SEED = 1234        # mismo conjunto de batches de validacion en cada evaluacion
 
@@ -65,7 +66,12 @@ def main() -> None:
         tk = Tokenizer.from_file(cfg.paths.tokenizer_file)
         sp, fi = special_ids(tk), fim_ids(tk)
         spec = FimSpec(file=sp.file, eot=sp.eot, prefix=fi.prefix, suffix=fi.suffix, middle=fi.middle)
-        sampler = FimBatchSampler(cfg.paths.train_bin, mc.block_size, tc.micro_batch_size, args.seed, spec, tc.fim_rate)
+        nl = None
+        if tc.fim_line_rate > 0:
+            from src.eval.fim_monitor import newline_token_ids
+            nl = newline_token_ids(tk)
+        sampler = FimBatchSampler(cfg.paths.train_bin, mc.block_size, tc.micro_batch_size, args.seed, spec, tc.fim_rate,
+                                  line_rate=tc.fim_line_rate, newline_ids=nl)
     else:
         sampler = BatchSampler(cfg.paths.train_bin, mc.block_size, tc.micro_batch_size, seed=args.seed)
     step, best_val = 0, float("inf")
@@ -82,6 +88,14 @@ def main() -> None:
         print(f"Reanudado desde {last.name}: paso {step}, mejor val {best_val:.4f}")
     elif latest_checkpoint(ckpt_dir):
         sys.exit(f"Ya hay checkpoints en {ckpt_dir}. Usa --resume, o otra --ckpt-dir, para no pisarlos.")
+
+    monitor_cases, ref_loss = None, None
+    if spec is not None and tc.fim_monitor_interval > 0:
+        import json
+        from src.eval.fim_monitor import prepare_cases
+        monitor_cases = prepare_cases(tk, Path(cfg.paths.token_dir), tc.fim_monitor_cases)
+        ref_loss = json.loads((REPO_ROOT / tc.fim_monitor_ref).read_text(encoding="utf-8"))["loss_mid"]
+        print(f"Vigilancia FIM: {len(monitor_cases)} casos, referencia v1 {ref_loss:.4f}, aborto desde el paso {tc.fim_abort_step}")
 
     fwd = torch.compile(model) if args.compile else model
     end = min(tc.max_steps, args.stop_at) if args.stop_at else tc.max_steps
@@ -149,6 +163,17 @@ def main() -> None:
                 w.writerow(row); f.flush()
                 print(msg, flush=True)
                 t_win = time.perf_counter()
+            if monitor_cases and step % tc.fim_monitor_interval == 0:
+                from src.eval.fim_monitor import decide_abort, run_monitor
+                mon = run_monitor(model, tk, monitor_cases)
+                w.writerow({"step": step, "fim_mid_loss": f"{mon['loss_mid']:.4f}", "fim_stop_rate": f"{mon['stop_rate']:.3f}"})
+                f.flush()
+                print(f"  >> FIM medio {mon['loss_mid']:.4f} ({mon['loss_mid'] / ref_loss:.3f} x v1) | para solo {mon['stop_rate']:.0%}", flush=True)
+                why = decide_abort(mon, ref_loss, step, tc.fim_abort_step, tc.fim_abort_ratio, tc.fim_abort_stop_rate)
+                t_win = time.perf_counter()
+                if why:
+                    print(f"[ABORTO TEMPRANO] {why}. Se guarda el checkpoint y se sale.", flush=True)
+                    stop["now"] = True
             if step % tc.checkpoint_interval == 0 or is_best:
                 checkpoint(is_best)
                 t_win = time.perf_counter()

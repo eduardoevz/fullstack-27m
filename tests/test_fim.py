@@ -126,3 +126,54 @@ def test_tasa_cero_equivale_exactamente_al_muestreador_plano(stream_file):
     f = FimBatchSampler(p, 128, 8, seed=5, spec=SPEC, fim_rate=0.0)
     base = BatchSampler(p, 128, 8, seed=5)
     assert all(torch_equal(f.get_batch(), base.get_batch()) for _ in range(3))
+
+
+# --- cortes alineados a limite de linea (ajuste tras la Fase 10) -----------------------------------
+NL = np.array([20, 21], dtype=np.uint16)          # ids de juguete que contienen un salto de linea
+
+
+def lined_doc(n_lines=30, seed=0):
+    rng = np.random.default_rng(seed)
+    parts = []
+    for _ in range(n_lines):
+        parts += [rng.integers(30, 90, size=int(rng.integers(2, 8)), dtype=np.uint16), [20 + int(rng.integers(0, 2))]]
+    body = np.concatenate([np.asarray(p, dtype=np.uint16) for p in parts])
+    return np.concatenate([[1, 3], body, [2]]).astype(np.uint16), body
+
+
+def test_cortes_por_linea_caen_justo_despues_de_un_salto():
+    rng = np.random.default_rng(0)
+    for i in range(50):
+        doc, body = lined_doc(seed=i)
+        out = fim_transform(doc, rng, SPEC, max_len=512, newline_ids=NL)
+        pre, suf, mid = split_psm(out, SPEC)
+        assert np.array_equal(np.concatenate([pre, mid, suf]), body)
+        assert len(pre) == 0 or pre[-1] in NL                  # el prefijo termina en salto (o esta vacio)
+        assert mid[-1] in NL                                    # el medio son lineas completas
+        assert len(mid) >= 1
+
+
+def test_sin_candidatos_cae_a_cortes_aleatorios():
+    rng = np.random.default_rng(1)
+    body = (30 + np.arange(40) % 50).astype(np.uint16)          # sin ningun salto de linea
+    doc = np.concatenate([[1, 3], body, [2]]).astype(np.uint16)
+    out = fim_transform(doc, rng, SPEC, max_len=512, newline_ids=NL)
+    pre, suf, mid = split_psm(out, SPEC)
+    assert np.array_equal(np.concatenate([pre, mid, suf]), body) and len(mid) >= 1
+
+
+def test_sampler_mezcla_cortes_de_linea_y_aleatorios(stream_file):
+    p, _, _ = stream_file
+    s = FimBatchSampler(p, 128, 64, seed=3, spec=SPEC, fim_rate=1.0, line_rate=0.5, newline_ids=[20, 21])
+    x, y = s.get_batch()
+    assert x.shape == (64, 128) and (x[:, 1:] == y[:, :-1]).all()
+    a = FimBatchSampler(p, 128, 16, seed=9, spec=SPEC, fim_rate=0.5, line_rate=0.5, newline_ids=[20, 21])
+    b = FimBatchSampler(p, 128, 16, seed=9, spec=SPEC, fim_rate=0.5, line_rate=0.5, newline_ids=[20, 21])
+    assert all(torch_equal(a.get_batch(), b.get_batch()) for _ in range(3))
+
+
+def test_line_rate_cero_conserva_el_comportamiento_anterior(stream_file):
+    p, _, _ = stream_file
+    old = FimBatchSampler(p, 128, 8, seed=5, spec=SPEC, fim_rate=0.5)
+    new = FimBatchSampler(p, 128, 8, seed=5, spec=SPEC, fim_rate=0.5, line_rate=0.0, newline_ids=[20, 21])
+    assert all(torch_equal(old.get_batch(), new.get_batch()) for _ in range(3))

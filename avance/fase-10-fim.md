@@ -80,3 +80,20 @@ un 7,5 % (teacher-forcing) pero **no es todavía un buen rellenador**.
 
 Decidir (con el Director) la duración del entrenamiento largo y si se ajustan `fim_rate`, el LR pico o el peso de `<|endoftext|>` tras el medio.
 Recordatorio: revocar/rotar el token de Hugging Face expuesto en la Fase 9.
+
+## Ajustes posteriores al cierre (preparación de la Fase 11)
+
+Tras el resultado de la puerta, con aprobación del Director, se prepararon tres cosas (sin lanzar la Fase 11):
+
+1. **Cortes FIM por línea.** Hipótesis (sin medir): entrenamiento con cortes aleatorios a mitad de línea frente a evaluación con medios de líneas
+   completas. `FimBatchSampler` gana `line_rate`/`newline_ids`: esa fracción de filas FIM corta justo después de un token con salto de línea.
+   Con `line_rate=0` el comportamiento anterior es idéntico (test). Config de la Fase 11: `fim_line_rate` 0,5.
+2. **Vigilancia con aborto temprano** (`src/eval/fim_monitor.py`): cada 500 pasos mide, en 60 casos fijos de líneas completas, la pérdida del
+   medio (frente a la de v1 solo con prefijo, referencia fija 2,5955 en `benchmarks/fim_monitor_ref.json`) y la tasa de parada con
+   `<|endoftext|>`. Regla escrita antes de entrenar: desde el paso 3.000 (≈ 98 M tokens) se aborta si la razón > 0,85 **o** la parada < 50 %.
+   Al abortar se guarda un checkpoint y se sale. Probado en humo (20 pasos): aborta correctamente.
+3. **Sin segunda prueba de 8 h:** el aborto temprano da la misma información.
+
+`config/model_v2_long.json` (18.310 pasos ≈ 600 M tokens, LR 3e-4 → 3e-5, parte de `v2-trial-1000.pt`), `entrenar_v2_long.bat` y
+`estado_v2_long.bat` quedan listos. Dato del humo: con los pesos de la prueba, la tasa de parada es 0 % y la razón de pérdida ya ronda 0,85
+en casos de líneas completas (8 casos; no concluyente).

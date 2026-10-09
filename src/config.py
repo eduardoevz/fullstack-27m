@@ -83,6 +83,13 @@ class TrainingConfig:
     keep_last_checkpoints: int
     fim_rate: float = 0.0       # Fase 10: fraccion de filas FIM (0 = muestreo plano, como v1)
     init_from: str = ""         # Fase 10: checkpoint cuyos pesos se cargan al empezar (optimizador y paso desde cero)
+    fim_line_rate: float = 0.0  # Fase 11: fraccion de las filas FIM cuyos cortes caen en limites de linea
+    fim_monitor_interval: int = 0   # Fase 11: cada cuantos pasos medir FIM (0 = no vigilar)
+    fim_monitor_cases: int = 60
+    fim_monitor_ref: str = ""   # json con la perdida del medio de v1 (solo prefijo) en esos mismos casos
+    fim_abort_step: int = 0     # desde este paso, abortar si falla la regla (0 = nunca)
+    fim_abort_ratio: float = 0.85   # perdida del medio FIM / la de v1 debe ser <= esto
+    fim_abort_stop_rate: float = 0.5    # al menos esta fraccion de generaciones debe parar sola con <|endoftext|>
 
     def tokens_per_step(self, block_size: int) -> int:
         return self.micro_batch_size * self.grad_accum_steps * block_size
