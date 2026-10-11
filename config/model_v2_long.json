@@ -37,9 +37,9 @@
     "fim_monitor_interval": 500,
     "fim_monitor_cases": 60,
     "fim_monitor_ref": "benchmarks/fim_monitor_ref.json",
-    "fim_abort_step": 3000,
+    "fim_abort_step": 6000,
     "fim_abort_ratio": 0.85,
-    "fim_abort_stop_rate": 0.5
+    "fim_abort_stop_rate": 0.4
   },
   "data": {
     "target_train_tokens": 500000000,

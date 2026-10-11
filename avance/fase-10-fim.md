@@ -97,3 +97,11 @@ Tras el resultado de la puerta, con aprobación del Director, se prepararon tres
 `config/model_v2_long.json` (18.310 pasos ≈ 600 M tokens, LR 3e-4 → 3e-5, parte de `v2-trial-1000.pt`), `entrenar_v2_long.bat` y
 `estado_v2_long.bat` quedan listos. Dato del humo: con los pesos de la prueba, la tasa de parada es 0 % y la razón de pérdida ya ronda 0,85
 en casos de líneas completas (8 casos; no concluyente).
+
+### Resultado del aborto en el paso 3.000 y regla nueva (2026-10-10)
+
+La Fase 11 arrancó el 2026-10-09 y el aborto temprano saltó en el paso 3.000, como estaba escrito: pérdida del medio 0,856 × v1 (límite 0,85) y
+parada 22 % (límite 50 %); pérdida plana 1,4762, ya mejor que la de v1 (1,4804). Serie de la parada: 3, 3, 7, 5, 10, 22 % (pasos 500–3.000).
+**La regla original no se cumplió.** Por decisión del Director, tomada con la tendencia a la vista, se continúa desde el checkpoint del
+paso 3.000 con una regla nueva fijada antes de reanudar: chequeo en el paso **6.000**, que exige parada ≥ 40 % y pérdida del medio ≤ 0,85 × v1;
+si falla, el entrenamiento se detiene de nuevo. Camino descartado por ahora: cambiar el peso de `<|endoftext|>` en las filas FIM.
