@@ -84,6 +84,8 @@ class TrainingConfig:
     fim_rate: float = 0.0       # Fase 10: fraccion de filas FIM (0 = muestreo plano, como v1)
     init_from: str = ""         # Fase 10: checkpoint cuyos pesos se cargan al empezar (optimizador y paso desde cero)
     fim_line_rate: float = 0.0  # Fase 11: fraccion de las filas FIM cuyos cortes caen en limites de linea
+    fim_text: bool = False      # Fase 11: FIM a nivel de texto (cortar el texto y codificar los trozos por separado)
+    fim_stop_weight: float = 1.0    # Fase 11: peso extra del <|endoftext|> que cierra el medio en las filas FIM
     fim_monitor_interval: int = 0   # Fase 11: cada cuantos pasos medir FIM (0 = no vigilar)
     fim_monitor_cases: int = 60
     fim_monitor_ref: str = ""   # json con la perdida del medio de v1 (solo prefijo) en esos mismos casos

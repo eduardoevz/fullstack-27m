@@ -70,8 +70,10 @@ def main() -> None:
         if tc.fim_line_rate > 0:
             from src.eval.fim_monitor import newline_token_ids
             nl = newline_token_ids(tk)
+        from src.training.fim import TokenizerCodec
+        codec = TokenizerCodec(tk) if tc.fim_text else None
         sampler = FimBatchSampler(cfg.paths.train_bin, mc.block_size, tc.micro_batch_size, args.seed, spec, tc.fim_rate,
-                                  line_rate=tc.fim_line_rate, newline_ids=nl)
+                                  line_rate=tc.fim_line_rate, newline_ids=nl, codec=codec)
     else:
         sampler = BatchSampler(cfg.paths.train_bin, mc.block_size, tc.micro_batch_size, seed=args.seed)
     step, best_val = 0, float("inf")
@@ -126,7 +128,7 @@ def main() -> None:
         n_win = 0
         while step < end and not stop["now"] and not stop_requested(STOP_FILE):
             t0 = time.perf_counter()
-            loss, gnorm = run_step(fwd, optimizer, sampler, tc, step)
+            loss, gnorm = run_step(fwd, optimizer, sampler, tc, step, spec)
             step += 1
             recent.append(tokens_per_step / (time.perf_counter() - t0))
             acc_loss, acc_gnorm, n_win = acc_loss + loss, acc_gnorm + gnorm, n_win + 1
