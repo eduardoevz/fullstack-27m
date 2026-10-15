@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import shutil
 import signal
 import statistics
 import sys
@@ -111,6 +112,10 @@ def main() -> None:
         if is_best:
             save_checkpoint(ckpt_dir / "best.pt", model, optimizer, sampler, step, best_val)
         rotate_checkpoints(ckpt_dir, tc.keep_last_checkpoints)
+        if tc.milestone_interval and step % tc.milestone_interval == 0:     # hito: nunca se rota
+            hitos = ckpt_dir.parent / f"{ckpt_dir.name}_hitos"
+            hitos.mkdir(exist_ok=True)
+            shutil.copy2(ckpt_dir / f"ckpt-{step:07d}.pt", hitos / f"hito-{step:07d}.pt")
 
     log_path = Path(args.log)
     log_path.parent.mkdir(parents=True, exist_ok=True)
