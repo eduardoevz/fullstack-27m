@@ -39,7 +39,7 @@
     "fim_monitor_ref": "benchmarks/fim_monitor_ref.json",
     "fim_abort_step": 7500,
     "fim_abort_ratio": 0.88,
-    "fim_abort_stop_rate": 0.4,
+    "fim_abort_stop_rate": 0.25,
     "fim_stop_weight": 8.0,
     "milestone_interval": 1000
   },
