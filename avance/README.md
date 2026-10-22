@@ -24,7 +24,7 @@ El plan que se contrasta aquí es [`docs/plan-implementacion.md`](../docs/plan-i
 | [09](fase-09-datos.md) | Mejora v1→v2: datos (limpieza, fuente moderna, mezcla v2) | ✅ Completa (piso FastAPI sin cumplir; Next.js sin App Router) | `f1ce480` |
 | [10](fase-10-fim.md) | Mejora v1→v2: formato FIM (prueba de 1.000 pasos) | 🟡 Parcial (código completo; puerta no cumplida: (b) 0,925 y (c) 5 % frente a 44,5 %) | `d608244` |
 | [11](fase-11-entrenamiento-fim.md) | Entrenamiento largo con FIM (18.310 pasos) y decodificación | ✅ Completa (FIM 0,834 × v1; sintaxis desde cero a 512 tokens 72 % frente a 63 % de v1; sin cumplir: parseo FIM 35,5 % frente a 44,5 % y suite de 20 prompts 55 % frente a 63 %) | `a4e8097` |
-| [13](fase-13-inferencia-producto.md) | Inferencia y producto: demo con relleno en el cursor, README v1 contra v2, cuantización int8 | 🟡 Parcial (int8 medida y descartada: 0,80× de velocidad) | _pendiente_ |
+| [13](fase-13-inferencia-producto.md) | Inferencia y producto: demo con relleno en el cursor, README v1 contra v2, cuantización int8 | 🟡 Parcial (int8 medida y descartada: 0,80× de velocidad) | `5ec151e` |
 
 Leyenda: ✅ completa · 🟡 parcial · ⬜ pendiente
 
