@@ -1,7 +1,7 @@
 # Fase 11 — Entrenamiento largo con FIM (v2) y decodificación
 
 **Fecha:** 2026-10-09 al 2026-10-22
-**Estado:** 🟡 Parcial. El entrenamiento de 18.310 pasos terminó y el modelo supera a v1 en el relleno FIM, pero **no alcanza a v1 en validez sintáctica** (55 % contra 63 % estricta, 57 % contra 68 % recortada).
+**Estado:** 🟡 Parcial. El entrenamiento de 18.310 pasos terminó y el modelo supera a v1 en el relleno FIM y en la sintaxis de fragmentos desde cero a 512 tokens (72 % contra 63 % estricta). **No alcanza a v1** en la sintaxis de la suite de 20 prompts (55 % contra 63 % estricta, 57 % contra 68 % recortada) ni en el parseo del relleno FIM (35,5 % contra 44,5 %).
 **Commit:** ver tabla de `avance/README.md`
 
 ## Objetivo según el plan
@@ -87,21 +87,44 @@ repetición: la sintaxis estricta pasó de 24 % (base) a 38 / 42 / 47 % con 1,05
 fragmentos repetitivos) y bajar la temperatura (16–20 %) no mejoraron. La combinación 1,2 + n-gramas 3 quedó en 42 %. Se eligió **penalización 1,2**
 y se validó una sola vez en el conjunto de prueba, congelado.
 
+## Sintaxis de fragmentos desde cero (100 por celda, T 0,8, con veto FIM)
+
+Medida con `src/eval/syntax_check.py --no-baseline` (sin la calibración con archivos reales). Los números de v1 son los de las Fases 7 y 8.
+
+| Largo | Modelo | Penalización | Estricta | Recortada | Terminan | Repetitivos |
+|---|---|---|---|---|---|---|
+| 256 | v1 | 1,0 | 23 % | 71 % | 14 | 16 % |
+| 256 | v1 | 1,1 | 46 % | 68 % | 36 | 1 % |
+| 256 | v2 | 1,0 | 34 % | 54 % | 25 | 8 % |
+| 256 | v2 | 1,1 | 45 % | 62 % | 40 | 1 % |
+| 256 | v2 | 1,2 | **51 %** | 65 % | 47 | 4 % |
+| 512 | v1 | 1,0 | 33 % | 73 % | 26 | 52 % |
+| 512 | v1 | 1,1 | 63 % | 77 % | 63 | 7 % |
+| 512 | v2 | 1,0 | 56 % | 71 % | 78 | 25 % |
+| 512 | v2 | 1,1 | **72 %** | **81 %** | 92 | 6 % |
+| 512 | v2 | 1,2 | 66 % | 77 % | 91 | 7 % |
+
+- A 512 tokens el v2 supera a v1 con cualquiera de las dos penalizaciones comparables (56 % contra 33 % con 1,0; 72 % contra 63 % con 1,1). A 256 queda igual con 1,1 (45 % contra 46 %) y por delante con 1,2 (51 %).
+- El v2 termina el archivo mucho más seguido (91–92 de 100 a 512 tokens, contra 63 de v1), pero entre los que terminan parsea menos a 512 (68–76 % contra 86–88 %).
+- La diferencia entre 1,1 y 1,2 a 512 tokens (6 puntos con 100 fragmentos) puede ser ruido. La búsqueda en `dev` midió a 256 tokens, donde 1,2 gana.
+- Conclusión: la brecha de la suite de 20 prompts (prefijos de archivos reales, 200 tokens) no se repite en la generación desde cero; depende de la prueba.
+
 ## Resultado frente a lo esperado
 
 - **Cumple:** el relleno FIM supera a v1 en pérdida (0,834 ×), similitud (0,302 contra 0,257) y coincidencia exacta (4,5 % contra 2,0 %); el «en tema» de la suite
   también (79 % contra 69 %); y hay menos repetición (0,04 contra 0,09).
-- **No cumple:** la validez sintáctica de v1 con su mejor decodificación (63 % estricta, 68 % recortada) y el parseo FIM de v1 (44,5 %).
-- **Causa de la brecha sintáctica:** no probada. Mi hipótesis es que dedicar la mitad del entrenamiento a FIM resta calidad a la generación normal
+- **Cumple en parte:** la sintaxis desde cero a 512 tokens supera a v1 (72 % contra 63 % estricta, 81 % contra 77 % recortada) y a 256 tokens la iguala o supera (45–51 % contra 46 %).
+- **No cumple:** la sintaxis de la suite de 20 prompts con la mejor decodificación de v1 (55 % contra 63 % estricta, 57 % contra 68 % recortada) y el parseo FIM de v1 (35,5 % contra 44,5 %).
+- **Causa de la brecha en la suite y en el parseo FIM:** no probada. Mi hipótesis es que dedicar la mitad del entrenamiento a FIM resta calidad a la generación normal
   (se ven repeticiones de decoradores y variables duplicadas), y que un peso de cierre alto empuja a terminar pronto. Ningún experimento lo confirma.
 
 ## Pendiente
 
-- Decidir si hace falta un **ajuste fino corto con 0 % de FIM** para recuperar el modo normal; habría que medir primero cuánto FIM se pierde.
-- Medir la sintaxis en 256/512 tokens y la suite de tareas (`run_tasks`) con el v2 final, como en la Fase 8.
+- Decidir si hace falta un **ajuste fino corto con 0 % de FIM**. Tras medir la sintaxis a 256/512 tokens pierde urgencia: la brecha solo aparece en la suite y en el parseo FIM, y habría que medir cuánto FIM se pierde.
+- Medir la suite de tareas (`run_tasks`) con el v2 final, como en la Fase 8.
 - El paso 18.310 no tiene validación propia en el CSV; el checkpoint final está en `checkpoints_v2_long_c_hitos/hito-0018310.pt`.
 
 ## Archivos de datos
 
-`benchmarks/fim_eval_*.json` (200 casos por paso), `benchmarks/v2_final_suite_test*.json`, `benchmarks/v2_decoding_search.json`.
+`benchmarks/fim_eval_*.json` (200 casos por paso), `benchmarks/v2_final_suite_test*.json`, `benchmarks/v2_final_syntax{256,512}_rep*.json`, `benchmarks/v2_decoding_search.json`.
 Los CSV de entrenamiento están en `logs/` (no versionados).

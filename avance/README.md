@@ -23,7 +23,7 @@ El plan que se contrasta aquí es [`docs/plan-implementacion.md`](../docs/plan-i
 | [08](fase-08-diagnostico-decodificacion.md) | Mejora v1→v2: diagnóstico, evaluación y decodificación | ✅ Completa (puerta parcial) | `b62b96f` |
 | [09](fase-09-datos.md) | Mejora v1→v2: datos (limpieza, fuente moderna, mezcla v2) | ✅ Completa (piso FastAPI sin cumplir; Next.js sin App Router) | `f1ce480` |
 | [10](fase-10-fim.md) | Mejora v1→v2: formato FIM (prueba de 1.000 pasos) | 🟡 Parcial (código completo; puerta no cumplida: (b) 0,925 y (c) 5 % frente a 44,5 %) | `d608244` |
-| [11](fase-11-entrenamiento-fim.md) | Entrenamiento largo con FIM (18.310 pasos) y decodificación | 🟡 Parcial (FIM 0,834 × v1 y parsea 35,5 % frente a 44,5 %; sintaxis estricta 55 % frente a 63 % de v1) | `a4e8097` |
+| [11](fase-11-entrenamiento-fim.md) | Entrenamiento largo con FIM (18.310 pasos) y decodificación | 🟡 Parcial (FIM 0,834 × v1, parsea 35,5 % frente a 44,5 %; sintaxis desde cero a 512 tokens 72 % frente a 63 % de v1; suite de 20 prompts 55 % frente a 63 %) | `a4e8097` |
 
 Leyenda: ✅ completa · 🟡 parcial · ⬜ pendiente
 
