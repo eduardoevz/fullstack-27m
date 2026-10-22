@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nexora</title>
+<meta name="description" content="Nexora: interfaz local de fullstack-27m, un modelo de código de 20 M de parámetros entrenado desde cero en CPU.">
+<link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <svg class="logo" viewBox="0 0 32 32" aria-hidden="true">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#a78bfa"/></linearGradient></defs>
+      <rect x="2" y="2" width="28" height="28" rx="8" fill="url(#g)"/>
+      <path d="M9 23V9l14 14V9" fill="none" stroke="#0b1020" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div>
+      <h1>Nexora</h1>
+      <p class="sub">fullstack-27m v2 · entrenado desde cero en CPU</p>
+    </div>
+  </div>
+  <nav class="tabs" role="tablist" aria-label="Secciones">
+    <button class="tab active" role="tab" id="tab-editor" aria-selected="true" aria-controls="view-editor">Editor</button>
+    <button class="tab" role="tab" id="tab-card" aria-selected="false" aria-controls="view-card">Ficha del modelo</button>
+  </nav>
+  <div class="chip" id="chip" title="Modelo cargado">conectando…</div>
+</header>
+
+<main>
+  <section id="view-editor" role="tabpanel" aria-labelledby="tab-editor">
+    <div class="workspace">
+      <div class="editor-col">
+        <div class="toolbar">
+          <label class="field">Lenguaje
+            <select id="lang">
+              <option value="tsx">TSX (React / Next.js)</option>
+              <option value="ts">TypeScript (NestJS / Node)</option>
+              <option value="jsx">JSX</option>
+              <option value="js">JavaScript</option>
+              <option value="py">Python (FastAPI)</option>
+            </select>
+          </label>
+          <label class="field">Ejemplo
+            <select id="example"><option value="">Elige un ejemplo…</option></select>
+          </label>
+          <span class="spacer"></span>
+          <button id="btn-stop" class="btn ghost" hidden>Detener</button>
+          <button id="btn-fill" class="btn" title="Rellena el hueco donde está el cursor (Alt+Enter)">Rellenar en el cursor <kbd>Alt+Enter</kbd></button>
+          <button id="btn-complete" class="btn primary" title="Continúa el código desde el final (Ctrl+Enter)">Completar <kbd>Ctrl+Enter</kbd></button>
+        </div>
+        <div class="editor" id="editor">
+          <div class="gutter" id="gutter" aria-hidden="true"></div>
+          <div class="code">
+            <pre id="hl" aria-hidden="true"></pre>
+            <textarea id="src" spellcheck="false" wrap="off" autocomplete="off" autocapitalize="off"
+                      aria-label="Editor de código" placeholder="Escribe código aquí…"></textarea>
+          </div>
+        </div>
+        <div class="statusbar" aria-live="polite">
+          <span id="status">Listo. Escribe código y pulsa Completar, o pon el cursor en medio y pulsa Rellenar.</span>
+          <span class="legend"><i class="dot gen"></i> escrito por el modelo</span>
+        </div>
+      </div>
+
+      <aside class="side" aria-label="Ajustes">
+        <h2>Ajustes</h2>
+        <label class="slider">
+          <span>Temperatura <output id="o-temp">0,7</output></span>
+          <input id="temp" type="range" min="0" max="1.5" step="0.05" value="0.7">
+          <small>0 = siempre lo más probable; más alto = más variado.</small>
+        </label>
+        <label class="slider">
+          <span>Tokens a generar <output id="o-tokens">200</output></span>
+          <input id="tokens" type="range" min="16" max="512" step="8" value="200">
+          <small>Máximo de tokens nuevos (el contexto del modelo es de 512).</small>
+        </label>
+        <label class="slider">
+          <span>Penalización por repetición <output id="o-rep">1,1</output></span>
+          <input id="rep" type="range" min="1" max="1.5" step="0.05" value="1.1">
+          <small>1,1 rindió más a 512 tokens en las pruebas.</small>
+        </label>
+        <button id="btn-reset" class="btn ghost wide">Restablecer ajustes</button>
+
+        <h2>Última generación</h2>
+        <dl class="stats">
+          <div><dt>Tokens</dt><dd id="s-tokens">—</dd></div>
+          <div><dt>Velocidad</dt><dd id="s-toks">—</dd></div>
+          <div><dt>Tiempo</dt><dd id="s-time">—</dd></div>
+          <div><dt>Modo</dt><dd id="s-mode">—</dd></div>
+        </dl>
+        <p class="note">Es un modelo de 20 M de parámetros: autocompleta y rellena, pero puede equivocarse. Revisa siempre lo que escribe.
+          <a href="#" id="to-card">Ver la ficha completa</a>.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section id="view-card" role="tabpanel" aria-labelledby="tab-card" hidden>
+    <div class="card" id="card"></div>
+  </section>
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

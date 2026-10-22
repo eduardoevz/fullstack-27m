@@ -1,0 +1,34 @@
+{
+  "nombre": "fullstack-27m v2",
+  "resumen": "Modelo de lenguaje de código entrenado desde cero, en una CPU de portátil, para autocompletar y rellenar código Full Stack (JavaScript, TypeScript, React, Next.js, NestJS y Python/FastAPI).",
+  "especificaciones": [
+    ["Parámetros", "20,45 M"],
+    ["Arquitectura", "Transformer solo-decodificador: 8 capas, 6 cabezas, dimensión 384, posiciones RoPE, embeddings atados"],
+    ["Contexto", "512 tokens"],
+    ["Vocabulario", "16.387 tokens (BPE propio, orientado a sintaxis de código)"],
+    ["Datos de entrenamiento", "≈ 500 M de tokens de código"],
+    ["Entrenamiento", "18.310 pasos de optimizador en una CPU Intel i5-1135G7, sin GPU"],
+    ["Formatos", "Continuar código y rellenar en el cursor (FIM)"],
+    ["Velocidad de generación", "≈ 100 tokens por segundo en CPU (104 en el banco de pruebas; 60–90 medidos en esta interfaz)"]
+  ],
+  "logros": [
+    {"valor": "0,834 ×", "texto": "Pérdida del relleno en el cursor frente a la versión 1 (200 casos; menos es mejor)."},
+    {"valor": "72 %", "texto": "Fragmentos de 512 tokens con sintaxis válida de principio a fin, frente a 63 % de la versión 1."},
+    {"valor": "4,5 %", "texto": "Rellenos idénticos al original, más del doble que la versión 1 (2,0 %)."},
+    {"valor": "82 %", "texto": "Respuestas en tema en una suite de 20 prompts, frente a 69 % de la versión 1."}
+  ],
+  "limitaciones": [
+    "Es un modelo de 20 M de parámetros, pensado para fragmentos cortos y para rellenar huecos, no para escribir programas completos.",
+    "En 30 tareas con pruebas automáticas resuelve entre 2 y 3 de cada 100 intentos (pass@1 = 2 %, IC95 0–5 %): sirve para autocompletar, no para producir funciones correctas.",
+    "Solo el 35,5 % de los rellenos en el cursor produce código que parsea (la versión 1 llega a 44,5 %): a veces no encuentra dónde detenerse.",
+    "En una suite de 20 prompts la sintaxis estricta es de 55 %, por debajo del 63 % de la versión 1.",
+    "Ventana de 512 tokens: no ve archivos largos completos, y puede repetir estructuras en salidas largas."
+  ],
+  "ejemplos": [
+    {"titulo": "Relleno en el cursor (TypeScript)", "lang": "ts", "texto": "export function sumar(a: number, b: number): number {\n  <CURSOR>\n}\n"},
+    {"titulo": "Continuar un componente (React)", "lang": "tsx", "texto": "import { useState } from \"react\";\n\nexport default function Counter() {\n"},
+    {"titulo": "Endpoint (FastAPI)", "lang": "py", "texto": "@app.get(\"/items/{item_id}\")\nasync def read_item(item_id: int):\n"},
+    {"titulo": "Servidor (Express)", "lang": "ts", "texto": "import express from \"express\";\nconst app = express();\n"}
+  ],
+  "fuentes": "Cifras de benchmarks/fim_eval_18310.json, benchmarks/v2_final_syntax512_rep1.1.json, benchmarks/v2_final_tasks_rep1.1.json y avance/fase-11-entrenamiento-fim.md."
+}

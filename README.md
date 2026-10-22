@@ -12,7 +12,7 @@ inferencia— está diseñado alrededor de las restricciones de un portátil: un
 >
 > **v2 (Fases 9 a 13):** el mismo modelo, entrenado 18.310 pasos más con datos modernos y autocompletado *en medio* del código (FIM). Mejora el relleno y la
 > sintaxis a 512 tokens, pero no resuelve tareas ni gana en todas las pruebas: la comparación completa está en
-> [v2 frente a v1](#v2-frente-a-v1-fases-9-a-13). Demo: `demo_v2.bat`.
+> [v2 frente a v1](#v2-frente-a-v1-fases-9-a-13). Demo: `demo_v2.bat`; interfaz web: [Nexora](#nexora-interfaz-web-local-fase-14).
 
 ---
 
@@ -213,6 +213,27 @@ La demo interactiva está transcrita en [`samples/demo-cli.md`](samples/demo-cli
 
 ---
 
+## Nexora: interfaz web local (Fase 14)
+
+Nexora es la interfaz del modelo: un editor de código oscuro que corre en tu propio equipo, con el modelo real, sin servidor externo ni dependencias nuevas
+(servidor de la biblioteca estándar de Python y una sola página con JavaScript puro).
+
+![Nexora completando y rellenando código](samples/nexora-demo.gif)
+
+- **Completar** (`Ctrl+Enter`): continúa tu código desde el final, con la respuesta en vivo.
+- **Rellenar en el cursor** (`Alt+Enter`): rellena el hueco donde esté el cursor, con el formato FIM de la Fase 10. Lo que escribe el modelo se marca en otro color.
+- **Ajustes:** lenguaje, temperatura, tokens a generar y penalización por repetición; muestra los tokens por segundo de cada generación.
+- **Ficha del modelo:** parámetros, entrenamiento, logros y limitaciones con las cifras medidas ([captura](samples/nexora-ficha.jpg)).
+
+```bash
+demo_nexora.bat        # abre http://127.0.0.1:8765 con el modelo final (hito-0018310.pt)
+```
+
+Las capturas y el GIF son salidas reales del modelo, sin selección: el relleno de `sumar` lo resuelve a medias y el modelo a veces escribe una llave de más.
+Es lo esperable de 20 M de parámetros; la ficha lo dice con las mismas cifras de este README.
+
+---
+
 ## Estructura
 
 ```
@@ -225,6 +246,7 @@ src/model/               RMSNorm, RoPE, SwiGLU, GPT (con cache KV para inferenci
 src/train.py             Bucle de entrenamiento con acumulacion y reanudacion exacta
 src/sample.py            Generacion: temperatura, top-k, top-p, cache KV
 src/cli.py               Demo interactiva de autocompletado y relleno en el cursor (demo.bat, demo_v2.bat)
+src/web/                 Nexora: servidor local (SSE), página, ficha del modelo (demo_nexora.bat)
 src/eval/                Validez sintactica, suite de 20 prompts, curvas de entrenamiento
 tests/                   Causalidad, parametros, tokenizer, entrenamiento, cache KV, validador sintactico
 benchmarks/              baseline.json, syntax_eval.json, prompt_suite.json (resultados reproducibles)
@@ -240,13 +262,14 @@ escritura. Los pesos (`best.pt`) no se versionan.
 
 ```bash
 python src/bench.py                                   # linea base de rendimiento
-pytest tests/ -v                                      # suite de tests (322)
+pytest tests/ -v                                      # suite de tests (354)
 python src/train.py --resume                          # entrenar / reanudar (o entrenar.bat)
 python src/sample.py --prompt "export default function Nav(" --lang tsx --seed 1
 python src/eval/syntax_check.py --n 100               # metrica de validez sintactica
 python src/eval/run_suite.py                          # suite de 20 prompts
 python src/cli.py                                     # demo interactiva de v1 (o demo.bat)
 demo_v2.bat                                           # demo de v2: escribe <CURSOR> donde quieras que rellene
+demo_nexora.bat                                       # interfaz web local Nexora (v2)
 ```
 
 **Validador de JS/TS (una sola vez).** El parser de TypeScript se instala fuera del repo:
