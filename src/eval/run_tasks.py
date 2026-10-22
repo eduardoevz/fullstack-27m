@@ -24,7 +24,7 @@ from src.eval.harness import FRAMING  # noqa: F401  (misma convencion de lenguaj
 from src.eval.stats import bootstrap_ci, pass_at_k
 from src.eval.syntax_check import add_decoding_args, decoding_from_args
 from src.eval.tasks import TASKS, run_task, truncate_completion
-from src.sample import generate, load_model
+from src.sample import fim_banned_ids, generate, load_model
 
 
 def summarize_tasks(rows: list[dict], seed: int = 0) -> dict:
@@ -75,7 +75,7 @@ def main() -> None:
         for i, task in enumerate(TASKS):
             ids = head[task["lang"]] + tok.encode(task["prompt"]).ids
             g = torch.Generator().manual_seed(args.seed + 1000 * j + i)
-            new = generate(model, ids, args.max_new_tokens, eos_id=eot, generator=g, **decoding.generate_kwargs())
+            new = generate(model, ids, args.max_new_tokens, eos_id=eot, generator=g, banned_ids=fim_banned_ids(tok), **decoding.generate_kwargs())
             completion = tok.decode(new, skip_special_tokens=False)
             passed, reason = run_task(task, completion)
             rows.append({"id": task["id"], "lang": task["lang"], "sample": j, "passed": passed, "reason": reason[:200],

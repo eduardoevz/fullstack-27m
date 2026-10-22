@@ -217,3 +217,12 @@ def test_generate_defaults_reproduce_the_previous_sampling_exactly():
     b = generate(model, [1, 2], 15, 1.0, 20, 0.9, generator=torch.Generator().manual_seed(11),
                  repetition_penalty=1.0, no_repeat_ngram_size=0, min_p=0.0)
     assert a == b
+
+
+# ---------------------------------------------------------------- tokens vetados
+def test_banned_ids_are_never_sampled():
+    model = tiny()
+    free = generate(model, [1, 2, 3], 20, temperature=0.0)
+    banned = sorted(set(free))[:3]
+    out = generate(model, [1, 2, 3], 20, temperature=0.0, banned_ids=banned)
+    assert len(out) == 20 and not set(out) & set(banned)

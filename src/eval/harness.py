@@ -9,7 +9,7 @@ import torch
 from src.eval.stats import bootstrap_ci
 from src.eval.syntax import (RETENTION_MIN, check_fragments, has_undefined_names, plan_counts, repeated_line_ratio,
                              trim_to_valid)
-from src.sample import frame_prompt, generate
+from src.sample import fim_banned_ids, frame_prompt, generate
 
 FRAMING = {"js": "js", "jsx": "js", "ts": "ts", "tsx": "ts", "py": "py"}
 
@@ -41,7 +41,7 @@ def generate_fragments(model, tok, n: int, max_new_tokens: int, decoding: Decodi
     for lang, count in plan_counts(n).items():
         for _ in range(count):
             g = torch.Generator().manual_seed(seed + i)
-            new = generate(model, head[lang], max_new_tokens, eos_id=eot, generator=g, **decoding.generate_kwargs())
+            new = generate(model, head[lang], max_new_tokens, eos_id=eot, generator=g, banned_ids=fim_banned_ids(tok), **decoding.generate_kwargs())
             rows.append({"id": f"gen-{lang}-{i}", "lang": lang, "finished": len(new) < max_new_tokens,
                          "n_tokens": len(new), "code": tok.decode(new, skip_special_tokens=False)})
             i += 1
@@ -77,7 +77,7 @@ def run_prompt_set(model, tok, prompts: list[dict], samples: int, max_new_tokens
         for i, p in enumerate(prompts):
             ids = frame_prompt(tok, p["prompt"], FRAMING[p["lang"]])
             g = torch.Generator().manual_seed(seed + 1000 * j + i)
-            new = generate(model, ids, max_new_tokens, eos_id=eot, generator=g, **decoding.generate_kwargs())
+            new = generate(model, ids, max_new_tokens, eos_id=eot, generator=g, banned_ids=fim_banned_ids(tok), **decoding.generate_kwargs())
             completion = tok.decode(new, skip_special_tokens=False)
             full = p["prompt"] + completion
             ok = check_fragments([{"id": 0, "lang": p["lang"], "code": full}])[0]["ok"]

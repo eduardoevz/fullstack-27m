@@ -34,3 +34,4 @@ logs/*.txt
 !benchmarks/data_v2_mix.json
 !benchmarks/v1_domain_loss.json
 !benchmarks/fim_eval*.json
+!benchmarks/v2_*.json

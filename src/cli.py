@@ -20,7 +20,7 @@ import torch
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from src.config import load_config
-from src.sample import frame_fim_prompt, frame_prompt, generate, load_model
+from src.sample import fim_banned_ids, frame_fim_prompt, frame_prompt, generate, load_model
 
 LANGS = {"js": "js", "jsx": "js", "ts": "ts", "tsx": "ts", "py": "py"}
 REP_PENALTY = 1.1        # Fase 8: duplica la sintaxis valida y casi elimina los bucles (ver avance/fase-08-*.md)
@@ -101,7 +101,7 @@ def main() -> None:
         text = block.rstrip("\n") if not block.endswith("\n\n") else block
         sys.stdout.write("\n--- completando ---\n" + text)
         generate(model, frame_prompt(tok, text, LANGS[lang]), n_tokens, temp, 40, 0.95, eot,
-                 on_token=Streamer(tok), repetition_penalty=REP_PENALTY)
+                 on_token=Streamer(tok), repetition_penalty=REP_PENALTY, banned_ids=fim_banned_ids(tok))
         print("\n--- fin ---\n")
 
 

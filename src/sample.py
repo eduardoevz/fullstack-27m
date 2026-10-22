@@ -72,13 +72,15 @@ def generate(model, prompt_ids: list[int], max_new_tokens: int, temperature: flo
              top_k: int = 40, top_p: float = 0.95, eos_id: int | None = None,
              generator: torch.Generator | None = None, on_token=None,
              repetition_penalty: float = 1.0, repetition_window: int = 64,
-             no_repeat_ngram_size: int = 0, min_p: float = 0.0) -> list[int]:
+             no_repeat_ngram_size: int = 0, min_p: float = 0.0,
+             banned_ids: list[int] | None = None) -> list[int]:
     """Devuelve solo los tokens nuevos (sin el eos). Si el contexto llena `block_size`, descarta la
     cache y vuelve a procesar la mitad final de la ventana (la posicion es relativa gracias a RoPE).
     `on_token(id)` se llama con cada token nuevo (para mostrar el texto a medida que sale).
     Anti-repeticion (apagada por defecto): `repetition_penalty` y `no_repeat_ngram_size` miran solo los tokens
     GENERADOS (no el prompt: el codigo repite con razon los identificadores que ya escribio el usuario);
-    la penalizacion usa los ultimos `repetition_window`. `min_p` filtra tokens con prob. < min_p x la maxima."""
+    la penalizacion usa los ultimos `repetition_window`. `min_p` filtra tokens con prob. < min_p x la maxima.
+    `banned_ids` nunca se muestrean (p. ej. los marcadores FIM al generar codigo normal)."""
     if not prompt_ids:
         raise ValueError("el prompt no puede estar vacio")
     window = model.cfg.block_size
@@ -94,6 +96,9 @@ def generate(model, prompt_ids: list[int], max_new_tokens: int, temperature: flo
             if banned:
                 step_logits = step_logits.clone()
                 step_logits[list(banned)] = float("-inf")
+        if banned_ids:
+            step_logits = step_logits.clone()
+            step_logits[banned_ids] = float("-inf")
         nxt = sample_next(step_logits, temperature, top_k, top_p, generator, min_p)
         if nxt == eos_id:
             break
@@ -115,6 +120,12 @@ def load_model(ckpt_path: str | Path, cfg):
     state = torch.load(ckpt_path, map_location="cpu", weights_only=False)
     model.load_state_dict(state["model"])
     return model.eval(), state.get("step")
+
+
+def fim_banned_ids(tok) -> list[int]:
+    """Ids de los marcadores FIM (vacio si el tokenizer no los tiene): se vetan al generar sin FIM."""
+    from src.tokenizer.pretokenizer import FIM_TOKENS
+    return [i for i in (tok.token_to_id(t) for t in FIM_TOKENS) if i is not None]
 
 
 def frame_prompt(tok, text: str, lang: str) -> list[int]:
@@ -158,7 +169,8 @@ def main() -> None:
     prompt_ids = frame_fim_prompt(tok, args.prompt, args.suffix, args.lang) if args.suffix is not None         else frame_prompt(tok, args.prompt, args.lang)
     new = generate(model, prompt_ids, args.max_new_tokens,
                    args.temperature, args.top_k, args.top_p, tok.token_to_id("<|endoftext|>"), gen,
-                   repetition_penalty=args.rep_penalty, no_repeat_ngram_size=args.no_repeat_ngram, min_p=args.min_p)
+                   repetition_penalty=args.rep_penalty, no_repeat_ngram_size=args.no_repeat_ngram, min_p=args.min_p,
+                   banned_ids=None if args.suffix is not None else fim_banned_ids(tok))
     sys.stdout.reconfigure(encoding="utf-8")
     print(args.prompt + tok.decode(new, skip_special_tokens=False) + (args.suffix or ""))
 
