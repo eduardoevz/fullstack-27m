@@ -1,6 +1,6 @@
 # Plan de mejora del modelo: de v1 a v2
 
-> **Estado:** aprobado por el Director el 2026-10-06. **Fases 8 a 11 y 13 hechas** (ver `avance/`); la Fase 13 quedó parcial (la cuantización int8 se midió y se descartó) y la **Fase 12 sigue pendiente y opcional**: requiere aprobación antes de empezar. Continúa la numeración del plan original (fases 0–7, ya cerradas).
+> **Estado:** aprobado por el Director el 2026-10-06. **Fases 8 a 11 y 13 hechas** (ver `avance/`); la Fase 13 quedó parcial (la cuantización int8 se midió y se descartó) y la **Fase 12 sigue pendiente y opcional**: requiere aprobación antes de empezar (medición previa en `avance/fase-12-medicion-previa.md`: ningún dominio flojo; el contexto largo da un indicio modesto). Continúa la numeración del plan original (fases 0–7, ya cerradas).
 
 ## Contexto
 

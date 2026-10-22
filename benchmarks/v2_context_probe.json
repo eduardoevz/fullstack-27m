@@ -1,0 +1,59 @@
+{
+ "checkpoint_step": 18310,
+ "docs": 400,
+ "targets_per_doc": 64,
+ "share_tokens_beyond_512": 0.584120055039835,
+ "loss_by_context": {
+  "64": 2.0590175342559816,
+  "128": 1.446709861755371,
+  "256": 1.2670506143569946,
+  "384": 1.1940535926818847,
+  "512": 1.2323046517372132
+ },
+ "gain_256_512": 0.03474596261978147,
+ "gain_384_512": -0.03825105905532844,
+ "contexto": "no limita",
+ "dominios": {
+  "mezcla de validacion": {
+   "loss": 1.3874419638315836,
+   "windows": 1500,
+   "tokens": 768000,
+   "file_tokens": 4997108
+  },
+  "dominio:fastapi": {
+   "loss": 1.4555320210890337,
+   "windows": 275,
+   "tokens": 140800,
+   "file_tokens": 140874,
+   "veredicto": "ok"
+  },
+  "dominio:nestjs": {
+   "loss": 1.1118802490234374,
+   "windows": 1500,
+   "tokens": 768000,
+   "file_tokens": 834509,
+   "veredicto": "ok"
+  },
+  "dominio:nextjs": {
+   "loss": 1.2411530431111653,
+   "windows": 1275,
+   "tokens": 652800,
+   "file_tokens": 652933,
+   "veredicto": "ok"
+  },
+  "dominio:react": {
+   "loss": 1.3162780469258626,
+   "windows": 1500,
+   "tokens": 768000,
+   "file_tokens": 1499898,
+   "veredicto": "ok"
+  }
+ },
+ "reglas": {
+  "gain_far": 0.05,
+  "gain_near": 0.015,
+  "share_long": 0.25,
+  "gain_none": 0.008,
+  "domain_margin": 1.1
+ }
+}

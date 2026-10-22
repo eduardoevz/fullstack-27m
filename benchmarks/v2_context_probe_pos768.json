@@ -1,0 +1,32 @@
+{
+ "checkpoint_step": 18310,
+ "position": 768,
+ "docs": 400,
+ "targets_per_doc": 64,
+ "share_tokens_beyond_512": 0.584120055039835,
+ "loss_by_context": {
+  "64": 2.0330123043060304,
+  "128": 1.493453049659729,
+  "256": 1.2670619463920594,
+  "384": 1.1945353102684022,
+  "512": 1.1496238923072815
+ },
+ "gain_256_512": 0.11743805408477792,
+ "gain_384_512": 0.04491141796112075,
+ "contexto": "limita",
+ "dominios": {
+  "mezcla de validacion": {
+   "loss": 1.3874419638315836,
+   "windows": 1500,
+   "tokens": 768000,
+   "file_tokens": 4997108
+  }
+ },
+ "reglas": {
+  "gain_far": 0.05,
+  "gain_near": 0.015,
+  "share_long": 0.25,
+  "gain_none": 0.008,
+  "domain_margin": 1.1
+ }
+}
