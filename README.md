@@ -9,6 +9,10 @@ inferencia— está diseñado alrededor de las restricciones de un portátil: un
 
 > **Estado:** pipeline completo y modelo entrenado (15.260 pasos, pérdida de validación 1,477). Los resultados medidos
 > y las limitaciones están en la sección [Resultados](#resultados).
+>
+> **v2 (Fases 9 a 13):** el mismo modelo, entrenado 18.310 pasos más con datos modernos y autocompletado *en medio* del código (FIM). Mejora el relleno y la
+> sintaxis a 512 tokens, pero no resuelve tareas ni gana en todas las pruebas: la comparación completa está en
+> [v2 frente a v1](#v2-frente-a-v1-fases-9-a-13). Demo: `demo_v2.bat`.
 
 ---
 
@@ -162,6 +166,40 @@ Reserva importante: arregla los bucles y el cierre de archivos, **no la capacida
 código y, con la penalización, el Python parseable tiene más nombres sin definir). El plan para mejorarlo de verdad está en
 [`docs/plan-mejoras-modelo.md`](docs/plan-mejoras-modelo.md); el detalle, en `avance/fase-08-diagnostico-decodificacion.md`.
 
+### v2 frente a v1 (Fases 9 a 13)
+
+La v2 parte de los pesos de v1 y sigue entrenando con una mezcla de datos corregida (Fase 9) y con la mitad de las filas en formato
+*fill-in-the-middle* (FIM: dado el código antes y después del cursor, escribe lo que falta; Fases 10 y 11). Son 18.310 pasos más, el
+mismo modelo de 20,45 M de parámetros (20.454.912 con los 3 tokens FIM) y contexto de 512. La pérdida de validación de v2 se mide sobre su
+propio conjunto (`tokens_v2`): baja de 1,494 (paso 500) a **1,360** (paso 18.000), pero **no es comparable** con el 1,477 de v1.
+
+![Curvas de entrenamiento v2](docs/curvas-entrenamiento-v2.svg)
+
+| Prueba | v1 | v2 |
+|---|---|---|
+| Relleno FIM, 200 casos: pérdida del medio frente a v1 (menor es mejor) | 1,000 | **0,834** |
+| Relleno FIM: similitud con el original / coincidencia exacta | 0,257 / 2,0 % | **0,302 / 4,5 %** |
+| Relleno FIM: el resultado parsea | **44,5 %** | 35,5 % |
+| Fragmentos desde cero, sintaxis estricta a 256 / 512 tokens (pen. 1,1) | 46 % / 63 % | 45 % / **72 %** |
+| Suite de 20 prompts, estricta / recortada / en tema (T 0,8, pen. 1,1) | **63 %** / **68 %** / 69 % | 46 % / 55 % / **82 %** |
+| Suite de 20 prompts con la penalización que eligió la búsqueda en `dev` (1,2) | no medido | 55 % / 57 % / 79 % |
+| pass@1 en 30 tareas funcionales | 1,3 % | 2,0–2,7 % (sin diferencia demostrable) |
+
+Cómo leerlo, sin adornos:
+
+- **Gana** en lo que se entrenó para hacer: rellenar en el cursor (menos pérdida, más parecido, el doble de coincidencias exactas) y generar archivos largos
+  (72 % de sintaxis estricta a 512 tokens, y casi todos terminan). También menos repetición y más «en tema».
+- **Pierde** en el parseo del relleno (35,5 % frente a 44,5 %: a veces no encuentra dónde parar, ver la transcripción) y en la sintaxis de la suite de 20 prompts.
+- **No cambia** lo esencial: con 20 M de parámetros resuelve 2–3 de cada 100 tareas con pruebas. Sirve para autocompletar, no para escribir funciones correctas.
+- **Hallazgo de la Fase 11:** el v2 escribía los marcadores FIM (`<|fim_suffix|>`…) dentro de la generación normal en 19–46 de cada 100 muestras. Ahora se vetan al
+  generar sin cursor (sube la sintaxis estricta de 36 a 44 % en la suite). Con `<CURSOR>` no se vetan: el relleno los necesita para cerrar.
+- **Cuantización int8: no se entrega.** La cuantización dinámica de PyTorch 2.14 en esta CPU (motor `onednn`) fue más lenta que fp32 (84 frente a 104 tok/s, 0,80×;
+  76 tok/s dejando `lm_head` en fp32) aunque el archivo baja de 82 a 46 MB. Detalle en `benchmarks/v2_quant_bench.json`.
+- **Velocidad v2 en fp32:** unos 104 tok/s con caché KV (prompt de 200, 100 tokens nuevos, 4 hilos).
+
+La demo `demo_v2.bat` rellena donde escribas `<CURSOR>`; la transcripción real, con sus fallos, está en [`samples/demo-cli-v2.md`](samples/demo-cli-v2.md).
+Los detalles y las cifras por paso están en `avance/fase-11-entrenamiento-fim.md`.
+
 ### Qué hace bien y qué no
 
 - **Bien:** estructura reconocible de React, Express, NestJS y FastAPI; imports plausibles; JSX bien formado; respeta la
@@ -186,7 +224,7 @@ src/tokenizer/           BPE byte-level entrenado sobre el corpus propio
 src/model/               RMSNorm, RoPE, SwiGLU, GPT (con cache KV para inferencia)
 src/train.py             Bucle de entrenamiento con acumulacion y reanudacion exacta
 src/sample.py            Generacion: temperatura, top-k, top-p, cache KV
-src/cli.py               Demo interactiva de autocompletado (demo.bat)
+src/cli.py               Demo interactiva de autocompletado y relleno en el cursor (demo.bat, demo_v2.bat)
 src/eval/                Validez sintactica, suite de 20 prompts, curvas de entrenamiento
 tests/                   Causalidad, parametros, tokenizer, entrenamiento, cache KV, validador sintactico
 benchmarks/              baseline.json, syntax_eval.json, prompt_suite.json (resultados reproducibles)
@@ -202,12 +240,13 @@ escritura. Los pesos (`best.pt`) no se versionan.
 
 ```bash
 python src/bench.py                                   # linea base de rendimiento
-pytest tests/ -v                                      # suite de tests (219)
+pytest tests/ -v                                      # suite de tests (322)
 python src/train.py --resume                          # entrenar / reanudar (o entrenar.bat)
 python src/sample.py --prompt "export default function Nav(" --lang tsx --seed 1
 python src/eval/syntax_check.py --n 100               # metrica de validez sintactica
 python src/eval/run_suite.py                          # suite de 20 prompts
-python src/cli.py                                     # demo interactiva (o demo.bat)
+python src/cli.py                                     # demo interactiva de v1 (o demo.bat)
+demo_v2.bat                                           # demo de v2: escribe <CURSOR> donde quieras que rellene
 ```
 
 **Validador de JS/TS (una sola vez).** El parser de TypeScript se instala fuera del repo:
