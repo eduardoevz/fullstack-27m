@@ -1,0 +1,1247 @@
+{
+ "checkpoint": "C:/llm-fullstack-data/checkpoints_v2_long_c_hitos/hito-0018310.pt",
+ "checkpoint_step": 18310,
+ "decoding": {
+  "temperature": 0.2,
+  "top_k": 40,
+  "top_p": 0.95,
+  "repetition_penalty": 1.0,
+  "repetition_window": 64,
+  "no_repeat_ngram_size": 0,
+  "min_p": 0.0
+ },
+ "settings": {
+  "samples": 5,
+  "max_new_tokens": 200,
+  "seed": 0
+ },
+ "summary": {
+  "n_tasks": 30,
+  "n_samples": 150,
+  "pass_at_1": {
+   "mean": 0.026666666666666665,
+   "lo": 0.0,
+   "hi": 0.05999999999999999
+  },
+  "tasks_solved_at_least_once": 3,
+  "js": {
+   "n_tasks": 10,
+   "pass_at_1": {
+    "mean": 0.04,
+    "lo": 0.0,
+    "hi": 0.12000000000000002
+   }
+  },
+  "py": {
+   "n_tasks": 20,
+   "pass_at_1": {
+    "mean": 0.019999999999999997,
+    "lo": 0.0,
+    "hi": 0.04999999999999999
+   }
+  }
+ },
+ "rejected_by_safety_filter": 0,
+ "rows": [
+  {
+   "id": "py-sum-list",
+   "lang": "py",
+   "sample": 0,
+   "passed": true,
+   "reason": "",
+   "completion": "\n    return sum(nums)\n"
+  },
+  {
+   "id": "py-is-even",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpeak99p8r\\main.py\", line 7, in <module>\r\n    assert is_even(4) is True\r\n           ^^^^^^^^^^^^^^^^^^\r\nAssertionError\r\n",
+   "completion": "\n    return n == 1\n"
+  },
+  {
+   "id": "py-reverse-string",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmp_ssayy8i\\main.py\", line 7, in <module>\r\n    assert reverse_string('abc') == 'cba'\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^",
+   "completion": "\n    return s.replace('-', '').replace('-', '')\n"
+  },
+  {
+   "id": "py-count-vowels",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def"
+  },
+  {
+   "id": "py-factorial",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmp24sd6z88\\main.py\", line 7, in <module>\r\n    assert factorial(0) == 1\r\n           ^^^^^^^^^^^^^^^^^\r\nAssertionError\r\n",
+   "completion": "\n    return n\n"
+  },
+  {
+   "id": "py-fibonacci",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "l\\Temp\\tmp1ywhmt7o\\main.py\", line 7, in <module>\r\n    assert fibonacci(0) == 0\r\n           ~~~~~~~~~^^^\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmp1ywhmt7o\\main.py\", line 4, in fibonacci\r\n    retur",
+   "completion": "\n    return n.fibonacci()\n"
+  },
+  {
+   "id": "py-is-palindrome",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmp5tutp_1a\\main.py\", line 16, in <module>\r\n    assert is_palindrome('A man, a plan, a canal: Panama') is True\r\n          ",
+   "completion": "\n    if s is None:\n        return False\n\n    if s.lower().startswith('-'):\n        return s.lower().endswith('-')\n\n    if s.lower().startswith('-'):\n        return s.lower().endswith('-')\n\n    return s.lower().endswith('-')\n"
+  },
+  {
+   "id": "py-max-in-list",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "ine 10, in <module>\r\n    assert max_in_list([3, 9, 2]) == 9\r\n           ~~~~~~~~~~~^^^^^^^^^^^\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpgh1e5duo\\main.py\", line 7, in max_in_list\r\n    return int(n",
+   "completion": "\n    if nums == 0:\n        return None\n\n    return int(nums)\n"
+  },
+  {
+   "id": "py-unique",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": " 3, 2]) == [1, 2, 3]\r\n           ~~~~~~^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpyxsbmhlw\\main.py\", line 13, in unique\r\n    return [item for item in items if item.id == item_id]\r",
+   "completion": "\n    if len(items) == 0:\n        return []\n\n    if len(items) == 1:\n        return []\n\n    if len(items) == 1:\n        return [item for item in items if item.id == item_id]\n\n    return [item for item in items if item.id == item_id]\n"
+  },
+  {
+   "id": "py-chunk-list",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def _split(chunk):\n        return chunk.split('\\n')\n\n    def _split_byte(chunk):\n        return chunk.split('\\n')\n\n    def _split_byte_byte(chunk):\n        return chunk.split('\\n')\n\n    def _split_byte_byte_byte(chunk):\n        return chunk.split('\\n')\n\n    def _split_byte_byte_byte_byte(chunk):\n        return chunk.split('\\n')\n\n    def _split_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte"
+  },
+  {
+   "id": "py-flatten",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpqkmmjcei\\main.py\", line 10, in <module>\r\n    assert flatten([[1, 2], [3], []]) == [1, 2, 3]\r\n           ^^^^^^^^^^^^^^^",
+   "completion": "\n    def flatten(nested):\n        return [nested]\n\n    return flatten\n"
+  },
+  {
+   "id": "py-word-count",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def _split(text):\n        \"\"\"\n        Return a dict mapping each lowercase word in text (split on whitespace) to how many times it appears.\n\n        :param text: The text to convert into words.\n        :type text: str\n        :return: The dictionary mapping each lowercase word in text (split on whitespace) to how many times it appears.\n        :rtype: dict\n        \"\"\"\n        return {\n            'word_count': text,\n            'word_count': _split(text),\n            'count': _split(text),\n            'count': _split(text),\n            'count': _split(text),\n            'count': _split(text),\n            'count': _split(text),\n            'count': _split(text),\n            'count': _split(text),\n            'count': _split(text)"
+  },
+  {
+   "id": "py-capitalize-words",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpcncxxx6n\\main.py\", line 12, in <module>\r\n    assert capitalize_words('hello world') == 'Hello World'\r\n           ^^^^^^",
+   "completion": "\n    def get(self, word):\n        \"\"\"Get the word from the word\"\"\"\n        return self.words[word]\n\n    def __str__(self):\n        return self.words[self.word]\n"
+  },
+  {
+   "id": "py-is-valid-email",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "    assert is_valid_email('a@b.com') is True\r\n           ~~~~~~~~~~~~~~^^^^^^^^^^^\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmps3mmfu_v\\main.py\", line 4, in is_valid_email\r\n    if not s.is_valid_ema",
+   "completion": "\n    if not s.is_valid_email():\n        return False\n\n    if not s.is_valid_domain():\n        return False\n\n    if s.is_valid_domain():\n        return True\n\n    return s.is_valid_domain()\n"
+  },
+  {
+   "id": "py-clamp",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "ule>\r\n    assert clamp(5, 0, 10) == 5\r\n           ~~~~~^^^^^^^^^^\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmparj52e2f\\main.py\", line 4, in clamp\r\n    return ((x - lo) / hi).total_seconds()\r\n       ",
+   "completion": "\n    return ((x - lo) / hi).total_seconds()\n"
+  },
+  {
+   "id": "py-parse-query-string",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def parse_query_string(qs):\n        \"\"\"Parse a query string like \"a=1&b=2\" (an optional leading \"?\" is ignored) into a dict of strings.\"\"\"\n\n        if not isinstance(qs, dict):\n            qs = {}\n        if isinstance(qs, dict):\n            qs = qs.get(pk=qs.pk)\n        if isinstance(qs, dict):\n            qs = qs.get(pk=qs.pk)\n        if isinstance(qs, dict):\n            qs = qs.get(pk=qs.pk)\n        if isinstance(qs, dict):\n            qs = qs.get(pk=qs.pk)\n        if isinstance(qs, dict):\n            qs = qs.get(pk=qs.pk)\n        if isinstance(qs, dict):\n            qs = qs.get(pk=qs.pk)\n        if isinstance(qs,"
+  },
+  {
+   "id": "py-slugify",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def clean(self):\n        \"\"\"\n        Clean the text and replace all the characters with a single \"-\" (no leading or trailing \"-\").\n        \"\"\"\n        return self.clean()\n\n    def clean(self):\n        \"\"\"\n        Clean the text and replace all the characters with a single \"-\" (no leading or trailing \"-\").\n        \"\"\"\n        return self.clean()\n\n    def clean(self):\n        \"\"\"\n        Clean the text and replace all the characters with a single \"-\" (no leading or trailing \"-\").\n        \"\"\"\n        return self.clean()\n\n    def clean(self):\n        \"\"\"\n        Clean the text and replace all the characters with a single \"-\" (no leading or trailing \"-\").\n        \"\"\"\n        return self.clean()\n\n    def clean(self):\n        "
+  },
+  {
+   "id": "py-merge-dicts",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def merge_dicts(a, b):\n        \"\"\"Merge the dictionary with the items of a and b.\"\"\"\n        a.update(b)\n        a.update(b)\n        return a\n\n    def merge_dicts(a, b):\n        \"\"\"Merge the dictionary with the items of a and b.\"\"\"\n        a.update(b)\n        a.update(b)\n        return a\n\n    def merge_dicts(a, b):\n        \"\"\"Merge the dictionary with the items of a and b.\"\"\"\n        a.update(b)\n        a.update(b)\n        return a\n\n    def merge_dicts(a, b):\n        \"\"\"Merge the dictionary with the items of a and b.\"\"\"\n        a.update(b)\n        a.update(b)\n        return a\n\n    def merge_dicts(a, b):\n        "
+  },
+  {
+   "id": "py-paginate",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "\\main.py\", line 13, in paginate\r\n    return paginate(items, page, per_page)\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpw9w0zj73\\main.py\", line 13, in paginate\r\n    return paginate(items, page, per_",
+   "completion": "\n    if not page:\n        return items\n\n    if not isinstance(page, int):\n        page = 1\n\n    if not isinstance(page, int):\n        page = 1\n\n    return paginate(items, page, per_page)\n"
+  },
+  {
+   "id": "py-gcd",
+   "lang": "py",
+   "sample": 0,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmp976603k1\\main.py\", line 12, in <module>\r\n    assert gcd(12, 18) == 6\r\n           ^^^^^^^^^^^^^^^^\r\nAssertionError\r\n",
+   "completion": "\n    def gcd(a, b):\n        \"\"\"Return the greatest common divisor of two non-negative integers.\"\"\"\n\n        return gcd(a, b)\n\n    return gcd\n"
+  },
+  {
+   "id": "js-sum",
+   "lang": "js",
+   "sample": 0,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n    var i = 0;\n    for (i = 0; i < arr.length; i++) {\n        var x = arr[i];\n        var y = arr[i];\n        var x = x.toString();\n        var y = x.toString();\n\n        if (x.length < 2) {\n            return 0;\n        }\n\n        if (y.length > 2) {\n            return 1;\n        }\n\n        if (y.length > 2) {\n            return -1;\n        }\n\n        if (y.length > 2) {\n            return 1;\n        }\n\n        if (y.length > 2) {\n            return -1;\n        }\n\n        if (y.length > 2) {\n            return 1;\n        }\n\n        if (y.length > 2) {\n            return 1;\n        }\n\n        if (y.length > 2) {\n            return 1;\n        }\n"
+  },
+  {
+   "id": "js-capitalize",
+   "lang": "js",
+   "sample": 0,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n    // If the string is not a string, return the first letter.\n    if (str.length === 0) {\n        return str;\n    }\n\n    // If the string is not a string, return the first letter.\n    if (str.length === 0) {\n        return str;\n    }\n\n    // If the string is not a string, return the first letter.\n    if (str.length === 0) {\n        return str;\n    }\n\n    // If the string is not a string, return the first letter.\n    if (str.length === 0) {\n        return str;\n    }\n\n    // If the string is not a string, return the first letter.\n    if (str.length === 0) {\n        return str;\n    }\n\n    // If the string is not a string, return the first letter.\n    if (str.length === 0) {\n        return str;\n    }\n\n    /"
+  },
+  {
+   "id": "js-is-even",
+   "lang": "js",
+   "sample": 0,
+   "passed": false,
+   "reason": "\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actu",
+   "completion": "\n    return n === 0;\n}"
+  },
+  {
+   "id": "js-uniq",
+   "lang": "js",
+   "sample": 0,
+   "passed": false,
+   "reason": " Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: 1,\r",
+   "completion": "\n    var i = 0;\n    for (i = 0; i < arr.length; i++) {\n        var arr = arr[i];\n        if (arr.length === 0) {\n            return arr;\n        }\n    }\n\n    return arr;\n}"
+  },
+  {
+   "id": "js-chunk",
+   "lang": "js",
+   "sample": 0,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n\t// If the size is less than the size, the first chunk is less than the size.\n\tif (size > 0) {\n\t\treturn arr.slice(size);\n\t}\n\n\t// If the size is less than the size, the first chunk is less than the size.\n\tif (size > 0) {\n\t\treturn arr.slice(size);\n\t}\n\n\t// If the size is less than the size, the second chunk is less than the size.\n\tif (size > 0) {\n\t\treturn arr.slice(size);\n\t}\n\n\t// If the size is less than the size, the second chunk is less than the size.\n\tif (size > 0) {\n\t\treturn arr.slice(size);\n\t}\n\n\t// If the size is less than the size, the second chunk is less than the size.\n\tif (size > 0) {\n\t\treturn arr.slice(size"
+  },
+  {
+   "id": "js-range",
+   "lang": "js",
+   "sample": 0,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n    var start = start.toString();\n    var end = end.toString();\n\n    var startIndex = start.indexOf('-');\n    var endIndex = end.indexOf('-');\n\n    var endIndex = end.indexOf('-');\n\n    var endIndex = end.indexOf('-');\n\n    var endIndex = end.indexOf('-');\n\n    var endIndex = end.indexOf('-');\n\n    var endIndex = end.indexOf('-');\n\n    var endIndex = end.indexOf('-');\n\n    var endIndex = end.indexOf('-');\n\n    var endIndex = end.indexOf('-');\n\n    var endIndex = end.indexOf('-');\n\n    var endIndex = end.indexOf('-');\n"
+  },
+  {
+   "id": "js-parse-query",
+   "lang": "js",
+   "sample": 0,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n\tvar query = qs.toString();\n\n\tvar queryString = query.replace(/[^a-zA-Z0-9_]/g, '');\n\n\tvar queryString = queryString.replace(/[^a-zA-Z0-9_]/g, '');\n\n\tvar queryString = queryString.replace(/[^a-zA-Z0-9_]/g, '');\n\n\tvar queryString = queryString.replace(/[^a-zA-Z0-9_]/g, '');\n\n\tvar queryString = queryString.replace(/[^a-zA-Z0-9_]/g, '');\n\n\tvar queryString = queryString.replace(/[^a-zA-Z0-9_]/g, '');\n\n\tvar queryString = queryString.replace("
+  },
+  {
+   "id": "js-clamp",
+   "lang": "js",
+   "sample": 0,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n    var x = x.slice(0, lo);\n    var hi = hi || 0;\n\n    var x = x.slice(lo);\n    var hi = hi || 0;\n\n    var x = x.slice(lo);\n    var hi = hi || 0;\n\n    var x = x.slice(lo);\n    var hi = hi || 0;\n\n    var x = x.slice(lo);\n    var hi = hi || 0;\n\n    var x = x.slice(lo);\n    var hi = hi || 0;\n\n    var x = x.slice(lo);\n    var hi = hi || 0;\n\n    var x = x.slice(lo);\n    var hi = hi || 0;\n\n    var x = x.slice(lo);\n    var hi = hi || 0;\n"
+  },
+  {
+   "id": "js-group-by",
+   "lang": "js",
+   "sample": 0,
+   "passed": false,
+   "reason": "n:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: [],\r\n  expected: {\r\n    a: [ { t: 'a', n: 1 }, { t: 'a', n: 3 } ],\r\n    b: [",
+   "completion": "\n\tvar arr = [];\n\n\tfor (var i = 0; i < arr.length; i++) {\n\t\tarr[i] = arr[i];\n\t}\n\n\treturn arr;\n}"
+  },
+  {
+   "id": "js-flatten",
+   "lang": "js",
+   "sample": 0,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n    // If the array is a string, then flatten it.\n    if (arr.length === 0) {\n        return arr;\n    }\n\n    // If the array is a string, then flatten it.\n    if (arr.length === 1) {\n        return arr;\n    }\n\n    // If the array is a string, then flatten it.\n    if (arr.length === 1) {\n        return arr;\n    }\n\n    // If the array is a string, then flatten it.\n    if (arr.length === 1) {\n        return arr;\n    }\n\n    // If the array is a string, then flatten it.\n    if (arr.length === 1) {\n        return arr;\n    }\n\n    // If the array is a string, then flatten it.\n    if (arr.length === 1) {\n        return arr;\n    }\n\n    // If the array is a string, then flatten it."
+  },
+  {
+   "id": "py-sum-list",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "rt sum_list([1, 2, 3]) == 6\r\n           ~~~~~~~~^^^^^^^^^^^\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmp0g4qbfsj\\main.py\", line 4, in sum_list\r\n    return sum([(i, i) for i in range(nums)])\r\n       ",
+   "completion": "\n    return sum([(i, i) for i in range(nums)])\n"
+  },
+  {
+   "id": "py-is-even",
+   "lang": "py",
+   "sample": 1,
+   "passed": true,
+   "reason": "",
+   "completion": "\n    return (\n        (n % 2) == 0\n        and (n % 2) == 0\n        and (n % 2) == 0\n    )\n"
+  },
+  {
+   "id": "py-reverse-string",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmp08fwcckp\\main.py\", line 7, in <module>\r\n    assert reverse_string('abc') == 'cba'\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^",
+   "completion": "\n    return s.replace('\\\\', '\\\\\\\\')\n"
+  },
+  {
+   "id": "py-count-vowels",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def"
+  },
+  {
+   "id": "py-factorial",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "\\main.py\", line 7, in <module>\r\n    assert factorial(0) == 1\r\n           ~~~~~~~~~^^^\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmp3fl054a2\\main.py\", line 4, in factorial\r\n    return n.replace('-', '",
+   "completion": "\n    return n.replace('-', '').replace('-', '')\n"
+  },
+  {
+   "id": "py-fibonacci",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "l\\Temp\\tmpwjehjsqg\\main.py\", line 7, in <module>\r\n    assert fibonacci(0) == 0\r\n           ~~~~~~~~~^^^\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpwjehjsqg\\main.py\", line 4, in fibonacci\r\n    retur",
+   "completion": "\n    return n.fibonacci()\n"
+  },
+  {
+   "id": "py-is-palindrome",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmprzo59wjf\\main.py\", line 10, in <module>\r\n    assert is_palindrome('A man, a plan, a canal: Panama') is True\r\n          ",
+   "completion": "\n    if s is None:\n        return False\n\n    return s.lower() == ''\n"
+  },
+  {
+   "id": "py-max-in-list",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpdcqa8rj8\\main.py\", line 9, in <module>\r\n    assert max_in_list([3, 9, 2]) == 9\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\r",
+   "completion": "\n    if nums == 0:\n        return None\n    return nums\n"
+  },
+  {
+   "id": "py-unique",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "y\", line 10, in <module>\r\n    assert unique([1, 2, 1, 3, 2]) == [1, 2, 3]\r\n           ~~~~~~^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmp0766hqv5\\main.py\", line 6, in unique\r\n    if",
+   "completion": "\n    return [\n        (item.id, item.name) for item in items\n        if item.name in unique_items\n    ]\n"
+  },
+  {
+   "id": "py-chunk-list",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def _split(chunk):\n        return chunk.split('\\n')\n\n    def _split_byte(chunk):\n        return chunk.split('\\n')\n\n    def _split_byte_byte(chunk):\n        return chunk.split('\\n')\n\n    def _split_byte_byte_byte_byte(chunk):\n        return chunk.split('\\n')\n\n    def _split_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_bytete_bytete_bytetetetetetetetetetetetete"
+  },
+  {
+   "id": "py-flatten",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpoez3119o\\main.py\", line 10, in <module>\r\n    assert flatten([[1, 2], [3], []]) == [1, 2, 3]\r\n           ^^^^^^^^^^^^^^^",
+   "completion": "\n    def flatten(nested):\n        return [(nested[0], nested[1]) for nested in nested]\n\n    return flatten\n"
+  },
+  {
+   "id": "py-word-count",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def _split(text):\n        \"\"\"\n        Return a dict mapping each lowercase word in text (split on whitespace) to how many times it appears.\n        \"\"\"\n        return {\n            'word': text,\n            'count': len(text),\n            'count': len(text),\n            'count': len(text),\n            'count': len(text),\n            'count': len(text),\n            'count': len(text),\n            'count': len(text),\n            'count': len(text),\n            'count': len(text),\n            'count': len(text),\n            'count': len(text),\n            'count': len(text),\n            'count': len(text),\n            'count': len(text),\n            'count': len(text),"
+  },
+  {
+   "id": "py-capitalize-words",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpgl0qffqn\\main.py\", line 34, in <module>\r\n    assert capitalize_words('hello world') == 'Hello World'\r\n           ^^^^^^",
+   "completion": "\n    def _capitalize(s):\n        return s.lower().strip()\n\n    def _capitalize(s):\n        return s.lower().strip()\n\n    def _capitalize(s):\n        return s.lower().strip()\n\n    def _capitalize(s):\n        return s.lower().strip()\n\n    def _capitalize(s):\n        return s.lower().strip()\n\n    def _capitalize(s):\n        return s.lower().strip()\n\n    def _capitalize(s):\n        return s.lower().strip()\n\n    def _capitalize(s):\n        return s.lower().strip()\n\n    def _capitalize(s):\n        return s.lower().strip()\n\n    def _capitalize(s):\n        return"
+  },
+  {
+   "id": "py-is-valid-email",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    if s.lower() == 'local':\n        return True\n\n    if s.lower() == 'local':\n        return False\n\n    if s.lower() == 'domain':\n        return True\n\n    if s.lower() == 'domain':\n        return True\n\n    if s.lower() == 'domain':\n        return True\n\n    if s.lower() == 'domain':\n        return True\n\n    if s.lower() == 'domain':\n        return True\n\n    if s.lower() == 'domain':\n        return True\n\n    if s.lower() == 'domain':\n        return True\n\n    if s.lower() == 'domain':\n        return True\n\n    if s.lower() == 'domain':\n        return True\n\n    if s.lower() == 'domain':\n        return True\n\n    if s.lower() =="
+  },
+  {
+   "id": "py-clamp",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "ta\\Local\\Temp\\tmplwbuwq9d\\main.py\", line 10, in <module>\r\n    assert clamp(5, 0, 10) == 5\r\n           ~~~~~^^^^^^^^^^\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmplwbuwq9d\\main.py\", line 4, in clamp\r",
+   "completion": "\n    if hi.lower() == 'x':\n        return x - hi.lower()\n    else:\n        return x\n"
+  },
+  {
+   "id": "py-parse-query-string",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def parse_query_string(qs):\n        \"\"\"Parse a query string like \"a=1&b=2\" (an optional leading \"?\" is ignored) into a dict of strings.\"\"\"\n\n        if isinstance(qs, str):\n            qs = qs.encode('utf-8')\n        else:\n            qs = qs.encode('utf-8')\n\n        if isinstance(qs, list):\n            qs = qs.order_by('id')\n\n        if isinstance(qs, list):\n            qs = qs.order_by('id')\n\n        if isinstance(qs, dict):\n            qs = qs.order_by('id')\n\n        if isinstance(qs, list):\n            qs = qs.order_by('id')\n\n        if isinstance(qs, dict):\n            qs = qs.order_by('id')\n\n        if isinstance(qs, list):"
+  },
+  {
+   "id": "py-slugify",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpt11quuwl\\main.py\", line 13, in <module>\r\n    assert slugify('Hello, World!') == 'hello-world'\r\n           ^^^^^^^^^^^^^",
+   "completion": "\n    if not text:\n        return text\n\n    if not text.startswith('-'):\n        return text\n\n    return text.replace('-', '')\n"
+  },
+  {
+   "id": "py-merge-dicts",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmppt9o4iqx\\main.py\", line 29, in <module>\r\n    assert merge_dicts(a, b) == {'x': 2, 'y': 3}\r\n           ^^^^^^^^^^^^^^^^^",
+   "completion": "\n    def merge_dicts(a, b):\n        \"\"\"Merge the objects with the given dict.\"\"\"\n        a = a.copy()\n        b = b.copy()\n        for i in range(len(a)):\n            b[i] = a[i]\n        return b\n\n    def merge_dicts(a, b):\n        \"\"\"Merge the objects with the given dict.\"\"\"\n        a = a.copy()\n        b = b.copy()\n        for i in range(len(a)):\n            b[i] = a[i]\n        return b\n\n    def merge_dicts(a, b):\n        \"\"\"Merge the objects with the given dict.\"\"\"\n        a = a.copy()\n        b = b.copy()\n        for i in range(len(a)):\n            b[i] = a[i]"
+  },
+  {
+   "id": "py-paginate",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmph6kt5itq\\main.py\", line 11\r\n    per_page=per_page,\r\n    ^^^^^^^^^^^^^^^^^\r\nSyntaxError: keyword argument repeated: per_page\r\n",
+   "completion": "\n    if page > per_page:\n        return items\n\n    return Paginate(\n        items,\n        per_page=per_page,\n        next_page=next_page,\n        per_page=per_page,\n        per_page=per_page,\n    )\n"
+  },
+  {
+   "id": "py-gcd",
+   "lang": "py",
+   "sample": 1,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def gcd(a, b):\n        \"\"\"Return the greatest common divisor of two non-negative integers.\"\"\"\n\n    def gcd(a, b):\n        \"\"\"Return the greatest common divisor of two non-negative integers.\"\"\"\n\n    def gcd(a, b):\n        \"\"\"Return the greatest common divisor of two non-negative integers.\"\"\"\n\n    def gcd(a, b):\n        \"\"\"Return the greatest common divisor of two non-negative integers.\"\"\"\n\n    def gcd(a, b):\n        \"\"\"Return the greatest common divisor of two non-negative integers.\"\"\"\n\n    def gcd(a, b):\n        \"\"\"Return the greatest common"
+  },
+  {
+   "id": "js-sum",
+   "lang": "js",
+   "sample": 1,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n\tvar i = 0;\n\tfor (i = 0; i < arr.length; i++) {\n\t\tvar arr2 = arr[i];\n\t\tvar i = i + 1;\n\t\tfor (i = 0; i < arr2.length; i++) {\n\t\t\tvar arr3 = arr2[i];\n\t\t\tvar i = i + 1;\n\t\t\tfor (i = 0; i < arr3.length; i++) {\n\t\t\t\tvar arr4 = arr3[i];\n\t\t\t\tvar i = i + 1;\n\t\t\t\tfor (i = 0; i < arr4.length; i++) {\n\t\t\t\t\tvar arr5 = arr4[i];\n\t\t\t\t\tvar i = i + 1;\n\t\t\t\t\tfor (i = 0; i < arr5.length; i++) {\n\t\t\t\t\t\tvar arr6 = arr5[i];\n\t\t\t\t\t\tvar i = i + 1;\n\t\t\t\t\t\tfor (i = 0; i < arr6"
+  },
+  {
+   "id": "js-capitalize",
+   "lang": "js",
+   "sample": 1,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n    // If the string is not a string, return the string.\n    if (str.length === 0) {\n        return str;\n    }\n\n    // If the string is not a string, return the string.\n    if (str.length === 0) {\n        return str;\n    }\n\n    // If the string is not a string, return the string.\n    if (str.length === 0) {\n        return str;\n    }\n\n    // If the string is not a string, return the string.\n    if (str.length === 0) {\n        return str;\n    }\n\n    // If the string is not a string, return the string.\n    if (str.length === 0) {\n        return str;\n    }\n\n    // If the string is not a string, return the string.\n    if (str.length === 0) {\n        return str;\n    }\n\n    // If the string is not"
+  },
+  {
+   "id": "js-is-even",
+   "lang": "js",
+   "sample": 1,
+   "passed": false,
+   "reason": "\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actu",
+   "completion": "\n    if (n == null) {\n        return false;\n    }\n\n    if (n == null) {\n        return false;\n    }\n\n    return n == null;\n}"
+  },
+  {
+   "id": "js-uniq",
+   "lang": "js",
+   "sample": 1,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n\t// If the array is empty, return the first occurrence order.\n\tif (arr.length === 0) {\n\t\treturn arr;\n\t}\n\n\t// If the array is empty, return the first occurrence order.\n\tif (arr.length === 0) {\n\t\treturn arr;\n\t}\n\n\t// If the array is empty, return the first occurrence order.\n\tif (arr.length === 0) {\n\t\treturn arr;\n\t}\n\n\t// If the array is empty, return the first occurrence order.\n\tif (arr.length === 0) {\n\t\treturn arr;\n\t}\n\n\t// If the array is empty, return the first occurrence order.\n\tif (arr.length === 0) {\n\t\treturn arr;\n\t}\n\n\t// If the array is empty, return the first occurrence order.\n\tif (arr.length === 0) {\n\t\treturn arr;\n\t}\n\n\t/"
+  },
+  {
+   "id": "js-chunk",
+   "lang": "js",
+   "sample": 1,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n\t// The size is the size of the array.\n\tvar size = size.split('/');\n\n\t// The size is the size of the array.\n\tvar size = size.split('/');\n\n\t// The size is the size of the array.\n\tvar size = size.split('/');\n\n\t// The size is the size of the array.\n\tvar size = size.split('/');\n\n\t// The size is the size of the array.\n\tvar size = size.split('/');\n\n\t// The size is the size of the array.\n\tvar size = size.split('/');\n\n\t// The size is the size of the array.\n\tvar size = size.split('/');\n\n\t// The size is the size of the array.\n\tvar size = size."
+  },
+  {
+   "id": "js-range",
+   "lang": "js",
+   "sample": 1,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n\tvar start = start.split('.');\n\tvar end = end.split('.');\n\n\tvar startIndex = start.indexOf('.');\n\tvar endIndex = end.indexOf('.');\n\n\tvar endIndex = start.indexOf('.');\n\tvar endIndex = end.indexOf('.');\n\n\tvar startIndex = startIndex + startIndex;\n\n\tvar endIndex = endIndex + endIndex;\n\n\tvar endIndex = endIndex + endIndex;\n\n\tvar endIndex = endIndex + endIndex;\n\n\tvar startIndex = startIndex + startIndex;\n\n\tvar endIndex = endIndex + endIndex;\n\n\tvar endIndex = endIndex + endIndex;\n\n\tvar endIndex = endIndex + endIndex;\n\n\tvar startIndex = startIndex + startIndex;\n\n\tvar endIndex = endIndex"
+  },
+  {
+   "id": "js-parse-query",
+   "lang": "js",
+   "sample": 1,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n\tvar query = qs.toString();\n\n\tvar queryString = query.replace(/\\s+/g, '');\n\n\tif (queryString.length > 0) {\n\t\treturn qs.stringify(queryString);\n\t}\n\n\treturn qs.stringify(qs);\n}"
+  },
+  {
+   "id": "js-clamp",
+   "lang": "js",
+   "sample": 1,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n    var x = x.slice(0, -1);\n    var hi = x.slice(-1);\n\n    if (x.length === 0) {\n        return 0;\n    }\n\n    var x = x.slice(0, -1);\n    var hi = x.slice(-1);\n\n    return (x.length - hi.length) / 2;\n}"
+  },
+  {
+   "id": "js-group-by",
+   "lang": "js",
+   "sample": 1,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n    // If the key is a string, then the value is a string.\n    if (!(key in arr)) {\n        return arr[key];\n    }\n\n    // If the key is a string, then the value is a string.\n    if (!(key in arr)) {\n        return arr[key];\n    }\n\n    // If the key is a string, then the value is a string.\n    if (!(key in arr)) {\n        return arr[key];\n    }\n\n    // If the key is a string, then the value is a string.\n    if (!(key in arr)) {\n        return arr[key];\n    }\n\n    // If the key is a string, then the value is a string.\n    if (!(key in arr)) {\n        return arr[key];\n    }\n\n    // If the key is a string,"
+  },
+  {
+   "id": "js-flatten",
+   "lang": "js",
+   "sample": 1,
+   "passed": false,
+   "reason": "Point [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: [ 1, [ 2, 3 ], [ 4 ] ],\r\n  ",
+   "completion": "\n    var i = 0;\n    for (i = 0; i < arr.length; i++) {\n        arr[i] = arr[i];\n    }\n\n    return arr;\n}"
+  },
+  {
+   "id": "py-sum-list",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "rt sum_list([1, 2, 3]) == 6\r\n           ~~~~~~~~^^^^^^^^^^^\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpp15ap8fz\\main.py\", line 4, in sum_list\r\n    return sum([int(x) for x in range(nums)])\r\n       ",
+   "completion": "\n    return sum([int(x) for x in range(nums)])\n"
+  },
+  {
+   "id": "py-is-even",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "ppData\\Local\\Temp\\tmp_ojx36rz\\main.py\", line 13, in <module>\r\n    assert is_even(4) is True\r\n           ~~~~~~~^^^\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmp_ojx36rz\\main.py\", line 7, in is_even\r\n",
+   "completion": "\n    if n is None:\n        return False\n\n    if n.lower() == \"Even\":\n        return True\n\n    return False\n"
+  },
+  {
+   "id": "py-reverse-string",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmp81zrtbb5\\main.py\", line 7, in <module>\r\n    assert reverse_string('abc') == 'cba'\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^",
+   "completion": "\n    return s.replace('\\\\', '\\\\\\\\').replace('\\\\', '\\\\\\\\')\n"
+  },
+  {
+   "id": "py-count-vowels",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmprbdrjn2b\\main.py\", line 10, in <module>\r\n    assert count_vowels('hello') == 2\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n",
+   "completion": "\n    def count_vowels(s):\n        return s.count()\n\n    return count_vowels\n"
+  },
+  {
+   "id": "py-factorial",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpdw710jko\\main.py\", line 7, in <module>\r\n    assert factorial(0) == 1\r\n           ^^^^^^^^^^^^^^^^^\r\nAssertionError\r\n",
+   "completion": "\n    return n\n"
+  },
+  {
+   "id": "py-fibonacci",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    return n.fibonacci(n.fibonacci(n.fibonacci(n.fibonacci(n.fibonacci(n.fibonacci(n.fibonacci(n.fibonacci(n.fibonacci(n.fibonacci(n.fibonacci(n.fibonacci(n.fibonacci(n.fibonacci(n.fibonacci(n.fibonacci(n.fibonacci(n.fibonacci(n.fibonacci(n.fibonacci(n.fibonacci(n.fibonacci(n.fibonacci(n.fibonacci(n.fibonac"
+  },
+  {
+   "id": "py-is-palindrome",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpw7q1_ojx\\main.py\", line 10, in <module>\r\n    assert is_palindrome('A man, a plan, a canal: Panama') is True\r\n          ",
+   "completion": "\n    if s.startswith('-'):\n        return s.endswith('-')\n    else:\n        return s.endswith('-')\n"
+  },
+  {
+   "id": "py-max-in-list",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "line 7, in <module>\r\n    assert max_in_list([3, 9, 2]) == 9\r\n           ~~~~~~~~~~~^^^^^^^^^^^\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpm1qtuz88\\main.py\", line 4, in max_in_list\r\n    return int(n",
+   "completion": "\n    return int(nums)\n"
+  },
+  {
+   "id": "py-unique",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "a2xl_5\\main.py\", line 10, in <module>\r\n    assert unique([1, 2, 1, 3, 2]) == [1, 2, 3]\r\n           ~~~~~~^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmp5xa2xl_5\\main.py\", line 5, in u",
+   "completion": "\n    return [\n        (item['id'], item['id'])\n        for item in items\n    ]\n"
+  },
+  {
+   "id": "py-chunk-list",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def _split(chunk):\n        return chunk.split('\\n')\n\n    def _split_byte(chunk):\n        return chunk.split('\\n')\n\n    def _split_byte_byte(chunk):\n        return chunk.split('\\n')\n\n    def _split_byte_byte_byte(chunk):\n        return chunk.split('\\n')\n\n    def _split_byte_byte_byte_byte_byte_byte_byte(chunk):\n        return chunk.split('\\n')\n\n    def _split_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte_byte"
+  },
+  {
+   "id": "py-flatten",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpfsfqzm50\\main.py\", line 10, in <module>\r\n    assert flatten([[1, 2], [3], []]) == [1, 2, 3]\r\n           ^^^^^^^^^^^^^^^",
+   "completion": "\n    def flatten(list):\n        return list(list())\n\n    return flatten\n"
+  },
+  {
+   "id": "py-word-count",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpsh6hix2g\\main.py\", line 15, in <module>\r\n    assert word_count('a b a') == {'a': 2, 'b': 1}\r\n           ^^^^^^^^^^^^^^^",
+   "completion": "\n    def _split(text):\n        \"\"\"Return a dict mapping each lowercase word in text (split on whitespace) to how many times it appears.\"\"\"\n\n        if text.startswith(\"\\n\"):\n            return {\"text\": text}\n        else:\n            return {\"text\": text}\n\n    return _split\n"
+  },
+  {
+   "id": "py-capitalize-words",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def _capitalize_words(s):\n        \"\"\"Capitalize the first letter of every space-separated word in s.\"\"\"\n\n    def _capitalize_words(s):\n        \"\"\"Capitalize the first letter of every space-separated word in s.\"\"\"\n\n    def _capitalize_words(s):\n        \"\"\"Capitalize the first letter of every space-separated word in s.\"\"\"\n\n    def _capitalize_words(s):\n        \"\"\"Capitalize the first letter of every space-separated word in s.\"\"\"\n\n    def _capitalize_words(s):\n        \"\"\"Capitalize the first letter of every space-separated word in s.\"\"\"\n\n    def _capitalize_words(s):\n        \"\"\"Capitalize the first letter of every space-separated word in s.\"\"\"\n\n    def"
+  },
+  {
+   "id": "py-is-valid-email",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def is_valid_email(s):\n        return s.lower().startswith('@')\n\n    def is_valid_domain(s):\n        return s.lower().startswith('@')\n\n    def is_valid_domain_domain(s):\n        return s.lower().startswith('@')\n\n    def is_valid_domain_domain(s):\n        return s.lower().startswith('@')\n\n    def is_valid_domain_domain(s):\n        return s.lower().startswith('@')\n\n    def is_valid_domain_domain(s):\n        return s.lower().startswith('@')\n\n    def is_valid_domain_domain(s):\n        return s.lower().startswith('@')\n\n    def is_valid_domain_domain(s):\n        return s.lower().startswith('@')\n\n    def"
+  },
+  {
+   "id": "py-clamp",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    if hi.lower() == \"x\":\n        return x\n    elif hi.lower() == \"y\":\n        return y\n    elif hi.lower() == \"z\":\n        return z\n    elif hi.lower() == \"z\":\n        return z\n    elif hi.lower() == \"z\":\n        return z\n    elif hi.lower() == \"z\":\n        return z\n    elif hi.lower() == \"z\":\n        return z\n    elif hi.lower() == \"z\":\n        return z\n    elif hi.lower() == \"z\":\n        return z\n    elif hi.lower() == \"z\":\n        return z\n    elif hi.lower() == \"z\":\n        return z\n    elif hi.lower() == \"z\":\n        return z\n    elif hi.lower()"
+  },
+  {
+   "id": "py-parse-query-string",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def parse_query_string(qs):\n        \"\"\"Parse a query string like \"a=1&b=2\" (an optional leading \"?\" is ignored) into a dict of strings.\"\"\"\n\n        if not isinstance(qs, dict):\n            qs = {}\n        if isinstance(qs, dict):\n            qs = qs.encode('utf-8')\n        if isinstance(qs, dict):\n            qs = qs.encode('utf-8')\n        if isinstance(qs, dict):\n            qs = qs.encode('utf-8')\n        if isinstance(qs, dict):\n            qs = qs.encode('utf-8')\n        if isinstance(qs, dict):\n            qs = qs.encode('utf-8')\n        if isinstance(qs, dict):\n            qs = qs.encode('utf-8')\n        if isinstance(qs,"
+  },
+  {
+   "id": "py-slugify",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def clean(self, value):\n        \"\"\"\n        Clean the text and replace the lowercase text and replace it with a \"-\" (no leading or trailing \"-\").\n        \"\"\"\n        if value is None:\n            return value\n        if value.isdigit():\n            return value.strip()\n        return value\n\n    def clean(self, value):\n        \"\"\"\n        Clean the text and replace the lowercase text and replace it with a \"-\" (no leading or trailing \"-\").\n        \"\"\"\n        if value is None:\n            return value\n        if value.isdigit():\n            return value.strip()\n        return value\n\n    def clean(self, value):\n        \"\"\"\n        Clean the text and replace the lowercase text and replace it with a \"-\" (no leading or trailing \"-\").\n        \"\"\"\n        if value.isdigit("
+  },
+  {
+   "id": "py-merge-dicts",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def merge_dicts(a, b):\n        \"\"\"Merge the dictionary with the items of a and b.\"\"\"\n\n        for i in a:\n            if i.get('type') == 'list':\n                a[i['type']] = i['items']\n\n        return a\n\n    def merge_dicts(a, b):\n        \"\"\"Merge the dictionary with the items of a and b.\"\"\"\n\n        for i in a:\n            if i.get('type') == 'list':\n                a[i['type']] = i['items']\n\n        return a\n\n    def merge_dicts(a, b):\n        \"\"\"Merge the dictionary with the items of a and b.\"\"\"\n\n        for i in a:\n            if i.get('type') == 'list':\n                a["
+  },
+  {
+   "id": "py-paginate",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "\r\n    assert paginate(list(range(10)), 2, 3) == [3, 4, 5]\r\n           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpypa2yp3u\\main.py\", line 7, in paginate\r\n    return p",
+   "completion": "\n    if page > per_page:\n        return items\n\n    return paginate(items, per_page)\n"
+  },
+  {
+   "id": "py-gcd",
+   "lang": "py",
+   "sample": 2,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmprsq475h3\\main.py\", line 12, in <module>\r\n    assert gcd(12, 18) == 6\r\n           ^^^^^^^^^^^^^^^^\r\nAssertionError\r\n",
+   "completion": "\n    def gcd(a, b):\n        \"\"\"Return the greatest common divisor of two non-negative integers.\"\"\"\n\n        return gcd(a, b)\n\n    return gcd\n"
+  },
+  {
+   "id": "js-sum",
+   "lang": "js",
+   "sample": 2,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n    // If the array is a number, return the sum of all numbers in the array.\n    if (arr.length === 0) {\n        return 0;\n    }\n\n    // If the array is a number, return the sum of all numbers in the array.\n    if (arr.length === 0) {\n        return 0;\n    }\n\n    // If the array is a number, return the sum of all numbers in the array.\n    if (arr.length === 0) {\n        return 0;\n    }\n\n    // If the array is a number, return the sum of all numbers in the array.\n    if (arr.length === 0) {\n        return 0;\n    }\n\n    // If the array is a number, return the sum of all numbers in the array.\n    if (arr.length === 0) {\n        return 0;\n    }\n\n    // If the array is a number, return the sum of all"
+  },
+  {
+   "id": "js-capitalize",
+   "lang": "js",
+   "sample": 2,
+   "passed": true,
+   "reason": "",
+   "completion": "\n    if (str.length === 0) {\n        return str;\n    }\n\n    return str.charAt(0).toUpperCase() + str.slice(1);\n}"
+  },
+  {
+   "id": "js-is-even",
+   "lang": "js",
+   "sample": 2,
+   "passed": false,
+   "reason": "\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actu",
+   "completion": "\n    if (n === 0) {\n        return false;\n    }\n\n    return true;\n}"
+  },
+  {
+   "id": "js-uniq",
+   "lang": "js",
+   "sample": 2,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n    var i, len, iLen, arr, iLen, arrLen, arrLen;\n\n    for (i = 0, len = arr.length; i < len; i++) {\n        arr = arr[i];\n        arr.push(arr);\n    }\n\n    return arr;\n}"
+  },
+  {
+   "id": "js-chunk",
+   "lang": "js",
+   "sample": 2,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n\t// The size is the size of the array.\n\tvar size = size.split(',');\n\n\t// The size is the size of the array.\n\tvar size = size.split(',');\n\n\t// The size is the size of the array.\n\tvar size = size.split(',');\n\n\t// The size is the size of the array.\n\tvar size = size.split(',');\n\n\t// The size is the size of the array.\n\tvar size = size.split(',');\n\n\t// The size is the size of the array.\n\tvar size = size.split(',');\n\n\t// The size is the size of the array.\n\tvar size = size.split(',');\n\n\t// The size is the size of the array.\n\tvar size = size."
+  },
+  {
+   "id": "js-range",
+   "lang": "js",
+   "sample": 2,
+   "passed": false,
+   "reason": "cuteUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: [ '2', '5' ],\r",
+   "completion": "\n  var start = start.toString();\n  var end = end.toString();\n\n  return [start, end];\n}"
+  },
+  {
+   "id": "js-parse-query",
+   "lang": "js",
+   "sample": 2,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n\tvar query = qs.toString();\n\n\tif (query.length > 0) {\n\t\treturn qs.parse(query);\n\t}\n\n\tvar queryString = qs.stringify(qs);\n\n\treturn qs.stringify(queryString);\n}"
+  },
+  {
+   "id": "js-clamp",
+   "lang": "js",
+   "sample": 2,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n    var x = x.split('.');\n    var hi = x.split('.');\n    var hi = hi.split('.');\n    var hi = hi.split('.');\n    var hi = hi.split('.');\n    var hi = hi.split('.');\n\n    var x = x.split('.');\n    var hi = x.split('.');\n    var hi = hi.split('.');\n\n    var x = x.split('.');\n    var hi = x.split('.');\n\n    var x = x.split('.');\n    var hi = x.split('.');\n\n    var x = x.split('.');"
+  },
+  {
+   "id": "js-group-by",
+   "lang": "js",
+   "sample": 2,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n    // If the key is a string, then return the array of objects.\n    if (!arr.hasOwnProperty(key)) {\n        return arr;\n    }\n\n    // If the key is a string, then return the array of objects.\n    if (!arr.hasOwnProperty(key)) {\n        return arr;\n    }\n\n    // If the key is a string, then return the array of objects.\n    if (!arr.hasOwnProperty(key)) {\n        return arr;\n    }\n\n    // If the key is a string, then return the array of objects.\n    if (!arr.hasOwnProperty(key)) {\n        return arr;\n    }\n\n    // If the key is a string, then return the array of objects.\n    if (!arr.hasOwnProperty(key)) {\n        return arr;\n    }\n\n    // If the key is a string, then return the array of objects.\n    if ("
+  },
+  {
+   "id": "js-flatten",
+   "lang": "js",
+   "sample": 2,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n    var i, len, len, arr, i, len2, len3, len4, len5, len6, len7, len8, len9, len10, len11, len12, len13, len14, len16, len17, len18, len19, len20, len21, len22, len23, len24, len25, len26, len27, len28, len29, len28, len29, len29, len28, len29, len29, len29, len29, len30, len30, len30, len30, len30, len30, len30, len30, len30, len30, len30, len30, len30, len30, len30, len30, len30, len30, len30, len30, len30, len30, len30, len30, len30, len30, len30, len30"
+  },
+  {
+   "id": "py-sum-list",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "rt sum_list([1, 2, 3]) == 6\r\n           ~~~~~~~~^^^^^^^^^^^\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmp9c5fdj3x\\main.py\", line 4, in sum_list\r\n    return sum([(x, x) for x in range(nums)])\r\n       ",
+   "completion": "\n    return sum([(x, x) for x in range(nums)])\n"
+  },
+  {
+   "id": "py-is-even",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmp4fdrlp25\\main.py\", line 7, in <module>\r\n    assert is_even(4) is True\r\n           ^^^^^^^^^^^^^^^^^^\r\nAssertionError\r\n",
+   "completion": "\n    return (n is None) and (n.is_even())\n"
+  },
+  {
+   "id": "py-reverse-string",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpee9umr0t\\main.py\", line 7, in <module>\r\n    assert reverse_string('abc') == 'cba'\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^",
+   "completion": "\n    return s.replace('\\\\', '\\\\\\\\')\n"
+  },
+  {
+   "id": "py-count-vowels",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def count_vowels(s):\n        return s.count()\n\n    def"
+  },
+  {
+   "id": "py-factorial",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmp7cmgbm6v\\main.py\", line 7, in <module>\r\n    assert factorial(0) == 1\r\n           ^^^^^^^^^^^^^^^^^\r\nAssertionError\r\n",
+   "completion": "\n    return n\n"
+  },
+  {
+   "id": "py-fibonacci",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "emp\\tmpga92sbu1\\main.py\", line 7, in <module>\r\n    assert fibonacci(0) == 0\r\n           ~~~~~~~~~^^^\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpga92sbu1\\main.py\", line 4, in fibonacci\r\n    return n",
+   "completion": "\n    return n.lower() == 'fibonacci'\n"
+  },
+  {
+   "id": "py-is-palindrome",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpxr_7d708\\main.py\", line 13, in <module>\r\n    assert is_palindrome('A man, a plan, a canal: Panama') is True\r\n          ",
+   "completion": "\n    if s is None:\n        return False\n\n    if s.startswith('\\n'):\n        return s.endswith('\\n')\n\n    return s.endswith('\\n')\n"
+  },
+  {
+   "id": "py-max-in-list",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": ", in <module>\r\n    assert max_in_list([3, 9, 2]) == 9\r\n           ~~~~~~~~~~~^^^^^^^^^^^\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmptlo2adzv\\main.py\", line 4, in max_in_list\r\n    return (nums - 1) ",
+   "completion": "\n    return (nums - 1) * (nums - 1)\n"
+  },
+  {
+   "id": "py-unique",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "main.py\", line 10, in <module>\r\n    assert unique([1, 2, 1, 3, 2]) == [1, 2, 3]\r\n           ~~~~~~^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpurt0v2hf\\main.py\", line 6, in unique\r\n",
+   "completion": "\n    return [\n        (item, item.id) for item in items\n        if item.id in unique_items\n    ]\n"
+  },
+  {
+   "id": "py-chunk-list",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": ", 5], 2) == [[1, 2], [3, 4], [5]]\r\n           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpgjinm_ic\\main.py\", line 9, in chunk_list\r\n    return [chunk.decode('utf-8') f",
+   "completion": "\n    # If the size is less than the size, then we'll just return the first\n    # chunk of the first chunk.\n    if size > size:\n        return [chunk.decode('utf-8') for chunk in lst]\n    else:\n        return [chunk.decode('utf-8') for chunk in lst]\n"
+  },
+  {
+   "id": "py-flatten",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmph1zg0g5d\\main.py\", line 10, in <module>\r\n    assert flatten([[1, 2], [3], []]) == [1, 2, 3]\r\n           ^^^^^^^^^^^^^^^",
+   "completion": "\n    def flatten(nested):\n        return flatten(nested)\n\n    return flatten\n"
+  },
+  {
+   "id": "py-word-count",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpya14_g66\\main.py\", line 15, in <module>\r\n    assert word_count('a b a') == {'a': 2, 'b': 1}\r\n           ^^^^^^^^^^^^^^^",
+   "completion": "\n    def _split(text):\n        \"\"\"Return a dict mapping each lowercase word in text (split on whitespace) to how many times it appears.\"\"\"\n\n        if text.startswith('\\n'):\n            return text\n        else:\n            return text\n\n    return _split\n"
+  },
+  {
+   "id": "py-capitalize-words",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmp6_qzw7b0\\main.py\", line 31, in <module>\r\n    assert capitalize_words('hello world') == 'Hello World'\r\n           ^^^^^^",
+   "completion": "\n    def _capitalize_word(s):\n        return s.lower().strip()\n\n    def _capitalize_word(s):\n        return s.lower().strip()\n\n    def _capitalize_word(s):\n        return s.lower().strip()\n\n    def _capitalize_word(s):\n        return s.lower().strip()\n\n    def _capitalize_word(s):\n        return s.lower().strip()\n\n    def _capitalize_word(s):\n        return s.lower().strip()\n\n    def _capitalize_word(s):\n        return s.lower().strip()\n\n    def _capitalize_word(s):\n        return s.lower().strip()\n\n    def _capitalize_word(s):\n        return s.lower"
+  },
+  {
+   "id": "py-is-valid-email",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "    assert is_valid_email('a@b.com') is True\r\n           ~~~~~~~~~~~~~~^^^^^^^^^^^\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmp_gele5b9\\main.py\", line 4, in is_valid_email\r\n    if not s.is_valid_ema",
+   "completion": "\n    if not s.is_valid_email():\n        return False\n\n    if s.is_valid_domain():\n        return True\n\n    return s.is_valid_domain()\n"
+  },
+  {
+   "id": "py-clamp",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    if hi.lower() == 'x':\n        return x\n    elif hi.lower() == 'y':\n        return y\n    elif hi.lower() == 'z':\n        return z\n    elif hi.lower() == 'z':\n        return z\n    elif hi.lower() == 'z':\n        return z\n    elif hi.lower() == 'z':\n        return z\n    elif hi.lower() == 'z':\n        return z\n    elif hi.lower() == 'z':\n        return z\n    elif hi.lower() == 'z':\n        return z\n    elif hi.lower() == 'z':\n        return z\n    elif hi.lower() == 'z':\n        return z\n    elif hi.lower() == 'z':\n        return z\n    elif hi.lower()"
+  },
+  {
+   "id": "py-parse-query-string",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def parse_query_string(qs):\n        \"\"\"Parse a query string like \"a=1&b=2\" (an optional leading \"?\" is ignored) into a dict of strings.\"\"\"\n\n        if isinstance(qs, str):\n            qs = qs.encode('utf-8')\n        else:\n            qs = qs.encode('utf-8')\n        return qs\n\n    def parse_query_string(qs):\n        \"\"\"Parse a query string like \"a=1&b=2\" (an optional leading \"?\" is ignored) into a dict of strings.\"\"\"\n\n        if isinstance(qs, str):\n            qs = qs.encode('utf-8')\n        else:\n            qs = qs.encode('utf-8')\n        return qs\n\n    def parse_query_string(qs):\n        \"\"\"Parse a query string like \"a=1"
+  },
+  {
+   "id": "py-slugify",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def clean(self, value):\n        \"\"\"Clean the text and replace the lowercase text and replace it with a \"-\" (no leading or trailing \"-\").\"\"\"\n        return value.replace(\"-\", \"\").replace(\"-\", \"\")\n\n    def clean_lowercase(self, value):\n        \"\"\"Clean the text and replace the lowercase text and replace it with a \"-\" (no leading or trailing \"-\").\"\"\"\n        return value.replace(\"-\", \"\").replace(\"-\", \"\")\n\n    def clean_lowercase(self, value):\n        \"\"\"Clean the text and replace the lowercase text and replace it with a \"-\" (no leading or trailing \"-\").\"\"\"\n        return value.replace(\"-\", \"\").replace(\""
+  },
+  {
+   "id": "py-merge-dicts",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def merge_dicts(a, b):\n        \"\"\"Merge the dictionary with the items of a and b; values from b win. Do not modify a or b.\"\"\"\n\n        def merge_dicts(a, b):\n            \"\"\"Merge the dictionary with the items of a and b; values from b win. Do not modify a or b.\"\"\"\n\n        def merge_dicts(a, b):\n            \"\"\"Merge the dictionary with the items of a and b; values from b win. Do not modify a or b.\"\"\"\n\n        def merge_dicts(a, b):\n            \"\"\"Merge the dictionary with the items of a and b; values from b win. Do not modify a or b.\"\"\"\n\n        def merge_dicts(a, b):\n            \"\"\"Merge the dictionary with the items of a and b; values from b win. Do"
+  },
+  {
+   "id": "py-paginate",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpygwawi2h\\main.py\", line 11, in <module>\r\n    assert paginate(list(range(10)), 2, 3) == [3, 4, 5]\r\n           ^^^^^^^^^^",
+   "completion": "\n    # Get the list of items\n    items = []\n    for page in items:\n        items.append(page)\n    return items\n"
+  },
+  {
+   "id": "py-gcd",
+   "lang": "py",
+   "sample": 3,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmp_8ukagvx\\main.py\", line 12, in <module>\r\n    assert gcd(12, 18) == 6\r\n           ^^^^^^^^^^^^^^^^\r\nAssertionError\r\n",
+   "completion": "\n    def gcd(a, b):\n        \"\"\"Return the greatest common divisor of two non-negative integers.\"\"\"\n\n        return gcd(a, b)\n\n    return gcd\n"
+  },
+  {
+   "id": "js-sum",
+   "lang": "js",
+   "sample": 3,
+   "passed": false,
+   "reason": "55:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r",
+   "completion": "\n\tvar i = 0;\n\tfor (i = 0; i < arr.length; i++) {\n\t\tvar item = arr[i];\n\t\tif (item.length > 0) {\n\t\t\treturn item[0];\n\t\t}\n\t}\n\treturn 0;\n}"
+  },
+  {
+   "id": "js-capitalize",
+   "lang": "js",
+   "sample": 3,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n    // If the string is not a string, return the first letter.\n    if (str.length < 1) {\n        return str;\n    }\n\n    // If the string is not a string, return the first letter.\n    if (str.length > 1) {\n        return str.substring(1);\n    }\n\n    // If the string is not a string, return the first letter.\n    if (str.length > 1) {\n        return str.substring(1);\n    }\n\n    // If the string is not a string, return the first letter.\n    if (str.length > 1) {\n        return str.substring(1);\n    }\n\n    // If the string is not a string, return the first letter.\n    if (str.length > 1) {\n        return str.substring(1);\n    }\n\n    // If the string is not a string, return the first letter"
+  },
+  {
+   "id": "js-is-even",
+   "lang": "js",
+   "sample": 3,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n    if (n == null) {\n        return false;\n    }\n\n    return n.toLowerCase() === n.toLowerCase();\n}"
+  },
+  {
+   "id": "js-uniq",
+   "lang": "js",
+   "sample": 3,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n    // If the array is empty, return the first occurrence order.\n    if (arr.length === 0) {\n        return arr;\n    }\n\n    // If the array is empty, return the first occurrence order.\n    if (arr.length === 0) {\n        return arr;\n    }\n\n    // If the array is empty, return the first occurrence order.\n    if (arr.length === 0) {\n        return arr;\n    }\n\n    // If the array is empty, return the first occurrence order.\n    if (arr.length === 0) {\n        return arr;\n    }\n\n    // If the array is empty, return the first occurrence order.\n    if (arr.length === 0) {\n        return arr;\n    }\n\n    // If the array is empty, return the first occurrence order.\n    if (arr.length === 0) {\n        return arr;\n    }\n\n    /"
+  },
+  {
+   "id": "js-chunk",
+   "lang": "js",
+   "sample": 3,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n\t// If the size is less than the size, we'll just return the first chunk of the array.\n\tif (size > 0) {\n\t\treturn arr.slice(0, size);\n\t}\n\n\t// If the size is less than the size, we'll just return the first chunk of the array.\n\tif (size > 0) {\n\t\treturn arr.slice(size);\n\t}\n\n\t// If the size is less than the size, we'll just return the first chunk of the array.\n\tif (size > 0) {\n\t\treturn arr.slice(size);\n\t}\n\n\t// If the size is less than the size, we'll just return the first chunk of the array.\n\tif (size > 0) {\n\t\treturn arr.slice(size);\n\t}\n\n\t// If the size is less than the size, we'll just return the first chunk of the"
+  },
+  {
+   "id": "js-range",
+   "lang": "js",
+   "sample": 3,
+   "passed": false,
+   "reason": "cuteUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: [ '2', '5' ],\r",
+   "completion": "\n    var start = start.toString();\n    var end = end.toString();\n\n    return [start, end];\n}"
+  },
+  {
+   "id": "js-parse-query",
+   "lang": "js",
+   "sample": 3,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n\tvar query = qs.toString();\n\tvar queryString = query.replace(/\\s+/g, ' ');\n\tvar queryString = queryString.replace(/\\s+/g, ' ');\n\tvar queryString = queryString.replace(/\\s+/g, ' ');\n\tvar queryString = queryString.replace(/\\s+/g, ' ');\n\tvar queryString = queryString.replace(/\\s+/g, ' ');\n\tvar queryString = queryString.replace(/\\s+/g, ' ');\n\tvar queryString = queryString.replace(/\\s+/g, ' ');\n\tvar queryString = queryString.replace(/\\s+/g, ' ');\n\tvar queryString = queryString.replace(/\\s+/g, ' ');\n\tvar"
+  },
+  {
+   "id": "js-clamp",
+   "lang": "js",
+   "sample": 3,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n    var x = x.slice(0, -1);\n    var hi = hi.slice(0, -1);\n    var hi = hi.slice(0, -1);\n\n    var x = x.slice(0, -1);\n    var hi = hi.slice(0, -1);\n\n    var x = x.slice(0, -1);\n    var hi = hi.slice(0, -1);\n\n    var x = x.slice(0, -1);\n    var hi = hi.slice(0, -1);\n\n    var x = x.slice(0, -1);\n    var hi = hi.slice(0, -1);\n\n    var x = x.slice(0, -1);\n    var hi = hi.slice(0, -1)"
+  },
+  {
+   "id": "js-group-by",
+   "lang": "js",
+   "sample": 3,
+   "passed": false,
+   "reason": "n:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: [],\r\n  expected: {\r\n    a: [ { t: 'a', n: 1 }, { t: 'a', n: 3 } ],\r\n    b: [",
+   "completion": "\n    var arr = [];\n    for (var i = 0; i < arr.length; i++) {\n        arr.push(arr[i]);\n    }\n    return arr;\n}"
+  },
+  {
+   "id": "js-flatten",
+   "lang": "js",
+   "sample": 3,
+   "passed": false,
+   "reason": "ule.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actual: [],\r\n  ",
+   "completion": "\n  var arrArray = [];\n\n  for (var i = 0; i < arr.length; i++) {\n    var item = arr[i];\n    if (item.type === 'array') {\n      arrArray.push(item);\n    }\n  }\n\n  return arrArray;\n}"
+  },
+  {
+   "id": "py-sum-list",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "y\", line 7, in <module>\r\n    assert sum_list([1, 2, 3]) == 6\r\n           ~~~~~~~~^^^^^^^^^^^\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpdqxnyo05\\main.py\", line 4, in sum_list\r\n    return sum([(x[0]",
+   "completion": "\n    return sum([(x[0], x[1]) for x in list(nums)])\n"
+  },
+  {
+   "id": "py-is-even",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpz84j3ye_\\main.py\", line 7, in <module>\r\n    assert is_even(4) is True\r\n           ^^^^^^^^^^^^^^^^^^\r\nAssertionError\r\n",
+   "completion": "\n    return n == 0\n"
+  },
+  {
+   "id": "py-reverse-string",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpt0q_v_tt\\main.py\", line 7, in <module>\r\n    assert reverse_string('abc') == 'cba'\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^",
+   "completion": "\n    return s.replace(\"-\", \" \").replace(\"-\", \" \")\n"
+  },
+  {
+   "id": "py-count-vowels",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmp11e78rwu\\main.py\", line 19, in <module>\r\n    assert count_vowels('hello') == 2\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n",
+   "completion": "\n    if s.lower() == 'all':\n        return 0\n\n    if s.lower() == 'all':\n        return 1\n\n    if s.lower() == 'all':\n        return 0\n\n    if s.lower() == 'all':\n        return 0\n\n    return s.lower() == 'all'\n"
+  },
+  {
+   "id": "py-factorial",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "Temp\\tmprvm_xtob\\main.py\", line 7, in <module>\r\n    assert factorial(0) == 1\r\n           ~~~~~~~~~^^^\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmprvm_xtob\\main.py\", line 4, in factorial\r\n    return ",
+   "completion": "\n    return n.replace('-', '_')\n"
+  },
+  {
+   "id": "py-fibonacci",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    if n == 0:\n        return 0\n    if n == 1:\n        return 1\n    if n == 2:\n        return 2\n    if n == 3:\n        return 3\n    if n == 4:\n        return 4\n    if n == 5:\n        return 5\n    if n == 6:\n        return 6\n    if n == 7:\n        return 7\n    if n == 8:\n        return 8\n    if n == 9:\n        return 9\n    if n == 10:\n        return 10\n    if n == 11:\n        return 11\n    if n == 12:\n        return 12\n    if n == 13:\n        return 13\n    if n == 14:\n        return 14\n    if n == 15:\n        return 15\n    if n == 16:\n        return 16\n    if n == 17:\n        return 17\n    if n == 18:\n        return 18\n    if n == 19:\n        return 19\n    if n == 20:\n        return 20\n    if n == 21:\n        return 21\n    if"
+  },
+  {
+   "id": "py-is-palindrome",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpmyv_1yoq\\main.py\", line 16, in <module>\r\n    assert is_palindrome('A man, a plan, a canal: Panama') is True\r\n          ",
+   "completion": "\n    if s is None:\n        return False\n\n    if s.lower() == '-':\n        return True\n\n    if s.lower() == '-':\n        return False\n\n    return s.lower() == '-'\n"
+  },
+  {
+   "id": "py-max-in-list",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpaeh56sey\\main.py\", line 10, in <module>\r\n    assert max_in_list([3, 9, 2]) == 9\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+   "completion": "\n    if nums:\n        return nums\n\n    return None\n"
+  },
+  {
+   "id": "py-unique",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    return [\n        (item['id'], item['id']),\n        (item['name'], item['name']),\n        (item['description'], item['description']),\n        (item['status'], item['status']),\n        (item['status'], item['status']),\n        (item['status'], item['status']),\n        (item['status'], item['status']),\n        (item['status'], item['status']),\n        (item['status'], item['status']),\n        (item['status'], item['status']),\n        (item['status'], item['status']),\n        (item['status'], item"
+  },
+  {
+   "id": "py-chunk-list",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmp0ty10z2c\\main.py\", line 15, in <module>\r\n    assert chunk_list([1, 2, 3, 4, 5], 2) == [[1, 2], [3, 4], [5]]\r\n          ",
+   "completion": "\n    # Get the list of chunks of the given size (the last one may be shorter).\n    # If the list of chunks is a list of bytes, it will be a list of bytes.\n    # If the list of chunks is a list of bytes, it will be a list of bytes.\n    # If the list of chunks is a list of bytes, it will be a list of bytes.\n    # If the list of chunks is a list of bytes, it will be a list of bytes.\n    # If the list of chunks is a list of bytes, it will be a list of bytes.\n    # If the list of chunks is a list of bytes, it will be a list of bytes.\n    # If the list of chunks is a list of bytes, it will be a list of bytes.\n    # If the list of chunks is a list of bytes, it will be a list of bytes.\n    # If the list of chunks is a list of"
+  },
+  {
+   "id": "py-flatten",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "\\eduem\\AppData\\Local\\Temp\\tmpbtbbmisq\\main.py\", line 17\r\n    .values(offset=offset, offsetoffset=offsetoffset, limit=limit, offsetoffset=offsetoffset,\r\n                                                ",
+   "completion": "\n    def flatten(\n        list: List[Tuple[str, str]],\n        level: int = None,\n        offset: int = None,\n        limit: int = None,\n        offsetoffset: int = None,\n    ) -> List[Tuple[str, str]]:\n        \"\"\"Flatten a list of lists by one level.\"\"\"\n        if level is not None:\n            raise ValueError(f\"{level} is not a list of {list[level]}\")\n\n        return list(\n            list(list[level])\n            .values(offset=offset, offsetoffset=offsetoffset, limit=limit, offsetoffset=offsetoffset,\n            offsetoffset=offsetoffset, offsetoffsetoffset=offsetoffset,\n        )\n        )\n\n    return flatten\n"
+  },
+  {
+   "id": "py-word-count",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def word(text):\n        \"\"\"Return a dictionary mapping each lowercase word in text (split on whitespace) to how many times it appears.\"\"\"\n\n        return {\n            'word': text,\n            'count': len(text),\n            'count': len(text),\n            'count': len(text),\n            'count': len(text),\n            'count': len(text),\n            'count': len(text),\n            'count': len(text),\n            'count': len(text),\n            'count': len(text),\n            'count': len(text),\n            'count': len(text),\n            'count': len(text),\n            'count': len(text),\n            'count': len(text),\n            'count': len(text),\n            '"
+  },
+  {
+   "id": "py-capitalize-words",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def get(self, word):\n        \"\"\"Return the word's first letter.\"\"\"\n        return self.words[word]\n\n    def __eq__(self, other):\n        \"\"\"Return the number of words in the given word.\"\"\"\n        return self.words[other.word]\n\n    def __ne__(self, other):\n        \"\"\"Return the number of words in the given word.\"\"\"\n        return self.words[other.word]\n\n    def __hash__(self):\n        \"\"\"Return the hash of the given word.\"\"\"\n        return self.words[self.word]\n\n    def __eq__(self, other):\n        \"\"\"Return the number of words in the given word.\"\"\"\n        return self.words[other.word]\n\n    def __ne__(self, other):\n        \"\"\""
+  },
+  {
+   "id": "py-is-valid-email",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "    assert is_valid_email('a@b.com') is True\r\n           ~~~~~~~~~~~~~~^^^^^^^^^^^\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpzjoiodv5\\main.py\", line 4, in is_valid_email\r\n    if not s.is_valid_ema",
+   "completion": "\n    if not s.is_valid_email():\n        return False\n\n    if s.is_valid_domain():\n        return True\n\n    if s.is_valid_domain():\n        return False\n\n    return s.is_valid_domain()\n"
+  },
+  {
+   "id": "py-clamp",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "ta\\Local\\Temp\\tmpfx5d095_\\main.py\", line 10, in <module>\r\n    assert clamp(5, 0, 10) == 5\r\n           ~~~~~^^^^^^^^^^\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpfx5d095_\\main.py\", line 4, in clamp\r",
+   "completion": "\n    if hi.lower() == 'x':\n        return x\n    else:\n        return x\n"
+  },
+  {
+   "id": "py-parse-query-string",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def parse_query_string(qs):\n        \"\"\"Parse a query string like \"a=1&b=2\" (an optional leading \"?\" is ignored) into a dict of strings.\"\"\"\n\n        if not isinstance(qs, dict):\n            qs = {}\n        if isinstance(qs, dict):\n            qs = qs.encode('utf-8')\n        if isinstance(qs, dict):\n            qs = qs.encode('utf-8')\n        if isinstance(qs, dict):\n            qs = qs.encode('utf-8')\n        if isinstance(qs, dict):\n            qs = qs.encode('utf-8')\n        if isinstance(qs, dict):\n            qs = qs.encode('utf-8')\n        if isinstance(qs, dict):\n            qs = qs.encode('utf-8')\n        if isinstance(qs,"
+  },
+  {
+   "id": "py-slugify",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "Traceback (most recent call last):\r\n  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmppdskdmyi\\main.py\", line 39, in <module>\r\n    assert slugify('Hello, World!') == 'hello-world'\r\n           ^^^^^^^^^^^^^",
+   "completion": "\n    def clean(self, value):\n        if value is None:\n            return ''\n        if value.isdigit():\n            return '-'\n        return value.strip()\n\n    def clean(self, value):\n        if value is None:\n            return ''\n        if value.isdigit():\n            return '-'\n        return value.strip()\n\n    def clean(self, value):\n        if value is None:\n            return ''\n        if value.isdigit():\n            return '-'\n        return value.strip()\n\n    def clean(self, value):\n        if value is None:\n            return ''\n        if value.isdigit():\n            return '-'\n        return value.strip()\n\n    def clean(self, value):\n        if value is None:\n            return ''\n        if value.isdigit():\n            return '-'\n        return value"
+  },
+  {
+   "id": "py-merge-dicts",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def merge_dicts(a, b):\n        \"\"\"Merge the objects with the given keys and values from b.\"\"\"\n        for key, value in a.items():\n            if isinstance(value, dict):\n                if isinstance(value, dict):\n                    a[key] = value\n\n        return a\n\n    def merge_dicts(a, b):\n        \"\"\"Merge the objects with the given keys and values from b.\"\"\"\n        for key, value in a.items():\n            if isinstance(value, dict):\n                a[key] = value\n\n        return a\n\n    def merge_dicts(a, b):\n        \"\"\"Merge the objects with the given keys and values from b.\"\"\"\n        for key, value in a.items():\n            if isinstance(value, dict):\n                a[key] = value\n\n        return a\n\n    def"
+  },
+  {
+   "id": "py-paginate",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "  File \"C:\\Users\\eduem\\AppData\\Local\\Temp\\tmpa6ll2laj\\main.py\", line 11\r\n    per_page=per_page,\r\n    ^^^^^^^^^^^^^^^^^\r\nSyntaxError: keyword argument repeated: per_page\r\n",
+   "completion": "\n    if page > per_page:\n        return items\n\n    return Pagination(\n        items,\n        per_page=per_page,\n        page=page,\n        per_page=per_page,\n        per_page=per_page,\n        next_page=next_page,\n        per_page=per_page,\n        next_page=next_page,\n    )\n"
+  },
+  {
+   "id": "py-gcd",
+   "lang": "py",
+   "sample": 4,
+   "passed": false,
+   "reason": "syntax",
+   "completion": "\n    def gcd(a, b):\n        \"\"\"Return the greatest common divisor of two non-negative integers.\"\"\"\n\n        return gcd(a, b)\n\n    def gcd2(a, b):\n        \"\"\"Return the greatest common divisor of two non-negative integers.\"\"\"\n\n        return gcd(a, b)\n\n    def gcd3(a, b):\n        \"\"\"Return the greatest common divisor of two non-negative integers.\"\"\"\n\n        return gcd(a, b)\n\n    def gcd4(a, b):\n        \"\"\"Return the greatest common divisor of two non-negative integers.\"\"\"\n\n        return gcd(a, b)\n\n    def gcd5(a, b):\n        \""
+  },
+  {
+   "id": "js-sum",
+   "lang": "js",
+   "sample": 4,
+   "passed": false,
+   "reason": "55:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r",
+   "completion": "\n\tvar i = 0;\n\tfor (i = 0; i < arr.length; i++) {\n\t\tvar arr2 = arr[i];\n\t\tif (arr2.length > 0) {\n\t\t\treturn arr2[i];\n\t\t}\n\t}\n\treturn 0;\n}"
+  },
+  {
+   "id": "js-capitalize",
+   "lang": "js",
+   "sample": 4,
+   "passed": true,
+   "reason": "",
+   "completion": "\n    return str.charAt(0).toUpperCase() + str.slice(1);\n}"
+  },
+  {
+   "id": "js-is-even",
+   "lang": "js",
+   "sample": 4,
+   "passed": false,
+   "reason": "\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\r\n    at node:internal/main/run_main_module:33:47 {\r\n  generatedMessage: true,\r\n  code: 'ERR_ASSERTION',\r\n  actu",
+   "completion": "\n    return n === 0;\n}"
+  },
+  {
+   "id": "js-uniq",
+   "lang": "js",
+   "sample": 4,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n    // If the array is a string, then the array is a string.\n    if (arr.length === 0) {\n        return arr;\n    }\n\n    // If the array is a string, then the array is a string.\n    if (arr.length === 0) {\n        return arr;\n    }\n\n    // If the array is a string, then the array is a string.\n    if (arr.length === 0) {\n        return arr;\n    }\n\n    // If the array is a string, then the array is a string.\n    if (arr.length === 0) {\n        return arr;\n    }\n\n    // If the array is a string, then the array is a string.\n    if (arr.length === 0) {\n        return arr;\n    }\n\n    // If the array is a string, then the array is a string.\n    if (arr.length === 0) {\n        return arr"
+  },
+  {
+   "id": "js-chunk",
+   "lang": "js",
+   "sample": 4,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n\t// If the size is less than the size, we'll just return the first chunk.\n\tif (size === 0) {\n\t\treturn arr;\n\t}\n\n\t// If the size is less than the size, we'll just return the first chunk.\n\tif (size === 0) {\n\t\treturn arr;\n\t}\n\n\t// If the size is less than the size, we'll just return the first chunk.\n\tif (size === 0) {\n\t\treturn arr;\n\t}\n\n\t// If the size is less than the size, we'll just return the first chunk.\n\tif (size === 0) {\n\t\treturn arr;\n\t}\n\n\t// If the size is less than the size, we'll just return the first chunk.\n\tif (size === 0) {\n\t\treturn arr;\n\t}\n\n\t// If the size is less than the size, we'll just return the first chunk"
+  },
+  {
+   "id": "js-range",
+   "lang": "js",
+   "sample": 4,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n    var start = start.split('.');\n    var end = start.split('.');\n    var end = end.split('.');\n\n    var start = start.split('.');\n    var end = end.split('.');\n\n    var start = start.split('.');\n    var end = end.split('.');\n\n    var start = start.split('.');\n    var end = end.split('.');\n\n    var start = start.split('.');\n    var end = end.split('.');\n\n    var start = start.split('.');\n\n    var end = end.split('.');\n\n    var start = end.split('.');\n\n    var end = end.split('."
+  },
+  {
+   "id": "js-parse-query",
+   "lang": "js",
+   "sample": 4,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n    var query = qs.toString();\n\n    var queryString = query.replace(/\\[(\\w+)\\]/g, '$1');\n\n    var queryString = queryString.replace(/\\[(\\w+)\\]/g, '$1');\n\n    var queryString = queryString.replace(/\\[(\\w+)\\]/g, '$1');\n\n    var queryString = queryString.replace(/\\[(\\w+)\\]/g, '$1');\n\n    var queryString = queryString.replace(/\\[(\\w+)\\]/g, '$1');\n\n    var queryString = queryString.replace(/\\[(\\w+)\\]/g, '$1');\n\n    var queryString = queryString.replace(/\\[(\\w"
+  },
+  {
+   "id": "js-clamp",
+   "lang": "js",
+   "sample": 4,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n    var i = x.length;\n\n    if (i < lo) {\n        return -1;\n    }\n\n    if (i < lo) {\n        return 1;\n    }\n\n    if (i < lo) {\n        return -1;\n    }\n\n    if (i < lo) {\n        return -1;\n    }\n\n    if (i < lo) {\n        return -1;\n    }\n\n    if (i < lo) {\n        return 1;\n    }\n\n    if (i < lo) {\n        return -1;\n    }\n\n    if (i < lo) {\n        return -1;\n    }\n\n    if (i < lo) {\n        return -1;\n    }\n\n    if (i < lo) {\n        return -1;\n    }\n\n    if (i < lo) {\n        return -1;\n    }\n\n    if (i < lo) {\n        return -1;\n    }\n\n    "
+  },
+  {
+   "id": "js-group-by",
+   "lang": "js",
+   "sample": 4,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n\tvar arr = [];\n\n\t// If the key is a string, then the array is a string.\n\tif (!arr.includes(key)) {\n\t\treturn arr;\n\t}\n\n\t// If the key is a string, then the array is a string.\n\tif (!arr.includes(key)) {\n\t\treturn arr;\n\t}\n\n\t// If the key is a string, then the array is a string.\n\tif (!arr.includes(key)) {\n\t\treturn arr;\n\t}\n\n\t// If the key is a string, then the array is a string.\n\tif (!arr.includes(key)) {\n\t\treturn arr;\n\t}\n\n\t// If the key is a string, then the array is a string.\n\tif (!arr.includes(key)) {\n\t\treturn arr;\n\t}\n\n\t// If the key is a string, then the"
+  },
+  {
+   "id": "js-flatten",
+   "lang": "js",
+   "sample": 4,
+   "passed": false,
+   "reason": "er:1594:32)\r\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\r\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\r\n    at Module.executeUserEntryPoint [as runMain] (node:int",
+   "completion": "\n  // If the array is a string, it's a string, it's a string,\n  // it's a string, it's a string.\n  if (arr.length === 0) {\n    return arr;\n  }\n\n  // If the array is a string, it's a string, it's a string,\n  // it's a string, it's a string.\n  if (arr.length === 0) {\n    return arr;\n  }\n\n  // If the array is a string, it's a string, it's a string,\n  // it's a string.\n  if (arr.length === 1) {\n    return arr;\n  }\n\n  // If the array is a string, it's a string, it's a string,\n  // it's a string.\n  if (arr.length === 1) {\n    return arr"
+  }
+ ]
+}

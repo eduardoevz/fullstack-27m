@@ -109,6 +109,18 @@ Medida con `src/eval/syntax_check.py --no-baseline` (sin la calibración con arc
 - La diferencia entre 1,1 y 1,2 a 512 tokens (6 puntos con 100 fragmentos) puede ser ruido. La búsqueda en `dev` midió a 256 tokens, donde 1,2 gana.
 - Conclusión: la brecha de la suite de 20 prompts (prefijos de archivos reales, 200 tokens) no se repite en la generación desde cero; depende de la prueba.
 
+## Suite de 30 tareas con pruebas (150 muestras, 200 tokens, T 0,2)
+
+| Modelo | Penalización | pass@1 | Tareas resueltas al menos una vez | JS | Python |
+|---|---|---|---|---|---|
+| v1 | 1,0 | 1,3 % (IC95 0,0–4,0) | 1/30 | 4,0 % | 0,0 % |
+| v2 | 1,0 | 2,7 % (0,0–6,0) | 3/30 | 4,0 % | 2,0 % |
+| v1 | 1,1 | 1,3 % (0,0–4,0) | 1/30 | 4,0 % | 0,0 % |
+| v2 | 1,1 | 2,0 % (0,0–5,3) | 2/30 | 4,0 % | 1,0 % |
+
+Los intervalos se solapan por completo (la diferencia son 2 aciertos de 150 muestras): no hay diferencia demostrable entre v1 y v2. Con 20 M de
+parámetros ningún modelo resuelve las tareas de forma fiable, así que esta prueba no distingue entre ellos. El filtro de seguridad rechazó 0 de 150 muestras.
+
 ## Resultado frente a lo esperado
 
 - **Cumple:** el relleno FIM supera a v1 en pérdida (0,834 ×), similitud (0,302 contra 0,257) y coincidencia exacta (4,5 % contra 2,0 %); el «en tema» de la suite
@@ -121,10 +133,9 @@ Medida con `src/eval/syntax_check.py --no-baseline` (sin la calibración con arc
 ## Pendiente
 
 - Decidir si hace falta un **ajuste fino corto con 0 % de FIM**. Tras medir la sintaxis a 256/512 tokens pierde urgencia: la brecha solo aparece en la suite y en el parseo FIM, y habría que medir cuánto FIM se pierde.
-- Medir la suite de tareas (`run_tasks`) con el v2 final, como en la Fase 8.
 - El paso 18.310 no tiene validación propia en el CSV; el checkpoint final está en `checkpoints_v2_long_c_hitos/hito-0018310.pt`.
 
 ## Archivos de datos
 
-`benchmarks/fim_eval_*.json` (200 casos por paso), `benchmarks/v2_final_suite_test*.json`, `benchmarks/v2_final_syntax{256,512}_rep*.json`, `benchmarks/v2_decoding_search.json`.
+`benchmarks/fim_eval_*.json` (200 casos por paso), `benchmarks/v2_final_suite_test*.json`, `benchmarks/v2_final_syntax{256,512}_rep*.json`, `benchmarks/v2_final_tasks*.json`, `benchmarks/v2_decoding_search.json`.
 Los CSV de entrenamiento están en `logs/` (no versionados).
