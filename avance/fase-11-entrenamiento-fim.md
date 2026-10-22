@@ -1,7 +1,7 @@
 # Fase 11 — Entrenamiento largo con FIM (v2) y decodificación
 
 **Fecha:** 2026-10-09 al 2026-10-22
-**Estado:** 🟡 Parcial. El entrenamiento de 18.310 pasos terminó y el modelo supera a v1 en el relleno FIM y en la sintaxis de fragmentos desde cero a 512 tokens (72 % contra 63 % estricta). **No alcanza a v1** en la sintaxis de la suite de 20 prompts (55 % contra 63 % estricta, 57 % contra 68 % recortada) ni en el parseo del relleno FIM (35,5 % contra 44,5 %).
+**Estado:** ✅ Completa, con dos metas sin cumplir (cerrada por decisión del Director). El entrenamiento de 18.310 pasos terminó y el modelo supera a v1 en el relleno FIM y en la sintaxis de fragmentos desde cero a 512 tokens (72 % contra 63 % estricta). **No alcanza a v1** en la sintaxis de la suite de 20 prompts (55 % contra 63 % estricta, 57 % contra 68 % recortada) ni en el parseo del relleno FIM (35,5 % contra 44,5 %).
 **Commit:** ver tabla de `avance/README.md`
 
 ## Objetivo según el plan
@@ -130,9 +130,14 @@ parámetros ningún modelo resuelve las tareas de forma fiable, así que esta pr
 - **Causa de la brecha en la suite y en el parseo FIM:** no probada. Mi hipótesis es que dedicar la mitad del entrenamiento a FIM resta calidad a la generación normal
   (se ven repeticiones de decoradores y variables duplicadas), y que un peso de cierre alto empuja a terminar pronto. Ningún experimento lo confirma.
 
-## Pendiente
+## Cierre
 
-- Decidir si hace falta un **ajuste fino corto con 0 % de FIM**. Tras medir la sintaxis a 256/512 tokens pierde urgencia: la brecha solo aparece en la suite y en el parseo FIM, y habría que medir cuánto FIM se pierde.
+El Director decidió **cerrar la fase sin el ajuste fino con 0 % de FIM**: la sintaxis desde cero ya supera a v1 y la brecha restante está solo en la suite de 20 prompts y en el parseo del relleno, y ese ajuste arriesgaría la ganancia de FIM. Queda como idea abierta, no como trabajo pendiente.
+
+## Notas abiertas
+
+
+- Ajuste fino corto con 0 % de FIM: no se hizo; habría que medir primero cuánto FIM se pierde.
 - El paso 18.310 no tiene validación propia en el CSV; el checkpoint final está en `checkpoints_v2_long_c_hitos/hito-0018310.pt`.
 
 ## Archivos de datos
