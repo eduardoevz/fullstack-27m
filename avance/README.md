@@ -26,7 +26,7 @@ El plan que se contrasta aquí es [`docs/plan-implementacion.md`](../docs/plan-i
 | [11](fase-11-entrenamiento-fim.md) | Entrenamiento largo con FIM (18.310 pasos) y decodificación | ✅ Completa (FIM 0,834 × v1; sintaxis desde cero a 512 tokens 72 % frente a 63 % de v1; sin cumplir: parseo FIM 35,5 % frente a 44,5 % y suite de 20 prompts 55 % frente a 63 %) | `a4e8097` |
 | [12](fase-12-medicion-previa.md) | Recocido de dominio y contexto 1.024: solo medición previa | 🔎 No ejecutada (dominios sin punto flojo; el contexto aún ayuda ≈ 0,045 nats, modesto) | — |
 | [13](fase-13-inferencia-producto.md) | Inferencia y producto: demo con relleno en el cursor, README v1 contra v2, cuantización int8 | 🟡 Parcial (int8 medida y descartada: 0,80× de velocidad) | `5ec151e` |
-| [14](fase-14-nexora.md) | Nexora: interfaz web local (completar, relleno en el cursor, ajustes, ficha del modelo) | ✅ Completa (probada en Chrome con el modelo real; vista móvil sin verificar) | — |
+| [14](fase-14-nexora.md) | Nexora: interfaz web local (completar, relleno en el cursor, ajustes, ficha del modelo) | ✅ Completa (probada en Chrome con el modelo real; vista móvil sin verificar) | `c910011` |
 
 Leyenda: ✅ completa · 🟡 parcial · ⬜ pendiente
 
