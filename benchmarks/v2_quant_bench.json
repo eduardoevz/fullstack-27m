@@ -1,0 +1,28 @@
+{
+ "checkpoint_step": 18310,
+ "threads": 4,
+ "engine": "onednn",
+ "torch": "2.14.0+cpu",
+ "prompt_tokens": 200,
+ "new_tokens": 100,
+ "repeats": 5,
+ "min_speedup": 1.3,
+ "rows": {
+  "fp32": {
+   "tok_s": 103.9233035205246,
+   "mb": 81.840437,
+   "speedup": 1.0
+  },
+  "int8": {
+   "tok_s": 83.57173328243147,
+   "mb": 45.695781,
+   "speedup": 0.8041674047238717
+  },
+  "int8_lm_head_fp32": {
+   "tok_s": 75.68335182575107,
+   "mb": 64.572905,
+   "speedup": 0.7282616050672773
+  }
+ },
+ "gate_passed": false
+}
