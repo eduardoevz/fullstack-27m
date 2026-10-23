@@ -263,7 +263,7 @@ escritura. Los pesos (`best.pt`) no se versionan.
 
 ```bash
 python src/bench.py                                   # linea base de rendimiento
-pytest tests/ -v                                      # suite de tests (354)
+pytest tests/ -v                                      # suite de tests (356)
 python src/train.py --resume                          # entrenar / reanudar (o entrenar.bat)
 python src/sample.py --prompt "export default function Nav(" --lang tsx --seed 1
 python src/eval/syntax_check.py --n 100               # metrica de validez sintactica
@@ -271,6 +271,7 @@ python src/eval/run_suite.py                          # suite de 20 prompts
 python src/cli.py                                     # demo interactiva de v1 (o demo.bat)
 demo_v2.bat                                           # demo de v2: escribe <CURSOR> donde quieras que rellene
 demo_nexora.bat                                       # interfaz web local Nexora (v2)
+python src/export_weights.py --ckpt <hito-0018310.pt> --out release/fullstack-27m-v2.pt   # solo los pesos (82 MB), para publicar
 ```
 
 **Validador de JS/TS (una sola vez).** El parser de TypeScript se instala fuera del repo:
