@@ -27,6 +27,12 @@ medidas (tareas pass@1 2 %, parseo FIM 35,5 % frente a 44,5 %, suite de 20 promp
 - **Navegador (Chrome, modelo real):** Rellenar en el cursor (0,2–0,4 s, 18 a 31 tokens), Completar (200 tokens en 2,2 s, 91,6 tok/s; 77–81 tok/s en los rellenos), ficha con las cifras, Detener (la generación se corta y el servidor queda libre: una petición posterior por `curl` responde `done`), consola sin errores.
 - **No verificado:** la vista en móvil (la ventana de Chrome no bajó de su ancho mínimo); el CSS tiene una regla para menos de 900 px, pero no se vio en pantalla.
 
+## GIF de la demo
+
+`samples/nexora-demo.gif` (1100×458, 38 cuadros tras unir repetidos, 13,6 s, 3,7 MB): el primer GIF salió con 10 cuadros porque la grabadora toma un cuadro por acción del navegador y la
+respuesta dura 1–2 s. La versión definitiva **reproduce una generación real**: se grabó la respuesta del servidor (tokens y tiempos) para un relleno (0,4 s, 15 tokens) y una continuación
+(2,35 s, 123 fragmentos), y la página mostró el texto acumulado cada 60–90 ms, a la velocidad real. Es una sola generación por caso, sin selección; lo que se reproduce no es una maqueta.
+
 ## Cómo se ve la honestidad del modelo en la interfaz
 
 - Los rellenos de la captura son reales y mediocres: el de `sumar` escribe `var b = a + b; return sum(b, b);` y una llave de más.

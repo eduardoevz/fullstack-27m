@@ -229,7 +229,8 @@ Nexora es la interfaz del modelo: un editor de código oscuro que corre en tu pr
 demo_nexora.bat        # abre http://127.0.0.1:8765 con el modelo final (hito-0018310.pt)
 ```
 
-Las capturas y el GIF son salidas reales del modelo, sin selección: el relleno de `sumar` lo resuelve a medias y el modelo a veces escribe una llave de más.
+Las capturas y el GIF son salidas reales del modelo, una sola generación por caso y sin selección: el relleno de `sumar` lo resuelve a medias y a veces escribe una llave de más.
+El GIF reproduce cuadro a cuadro una generación real grabada con los tokens y tiempos del servidor (la captura en vivo era demasiado lenta para una respuesta de 1–2 s).
 Es lo esperable de 20 M de parámetros; la ficha lo dice con las mismas cifras de este README.
 
 ---
